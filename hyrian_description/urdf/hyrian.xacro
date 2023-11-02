@@ -135,4 +135,11 @@
   <axis xyz="-0.0 1.0 -0.0"/>
 </joint>
 
+<gazebo>
+    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+       <robot_param>robot_description</robot_param>
+      <robot_param_node>robot_state_publisher</robot_param_node>
+      <parameters>$(find hyrian_bringup)/config/controllers.yaml</parameters>
+    </plugin>
+</gazebo>
 </robot>
