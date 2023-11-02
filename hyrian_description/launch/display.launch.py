@@ -16,6 +16,7 @@ def generate_launch_description():
     robot_urdf = robot_description_config.toxml()
 
     rviz_config_file = os.path.join(share_dir, 'config', 'display.rviz')
+    nav2_launch_file = os.path.join(get_package_share_directory('hyrian_bringup'), 'nodes', 'hyrian_motor.py') # 11
 
     gui_arg = DeclareLaunchArgument(
         name='gui',
@@ -55,10 +56,20 @@ def generate_launch_description():
         output='screen'
     )
 
+    nav2_node = Node( # 11
+        package='hyrian_bringup',
+        executable='hyrian_motor',
+        name='navigation',
+        output='screen',
+        parameters=[{'use_sim_time': 'True'}],  
+        remappings=[('/goal_pose', '/your_goal_topic')]
+    )
+
     return LaunchDescription([
         gui_arg,
         robot_state_publisher_node,
         joint_state_publisher_node,
         joint_state_publisher_gui_node,
         rviz_node
+        # nav2_node # 11
     ])
