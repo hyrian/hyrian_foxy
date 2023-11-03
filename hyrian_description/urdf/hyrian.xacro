@@ -1,0 +1,190 @@
+<?xml version="1.0" ?>
+<robot name="hyrian" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find hyrian_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find hyrian_description)/urdf/hyrian.trans" />
+<xacro:include filename="$(find hyrian_description)/urdf/hyrian.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="5.8057288796170636e-05 -0.0008275862623355401 0.0739911107076758" rpy="0 0 0"/>
+    <mass value="61.79800574893623"/>
+    <inertia ixx="0.520848" iyy="0.531772" izz="0.655241" ixy="-0.001235" iyz="-0.010068" ixz="-0.000834"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hyrian_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hyrian_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_wheel_1">
+  <inertial>
+    <origin xyz="-0.006200797974356825 -4.2727541003928504e-07 4.3815451332418487e-07" rpy="0 0 0"/>
+    <mass value="1.3260897089555248"/>
+    <inertia ixx="0.002676" iyy="0.001415" izz="0.001415" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.211727 0.104921 0.04684" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hyrian_description)/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.211727 0.104921 0.04684" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hyrian_description)/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<!-- 추가 -->
+<!-- <transmission name="left_wheel_transmission">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="left_wheel_joint">
+    <hardwareInterface>velocity</hardwareInterface>
+  </joint>
+  <actuator name="left_wheel_motor">
+    <hardwareInterface>velocity</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission> -->
+ 
+<link name="g2_lidar_1">
+  <inertial>
+    <origin xyz="1.9573919789005257e-12 -1.4243814183689807e-09 0.02318646996922961" rpy="0 0 0"/>
+    <mass value="1.482019447760714"/>
+    <inertia ixx="0.000761" iyy="0.000761" izz="0.000958" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 0.16 -0.00216" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hyrian_description)/meshes/g2_lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 0.16 -0.00216" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hyrian_description)/meshes/g2_lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_caster_1">
+  <inertial>
+    <origin xyz="4.301551882458106e-08 0.0175198071507634 -0.05240058967538734" rpy="0 0 0"/>
+    <mass value="1.611788036299121"/>
+    <inertia ixx="0.001841" iyy="0.001424" izz="0.000923" ixy="0.0" iyz="0.000298" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.174 0.00384" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hyrian_description)/meshes/wheel_caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.174 0.00384" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hyrian_description)/meshes/wheel_caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_wheel_1">
+  <inertial>
+    <origin xyz="0.006200951475415911 -4.257107881350253e-07 4.363167120310929e-07" rpy="0 0 0"/>
+    <mass value="1.3260897089555248"/>
+    <inertia ixx="0.002676" iyy="0.001415" izz="0.001415" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.211873 0.104921 0.04684" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hyrian_description)/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.211873 0.104921 0.04684" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hyrian_description)/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<!-- 추가 -->
+<!-- <transmission name="right_wheel_transmission">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="right_wheel_joint">
+    <hardwareInterface>velocity</hardwareInterface>
+  </joint>
+  <actuator name="right_wheel_motor">
+    <hardwareInterface>velocity</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission> -->
+
+<joint name="left_wheel_joint" type="continuous">
+  <origin xyz="0.211727 -0.104921 -0.04684" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_wheel_1"/>
+</joint>
+
+<joint name="��ü 6" type="fixed">
+  <origin xyz="0.0 -0.16 0.00216" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="g2_lidar_1"/>
+</joint>
+
+<joint name="��ü 8" type="fixed">
+  <origin xyz="0.0 0.174 -0.00384" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_caster_1"/>
+</joint>
+
+<joint name="right_wheel_joint" type="continuous">
+  <origin xyz="-0.211873 -0.104921 -0.04684" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_wheel_1"/>
+</joint>
+
+<!-- <ros2_control name="DiffDriveController" type="system">
+  <hardware>
+    <plugin>diff_drive_controller/DiffDriveController</plugin>
+    <param name="left_wheel_actuator">left_wheel_motor</param>
+    <param name="right_wheel_actuator">right_wheel_motor</param>
+    <param name="left_wheel_joint">left_wheel_joint</param>
+    <param name="right_wheel_joint">right_wheel_joint</param>
+    <param name="wheel_separation">0.48</param>
+    <param name="wheel_radius">0.1</param>
+  </hardware>
+  <joint name="left_wheel_joint">
+    <command_interface>velocity</command_interface>
+    <state_interface>position</state_interface>
+    <state_interface>velocity</state_interface>
+  </joint>
+
+  <joint name="right_wheel_joint">
+    <command_interface>velocity</command_interface>
+    <state_interface>position</state_interface>
+    <state_interface>velocity</state_interface>
+  </joint>
+</ros2_control>
+
+<gazebo>
+  <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+    <robotNamespace>/</robotNamespace>
+    <controlPeriod>0.001</controlPeriod>
+  </plugin>
+</gazebo> -->
+
+</robot>
