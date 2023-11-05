@@ -2,8 +2,6 @@
 <robot name="hyrian" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 <xacro:include filename="$(find hyrian_description)/urdf/materials.xacro" />
-<xacro:include filename="$(find hyrian_description)/urdf/hyrian.trans" />
-<xacro:include filename="$(find hyrian_description)/urdf/hyrian.gazebo" />
 <link name="base_link">
   <inertial>
     <origin xyz="-0.10669076554678224 1.5621095382552616e-06 0.12074565974295158" rpy="0 0 0"/>
@@ -46,7 +44,7 @@
   </collision>
 </link>
 
-<link name="lidar_1">
+<!-- <link name="lidar_1">
   <inertial>
     <origin xyz="2.5778920109686965e-09 6.0217946361192236e-18 0.023813967631461597" rpy="0 0 0"/>
     <mass value="1.482019447760714"/>
@@ -65,7 +63,7 @@
       <mesh filename="file://$(find hyrian_description)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
-</link>
+</link> -->
 
 <link name="right_wheel_1">
   <inertial>
@@ -115,11 +113,11 @@
   <child link="caster_1"/>
 </joint>
 
-<joint name="��ü 13" type="fixed">
+<!-- <joint name="��ü 13" type="fixed">
   <origin xyz="0.068 0.0 0.049" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="lidar_1"/>
-</joint>
+</joint> -->
 
 <joint name="right_wheel_joint" type="continuous">
   <origin xyz="0.0 -0.2118 0.0" rpy="0 0 0"/>
@@ -135,11 +133,34 @@
   <axis xyz="-0.0 1.0 -0.0"/>
 </joint>
 
-<gazebo>
-    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
-       <robot_param>robot_description</robot_param>
-      <robot_param_node>robot_state_publisher</robot_param_node>
-      <parameters>$(find hyrian_bringup)/config/controllers.yaml</parameters>
-    </plugin>
+<gazebo reference="base_link">
+  <material>Gazebo/White</material>
+  <self_collide>true</self_collide>
+  <gravity>true</gravity>
 </gazebo>
+
+<gazebo reference="right_wheel_1">
+  <material>Gazebo/White</material>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="left_wheel_1">
+  <material>Gazebo/White</material>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<!-- <gazebo reference="lidar_1">
+  <material>Gazebo/White</material>
+  <self_collide>true</self_collide>
+</gazebo> -->
+
+<gazebo reference="caster_1">
+  <material>Gazebo/White</material>
+  <mu1>0.001</mu1>
+  <mu2>0.001</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+
+
 </robot>
