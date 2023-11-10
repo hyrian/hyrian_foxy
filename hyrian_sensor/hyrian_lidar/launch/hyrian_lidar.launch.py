@@ -29,7 +29,8 @@ def generate_launch_description():
   hyrian_lidar_parameter = LaunchConfiguration(
     'hyrian_lidar_parameter',
     default=os.path.join(
-      get_package_share_directory('hyrian_bringup'),
+      get_package_share_directory('hyrian_sensor'),
+      'hyrian_lidar',
       'param',
       'hyrian_lidar.yaml'))
 
