@@ -17,19 +17,20 @@ endif()
 ################################################################################
 
 find_package(ament_cmake REQUIRED)
-# find_package(builtin_interfaces REQUIRED)
-# find_package(hyrian_interfaces REQUIRED)
+find_package(builtin_interfaces REQUIRED)
+find_package(hyrian_interfaces REQUIRED)
 
-#find_package(rosidl_default_generators REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
 
-#rosidl_generate_interfaces(${PROJECT_NAME}
+# rosidl_generate_interfaces(${PROJECT_NAME}
 #  "srv/Battery.srv"
 #  "srv/Calg.srv"
 #  "srv/Color.srv"
 #  "srv/Onoff.srv"
 #  "srv/ResetOdom.srv"
 #  "srv/SaveColor.srv"
-#)
+# )
+
 ################################################################################
 # Install
 ################################################################################
