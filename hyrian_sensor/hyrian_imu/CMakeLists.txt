@@ -17,19 +17,55 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(tf2 REQUIRED)
+find_package(tf2_ros REQUIRED)
+find_package(tf2_msgs REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
+include_directories(
+  "${PROJECT_SOURCE_DIR}/include/mw"
+  "${PROJECT_SOURCE_DIR}/include/serial"
+)
 
-if(BUILD_TESTING)
-  find_package(ament_lint_auto REQUIRED)
-  # the following line skips the linter which checks for copyrights
-  # uncomment the line when a copyright and license is not present in all source files
-  #set(ament_cmake_copyright_FOUND TRUE)
-  # the following line skips cpplint (only works in a git repo)
-  # uncomment the line when this package is not in a git repo
-  #set(ament_cmake_cpplint_FOUND TRUE)
-  ament_lint_auto_find_test_dependencies()
-endif()
+add_executable(${PROJECT_NAME}_node src/listener.cpp serial/list_ports_linux.cc serial/serial.cc serial/unix.cc mw/mw_ahrs.cpp)
+ament_target_dependencies(hyrian_imu_node
+"rclcpp"
+"std_msgs"
+"sensor_msgs"
+"geometry_msgs"
+"tf2"
+"tf2_ros"
+"tf2_msgs"
+)
 
+find_library(MW_AHRS_amd64_LIBRARY
+    NAMES MW_AHRS_amd64.a\\
+    PATHS ${CMAKE_CURRENT_SOURCE_DIR}/lib
+)
+
+# file(TO_CMAKE_PATH "/feature_ws/src/hyrian_foxy/hyrian_sensor/hyrian_imu/lib/MW_AHRS_amd64.a" ABSOLUTE_LIB_PATH)
+target_link_libraries(${PROJECT_NAME}_node ${CMAKE_CURRENT_SOURCE_DIR}/lib/MW_AHRS_amd64.a)
+# target_link_libraries(${PROJECT_NAME}_node
+#     ${ABSOLUTE_LIB_PATH}
+# )
+install(
+  DIRECTORY launch
+  DESTINATION share/${PROJECT_NAME}/
+)
+
+install(
+  DIRECTORY rviz DESTINATION share/${PROJECT_NAME}
+)
+
+install(TARGETS
+  ${PROJECT_NAME}_node
+  DESTINATION lib/${PROJECT_NAME})
+
+
+ament_export_include_directories(include)
 ament_package()
