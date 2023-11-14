@@ -13,6 +13,7 @@
         <state_interface name="position" />
         <state_interface name="velocity" />
     </joint>
+    
     <joint name="right_wheel_joint">
         <command_interface name="velocity">
             <param name="min">-10</param>

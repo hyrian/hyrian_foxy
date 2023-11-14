@@ -2,6 +2,7 @@
 <robot name="hyrian" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 <xacro:include filename="$(find hyrian_description)/urdf/materials.xacro" />
+
 <link name="base_link">
   <inertial>
     <origin xyz="-0.10669076554678224 1.5621095382552616e-06 0.12074565974295158" rpy="0 0 0"/>
@@ -23,6 +24,15 @@
   </collision>
 </link>
 
+  <!-- footprint 추가 -->
+<link name="base_footprint"/>
+
+<joint name="base_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="base_footprint" />
+  <origin xyz="0 0.0 0.0" rpy="0 0 0.0"/>
+</joint>
+
 <link name="caster_1">
   <inertial>
     <origin xyz="-0.017519805982381953 4.3013561084737665e-08 -0.05240102727593725" rpy="0 0 0"/>
@@ -43,27 +53,6 @@
     </geometry>
   </collision>
 </link>
-
-<!-- <link name="lidar_1">
-  <inertial>
-    <origin xyz="2.5778920109686965e-09 6.0217946361192236e-18 0.023813967631461597" rpy="0 0 0"/>
-    <mass value="1.482019447760714"/>
-    <inertia ixx="0.000761" iyy="0.000761" izz="0.000958" ixy="0.0" iyz="0.0" ixz="0.0"/>
-  </inertial>
-  <visual>
-    <origin xyz="-0.068 0.0 -0.049" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find hyrian_description)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="silver"/>
-  </visual>
-  <collision>
-    <origin xyz="-0.068 0.0 -0.049" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find hyrian_description)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link> -->
 
 <link name="right_wheel_1">
   <inertial>
@@ -107,17 +96,11 @@
   </collision>
 </link>
 
-<joint name="��ü 15" type="fixed">
+<joint name="caster_joint" type="fixed">
   <origin xyz="-0.279 0.0 0.043" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="caster_1"/>
 </joint>
-
-<!-- <joint name="��ü 13" type="fixed">
-  <origin xyz="0.068 0.0 0.049" rpy="0 0 0"/>
-  <parent link="base_link"/>
-  <child link="lidar_1"/>
-</joint> -->
 
 <joint name="right_wheel_joint" type="continuous">
   <origin xyz="0.0 -0.2118 0.0" rpy="0 0 0"/>
@@ -132,7 +115,7 @@
   <child link="left_wheel_1"/>
   <axis xyz="-0.0 1.0 -0.0"/>
 </joint>
-
+<!-- 
 <gazebo reference="base_link">
   <material>Gazebo/White</material>
   <self_collide>true</self_collide>
@@ -149,17 +132,10 @@
   <self_collide>true</self_collide>
 </gazebo>
 
-<!-- <gazebo reference="lidar_1">
+<gazebo reference="caster_1">
   <material>Gazebo/White</material>
   <self_collide>true</self_collide>
 </gazebo> -->
-
-<gazebo reference="caster_1">
-  <material>Gazebo/White</material>
-  <mu1>0.001</mu1>
-  <mu2>0.001</mu2>
-  <self_collide>true</self_collide>
-</gazebo>
 
 
 

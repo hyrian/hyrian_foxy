@@ -11,8 +11,7 @@
     </xacro:unless>
 
     <xacro:include filename="hyrian.xacro" />
-    <xacro:include filename="lidar.xacro" />
-    <!-- <xacro:include filename="camera.xacro" /> -->
+    <xacro:include filename="sensor.xacro" />
 
 
 </robot>
