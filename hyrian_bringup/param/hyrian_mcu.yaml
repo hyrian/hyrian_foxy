@@ -5,7 +5,7 @@ hyrian_mcu_node:
       baudrate: 115200
 
     wheel:
-      separation: 0.04104
+      separation: 0.4236
       radius: 0.0575
   
     motor:
