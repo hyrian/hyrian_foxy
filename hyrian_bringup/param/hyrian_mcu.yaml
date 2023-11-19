@@ -1,7 +1,7 @@
 hyrian_mcu_node:
   ros__parameters:
     port:
-      name: "/dev/ttyMCU"
+      name: "/dev/ttyAMA0"
       baudrate: 115200
 
     wheel:

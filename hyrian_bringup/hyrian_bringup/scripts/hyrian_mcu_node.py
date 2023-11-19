@@ -88,7 +88,7 @@ class HyrianNode(Node):
         ('sensor.enc_pulse', None),
       ])
     # Get parameter values
-    _port_name = self.get_parameter_or('port.name', Parameter('port.name', Parameter.Type.STRING, '/dev/ttyTHS1')).get_parameter_value().string_value
+    _port_name = self.get_parameter_or('port.name', Parameter('port.name', Parameter.Type.STRING, '/dev/ttyAMA0 ')).get_parameter_value().string_value #일단 임시로 바꿈 아래 줄 디버깅하려고
     _port_baudrate = self.get_parameter_or('port.baudrate', Parameter('port.baudrate', Parameter.Type.INTEGER, 115200)).get_parameter_value().integer_value
     self.gear_ratio = self.get_parameter_or('motor.gear_ratio', Parameter('motor.gear_ratio', Parameter.Type.DOUBLE, 12.0)).get_parameter_value().double_value
     self.wheel_separation = self.get_parameter_or('wheel.separation', Parameter('wheel.separation', Parameter.Type.DOUBLE, 0.4236)).get_parameter_value().double_value # 0.085 cm x 2
@@ -337,10 +337,10 @@ class HyrianNode(Node):
 
 def main(args=None):
   rclpy.init(args=args)
-  HyrianNode = HyrianNode()
-  rclpy.spin(HyrianNode)
+  hyrian_node = HyrianNode()
+  rclpy.spin(hyrian_node)
 
-  HyrianNode.destroy_node()
+  hyrian_node.destroy_node()
   rclpy.shutdown()
 
 if __name__ == '__main__':
