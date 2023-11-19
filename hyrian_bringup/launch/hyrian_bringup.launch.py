@@ -46,10 +46,10 @@ def generate_launch_description():
       default_value=hyrian_mcu_parameter
     ),
 
-    DeclareLaunchArgument(
-      'hyrian_lidar_parameter',
-      default_value=hyrian_lidar_parameter
-    ),
+    # DeclareLaunchArgument(
+    #   'hyrian_lidar_parameter',
+    #   default_value=hyrian_lidar_parameter
+    # ),
 
     IncludeLaunchDescription(
       PythonLaunchDescriptionSource([ThisLaunchFileDir(), '/hyrian_mcu.launch.py']),
