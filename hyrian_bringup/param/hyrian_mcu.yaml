@@ -1,4 +1,4 @@
-omo_r1mini_mcu_node:
+hyrian_mcu_node:
   ros__parameters:
     port:
       name: "/dev/ttyMCU"
@@ -7,7 +7,7 @@ omo_r1mini_mcu_node:
     wheel:
       separation: 0.04104
       radius: 0.0575
-
+  
     motor:
       gear_ratio: 12.0
       max_lin_vel_x: 2.0
