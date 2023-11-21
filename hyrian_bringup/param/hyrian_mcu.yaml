@@ -1,13 +1,13 @@
-omo_r1mini_mcu_node:
+hyrian_mcu_node:
   ros__parameters:
     port:
-      name: "/dev/ttyMCU"
+      name: "/dev/ttyAMA0"
       baudrate: 115200
 
     wheel:
-      separation: 0.04104
+      separation: 0.4236
       radius: 0.0575
-
+  
     motor:
       gear_ratio: 12.0
       max_lin_vel_x: 2.0
@@ -21,3 +21,13 @@ diff_drive_controller:
     odometry:
       frame_id: "odom"
       child_frame_id: "base_footprint"
+    pigpiod_pins:
+      left_motor_pwm: 26
+      left_motor_dir: 19
+      left_motor_encA: 23
+      left_motor_encB: 24
+
+      right_motor_pwm: 13
+      right_motor_dir: 6
+      right_motor_encA: 27
+      right_motor_encB: 17

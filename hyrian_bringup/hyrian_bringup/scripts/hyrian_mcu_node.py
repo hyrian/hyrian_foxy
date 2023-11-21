@@ -10,6 +10,7 @@ from geometry_msgs.msg import Twist, Pose, Point, Vector3, Quaternion, Transform
 from nav_msgs.msg import Odometry
 from sensor_msgs.msg import Imu, JointState
 from tf2_ros import TransformBroadcaster
+from std_msgs.msg import Float64MultiArray #son_추가
 
 from hyrian_interfaces.srv import Battery
 from hyrian_interfaces.srv import Color
@@ -87,13 +88,16 @@ class HyrianNode(Node):
         ('motor.max_lin_vel_x', None),
         ('sensor.enc_pulse', None),
       ])
+    self.motor_packet = None  # son_추가
+
+
     # Get parameter values
-    _port_name = self.get_parameter_or('port.name', Parameter('port.name', Parameter.Type.STRING, '/dev/ttyTHS1')).get_parameter_value().string_value
+    _port_name = self.get_parameter_or('port.name', Parameter('port.name', Parameter.Type.STRING, '/dev/ttyAMA0 ')).get_parameter_value().string_value #일단 임시로 바꿈 아래 줄 디버깅하려고
     _port_baudrate = self.get_parameter_or('port.baudrate', Parameter('port.baudrate', Parameter.Type.INTEGER, 115200)).get_parameter_value().integer_value
-    self.gear_ratio = self.get_parameter_or('motor.gear_ratio', Parameter('motor.gear_ratio', Parameter.Type.DOUBLE, 21.3)).get_parameter_value().double_value
-    self.wheel_separation = self.get_parameter_or('wheel.separation', Parameter('wheel.separation', Parameter.Type.DOUBLE, 0.17)).get_parameter_value().double_value # 0.085 cm x 2
-    self.wheel_radius = self.get_parameter_or('wheel.radius', Parameter('wheel.radius', Parameter.Type.DOUBLE, 0.0335)).get_parameter_value().double_value
-    self.enc_pulse = self.get_parameter_or('sensor.enc_pulse', Parameter('sensor.enc_pulse', Parameter.Type.DOUBLE, 44.0)).get_parameter_value().double_value
+    self.gear_ratio = self.get_parameter_or('motor.gear_ratio', Parameter('motor.gear_ratio', Parameter.Type.DOUBLE, 12.0)).get_parameter_value().double_value
+    self.wheel_separation = self.get_parameter_or('wheel.separation', Parameter('wheel.separation', Parameter.Type.DOUBLE, 0.4236)).get_parameter_value().double_value # 0.085 cm x 2
+    self.wheel_radius = self.get_parameter_or('wheel.radius', Parameter('wheel.radius', Parameter.Type.DOUBLE, 0.0575)).get_parameter_value().double_value
+    self.enc_pulse = self.get_parameter_or('sensor.enc_pulse', Parameter('sensor.enc_pulse', Parameter.Type.DOUBLE, 228.0)).get_parameter_value().double_value
     self.use_gyro = self.get_parameter_or('sensor.use_gyro', Parameter('sensor.use_gyro', Parameter.Type.BOOL, False)).get_parameter_value().bool_value
     print('GEAR RATIO:\t\t%s'%(self.gear_ratio))
     print('WHEEL SEPARATION:\t%s'%(self.wheel_separation))
@@ -135,6 +139,7 @@ class HyrianNode(Node):
 
     # Set subscriber
     self.subCmdVelMsg = self.create_subscription(Twist, 'cmd_vel', self.cbCmdVelMsg, 10)
+    self.sub_motor_packet = self.create_subscription(Float64MultiArray, 'motor_packet', self.cbMotorPacket, 10) #son_추가
     
     # Set publisher
     self.pub_JointStates = self.create_publisher(JointState, 'joint_states', 10)
@@ -256,21 +261,44 @@ class HyrianNode(Node):
     joint_states.effort = []
     self.pub_JointStates.publish(joint_states)
 
-  def update_robot(self):
-    #raw_data = self.ph.parser()
-    self.ph.read_packet()
-    odo_l = self.ph._wodom[0]
-    odo_r = self.ph._wodom[1]
-    trans_vel = self.ph._vel[0]
-    orient_vel = self.ph._vel[1]
-    vel_z = self.ph._gyro[2]
-    roll_imu = self.ph._imu[0]
-    pitch_imu = self.ph._imu[1]
-    yaw_imu = self.ph._imu[2]
+  # def update_robot(self):
+  #   #raw_data = self.ph.parser()
+  #   self.ph.read_packet()
+  #   odo_l = self.ph._wodom[0]
+  #   odo_r = self.ph._wodom[1]
+  #   trans_vel = self.ph._vel[0]
+  #   orient_vel = self.ph._vel[1]
+  #   vel_z = self.ph._gyro[2]
+  #   roll_imu = self.ph._imu[0]
+  #   pitch_imu = self.ph._imu[1]
+  #   yaw_imu = self.ph._imu[2]
 
-    self.update_odometry(odo_l, odo_r, trans_vel, orient_vel, vel_z)
-    self.updateJointStates(odo_l, odo_r, trans_vel, orient_vel)
-    self.updatePoseStates(roll_imu, pitch_imu, yaw_imu)
+  #   self.update_odometry(odo_l, odo_r, trans_vel, orient_vel, vel_z)
+  #   self.updateJointStates(odo_l, odo_r, trans_vel, orient_vel)
+  #   self.updatePoseStates(roll_imu, pitch_imu, yaw_imu)
+
+  def update_robot(self): #son_추가
+      if self.motor_packet is None:
+          return  # motor_packet이 아직 없으면 함수 종료
+
+      orient_vel = self.motor_packet[0]  # 각속도
+      trans_vel = self.motor_packet[1]  # 선속도
+      encoder_count_l = self.motor_packet[2]  # 왼쪽 바퀴의 인코더 카운트
+      encoder_count_r = self.motor_packet[3]  # 오른쪽 바퀴의 인코더 카운트
+      odo_l = self.motor_packet[4]  # 왼쪽 바퀴의 오도메터 값
+      odo_r = self.motor_packet[5]  # 오른쪽 바퀴의 오도메터 값
+      pwm_l = self.motor_packet[6]  # 왼쪽 바퀴의 PWM 값
+      pwm_r = self.motor_packet[7]  # 오른쪽 바퀴의 PWM 값
+
+     #일단 0으로 넣음
+      vel_z = 0
+      roll_imu = 0
+      pitch_imu = 0
+      yaw_imu = 0
+
+      self.update_odometry(odo_l, odo_r, trans_vel, orient_vel, vel_z)
+      self.updateJointStates(odo_l, odo_r, trans_vel, orient_vel)
+      self.updatePoseStates(roll_imu, pitch_imu, yaw_imu)
 
   def cbCmdVelMsg(self, cmd_vel_msg):
     lin_vel_x = cmd_vel_msg.linear.x
@@ -335,12 +363,16 @@ class HyrianNode(Node):
     self.ph.write_port(command)
     return CalgResponse()
 
+  def cbMotorPacket(self, msg): #son_추가
+    self.motor_packet = msg.data  # motor_packet 저장
+    pass
+
 def main(args=None):
   rclpy.init(args=args)
-  HyrianNode = HyrianNode()
-  rclpy.spin(HyrianNode)
+  hyrian_node = HyrianNode()
+  rclpy.spin(hyrian_node)
 
-  HyrianNode.destroy_node()
+  hyrian_node.destroy_node()
   rclpy.shutdown()
 
 if __name__ == '__main__':
