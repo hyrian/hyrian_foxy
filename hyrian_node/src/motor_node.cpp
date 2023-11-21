@@ -4,6 +4,7 @@
  *      Author: Chis Chun
  */
 #include <tutorial_ros2_motor/motor_node.hpp>
+#include "std_msgs/msg/float64_multi_array.hpp"
 
 void LoadParameters(void)
 {
@@ -183,6 +184,8 @@ void InitEncoders(void)
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
+rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr publisher_;
+
 void Initialize(void)
 {
   LoadParameters();
@@ -465,6 +468,8 @@ void InfoMotors()
 RosCommunicator::RosCommunicator()
     : Node("tutorial_ros2_motor"), count_(0)
 {
+
+  publisher_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("motor_packet", 10); // Publisher 생성
   timer_ = this->create_wall_timer(
       100ms, std::bind(&RosCommunicator::TimerCallback, this));
   subscription_ = this->create_subscription<std_msgs::msg::Int64MultiArray>(
@@ -479,6 +484,28 @@ void RosCommunicator::TimerCallback()
   // AccelController(2, true, 100);
   // SwitchTurn(100, 100);
   // ThetaTurnDistanceGo(180,100,30,110);
+
+  double vw[2];
+  vw[0] = (rpm_value1 - rpm_value2) * (wheel_radius / robot_radius); //angular vel
+  vw[1] = (rpm_value1 + rpm_value2) * (wheel_radius / 2); //linear vel
+
+
+  double encod[2];
+  encod[0] = encoder_count_1;
+  encod[1] = encoder_count_2;
+
+  double odo[2];
+  odo[0] = (encod[0] / (encoder_resolution * 4)) * wheel_round;
+  odo[1] = (encod[1] / (encoder_resolution * 4)) * wheel_round;
+
+  double pwml = current_pwm1;
+  double pwmr = current_pwm2;
+
+  std_msgs::msg::Float64MultiArray motor_data; 
+  motor_data.data = std::vector<double>{vw[0], vw[1], encod[0], encod[1], odo[0], odo[1], pwml, pwmr};
+  // motor_data.data = {vw[0], vw[1], encod[0], encod[1], odo[0], odo[1], pwml, pwmr}; 
+
+  publisher_->publish(motor_data);
   InfoMotors();
 }
 
