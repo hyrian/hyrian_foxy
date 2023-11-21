@@ -29,10 +29,13 @@
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
-
-  <export>
+  
+  <!-- 이거도 계속 일단 빌드 걸려서 잠시 주석 -->
+  <!-- <export>
     <build_type>ament_cmake</build_type>
-  <member_of_group>rosidl_interface_packages</member_of_group>
+    <member_of_group>rosidl_interface_packages</member_of_group>
+  </export> --> 
+
   <export>
     <build_type>ament_python</build_type>
   </export>

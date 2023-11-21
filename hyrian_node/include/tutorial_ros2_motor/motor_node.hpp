@@ -3,6 +3,7 @@
 
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/int64_multi_array.hpp"
+#include "geometry_msgs/msg/twist.hpp"
 #include <pigpiod_if2.h>
 #include <fstream>
 
@@ -89,9 +90,17 @@ public:
 private:
   void TimerCallback();
   void TeleopCallback(const std_msgs::msg::Int64MultiArray::SharedPtr msg);
+  void cmdCallback(const geometry_msgs::msg::Twist::SharedPtr msg);
+  void DirectMotorControl();  
   rclcpp::TimerBase::SharedPtr timer_;
   rclcpp::Subscription<std_msgs::msg::Int64MultiArray>::SharedPtr subscription_;
+  rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr sub_vel;
   size_t count_;
+
+  double left_rpm;
+  double right_rpm;
+  double left_speed;
+  double right_speed;
 };
 
 #endif // MOTOR_NODE_H

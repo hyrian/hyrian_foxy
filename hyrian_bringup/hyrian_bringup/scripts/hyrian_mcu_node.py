@@ -12,7 +12,7 @@ from sensor_msgs.msg import Imu, JointState
 from tf2_ros import TransformBroadcaster
 from std_msgs.msg import Float64MultiArray #son_추가
 
-from hyrian_interfaces.srv import Battery
+# from hyrian_interfaces.srv import Battery
 from hyrian_interfaces.srv import Color
 from hyrian_interfaces.srv import SaveColor
 from hyrian_interfaces.srv import ResetOdom
@@ -118,6 +118,8 @@ class HyrianNode(Node):
       "POSE" : [0., 0., 0.],
       "BAT" : [0., 0., 0.],
     }
+
+    
     self.ph.incomming_info = ['ODO', 'VW', "POSE", "GYRO"]
     self.ph.set_periodic_info(50)
 
@@ -130,12 +132,13 @@ class HyrianNode(Node):
     self.odom_pose.pre_timestamp = self.get_clock().now()
     self.odom_vel = OdomVel()
     self.joint = Joint()
+    self.base_vel = Twist()
   
     # Services
     self.srvHeadlight = self.create_service(Onoff, 'set_headlight', self.cbSrv_headlight)
     self.srvSetColor = self.create_service(Color, 'set_rgbled', self.cbSrv_setColor)
     self.srvResetODOM = self.create_service(ResetOdom, 'reset_odom', self.cbSrv_resetODOM)
-    self.srvCheckBAT = self.create_service(Battery, 'check_battery', self.cbSrv_checkBattery)
+    # self.srvCheckBAT = self.create_service(Battery, 'check_battery', self.cbSrv_checkBattery)
 
     # Set subscriber
     self.subCmdVelMsg = self.create_subscription(Twist, 'cmd_vel', self.cbCmdVelMsg, 10)
@@ -147,6 +150,7 @@ class HyrianNode(Node):
     self.pub_Odom = self.create_publisher(Odometry, 'odom', 10)
     self.pub_OdomTF = TransformBroadcaster(self)
     self.pub_pose = self.create_publisher(Pose, 'pose', 10)
+    self.pub_vel = self.create_publisher(Twist, 'motor_input', 10)
 
     # Set Periodic data
     self.ph.incomming_info = ['ODO', 'VW', "POSE", "GYRO"]
@@ -291,14 +295,15 @@ class HyrianNode(Node):
       pwm_r = self.motor_packet[7]  # 오른쪽 바퀴의 PWM 값
 
      #일단 0으로 넣음
-      vel_z = 0
-      roll_imu = 0
-      pitch_imu = 0
-      yaw_imu = 0
+      vel_z = 0.0
+      roll_imu = 0.0
+      pitch_imu = 0.0
+      yaw_imu = 0.0
 
       self.update_odometry(odo_l, odo_r, trans_vel, orient_vel, vel_z)
       self.updateJointStates(odo_l, odo_r, trans_vel, orient_vel)
       self.updatePoseStates(roll_imu, pitch_imu, yaw_imu)
+      self.pub_vel.publish(self.base_vel)
 
   def cbCmdVelMsg(self, cmd_vel_msg):
     lin_vel_x = cmd_vel_msg.linear.x
@@ -308,6 +313,8 @@ class HyrianNode(Node):
     ang_vel_z = max(-self.max_ang_vel_z, min(self.max_ang_vel_z, ang_vel_z))
     #print("CMD_VEL V_x:%s m/s, Rot_z:%s deg/s"%(lin_vel_x, ang_vel_z))
     self.ph.write_base_velocity(lin_vel_x*1000, ang_vel_z*1000)
+    self.base_vel.linear.x = lin_vel_x * 1000
+    self.base_vel.angular.z = ang_vel_z * 1000
 
   def cbSrv_headlight(self, request, response):
     onoff = '0'
@@ -328,17 +335,17 @@ class HyrianNode(Node):
     #self.packet.write_data('COLOR', self.d_setCOLOR)
     return response
 
-  def cbSrv_checkBattery(self, request, response):
-    self.ph.update_battery_state()
-    #bat_status = self.ph.robot_state['BAT']
-    bat_status = self.ph.get_battery_status()
-    if len(bat_status) == 3:
-      print("SERVICE: Battery V:%s, SOC: %s, Current %s"
-            %(bat_status[0], bat_status[1], bat_status[2]))
-      response.volt  = bat_status[0]*0.1
-      response.soc = bat_status[1]
-      response.current = bat_status[2]*0.001
-      return response
+  # def cbSrv_checkBattery(self, request, response):
+  #   self.ph.update_battery_state()
+  #   #bat_status = self.ph.robot_state['BAT']
+  #   bat_status = self.ph.get_battery_status()
+  #   if len(bat_status) == 3:
+  #     print("SERVICE: Battery V:%s, SOC: %s, Current %s"
+  #           %(bat_status[0], bat_status[1], bat_status[2]))
+  #     response.volt  = bat_status[0]*0.1
+  #     response.soc = bat_status[1]
+  #     response.current = bat_status[2]*0.001
+  #     return response
 
   def cbSrv_resetODOM(self, request, response):
     self.odom_pose.x = request.x

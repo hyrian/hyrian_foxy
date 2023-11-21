@@ -5,6 +5,7 @@
  */
 #include <tutorial_ros2_motor/motor_node.hpp>
 #include "std_msgs/msg/float64_multi_array.hpp"
+#include "geometry_msgs/msg/twist.hpp"
 
 void LoadParameters(void)
 {
@@ -185,6 +186,7 @@ void InitEncoders(void)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr publisher_;
+rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr sub_vel;
 
 void Initialize(void)
 {
@@ -465,6 +467,7 @@ void InfoMotors()
   printf("\n");
 }
 
+
 RosCommunicator::RosCommunicator()
     : Node("tutorial_ros2_motor"), count_(0)
 {
@@ -474,6 +477,9 @@ RosCommunicator::RosCommunicator()
       100ms, std::bind(&RosCommunicator::TimerCallback, this));
   subscription_ = this->create_subscription<std_msgs::msg::Int64MultiArray>(
       "/tutorial/teleop", 10, std::bind(&RosCommunicator::TeleopCallback, this, _1));
+  
+  sub_vel = this->create_subscription<geometry_msgs::msg::Twist>("motor_input", 10, std::bind(&RosCommunicator::cmdCallback, this, std::placeholders::_1));
+
 }
 
 void RosCommunicator::TimerCallback()
@@ -507,6 +513,7 @@ void RosCommunicator::TimerCallback()
 
   publisher_->publish(motor_data);
   InfoMotors();
+  DirectMotorControl();
 }
 
 void RosCommunicator::TeleopCallback(const std_msgs::msg::Int64MultiArray::SharedPtr msg)
@@ -523,6 +530,38 @@ void RosCommunicator::TeleopCallback(const std_msgs::msg::Int64MultiArray::Share
 
   AccelController(1, tmp_dir1, msg->data[2]);
   AccelController(2, tmp_dir2, msg->data[3]);
+}
+
+void RosCommunicator::cmdCallback(const geometry_msgs::msg::Twist::SharedPtr msg)
+{
+  double linear_vel = msg->linear.x;
+  double angular_vel = msg->angular.z;
+
+  double left_speed = linear_vel - (angular_vel * robot_radius * 0.001);
+  double right_speed = linear_vel + (angular_vel * robot_radius * 0.001);
+
+  left_rpm = (left_speed * 60) / ( 2 * PI * wheel_radius);
+  right_rpm = (right_speed * 60) / (2 * PI * wheel_radius);
+
+}
+
+void RosCommunicator::DirectMotorControl()
+{
+  // 왼쪽 모터 제어
+  if(left_rpm < 0){
+    MotorController(2, true, -left_rpm); // 회전 방향을 반대로 하고, 회전 속도는 절댓값으로 설정
+  }
+  else {
+    MotorController(2, false, left_rpm); // 회전 방향과 회전 속도를 그대로 설정
+  }
+
+  // 오른쪽 모터 제어
+  if(right_rpm < 0){
+    MotorController(1, false, -right_rpm); // 회전 방향을 반대로 하고, 회전 속도는 절댓값으로 설정
+  }
+  else {
+    MotorController(1, true, right_rpm); // 회전 방향과 회전 속도를 그대로 설정
+  }
 }
 
 int main(int argc, char **argv)
