@@ -2,6 +2,7 @@
 <robot name="hyrian" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 <xacro:include filename="$(find hyrian_description)/urdf/materials.xacro" />
+
 <link name="base_link">
   <inertial>
     <origin xyz="-0.10669076554678224 1.5621095382552616e-06 0.12074565974295158" rpy="0 0 0"/>
@@ -22,6 +23,14 @@
     </geometry>
   </collision>
 </link>
+
+<link name="base_footprint"/>
+
+<joint name="base_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="base_footprint" />
+  <origin xyz="0 0.0 0.0" rpy="0 0 0.0"/>
+</joint>
 
 <link name="caster_1">
   <inertial>
@@ -64,6 +73,33 @@
     </geometry>
   </collision>
 </link> -->
+
+<link name="laser_frame">
+  <inertial>
+    <origin xyz="2.5778920109686965e-09 6.0217946361192236e-18 0.023813967631461597" rpy="0 0 0"/>
+    <mass value="1.482019447760714"/>
+    <inertia ixx="0.000761" iyy="0.000761" izz="0.000958" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.068 0.0 -0.049" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hyrian_description)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.068 0.0 -0.049" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hyrian_description)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="lidar_joint" type="fixed">
+  <origin xyz="0.068 0.0 0.049" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="laser_frame"/>
+</joint>
 
 <link name="right_wheel_1">
   <inertial>
