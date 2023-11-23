@@ -132,7 +132,8 @@ class HyrianNode(Node):
     self.odom_pose.pre_timestamp = self.get_clock().now()
     self.odom_vel = OdomVel()
     self.joint = Joint()
-    self.base_vel = Twist()
+    self.base_vel = Twist() #son추가
+    self.vel_z = 0.0  #son추가
     
     # Services
     # self.srvHeadlight = self.create_service(Onoff, 'set_headlight', self.cbSrv_headlight)
@@ -298,8 +299,8 @@ class HyrianNode(Node):
       pwm_l = self.motor_packet[6]  # 왼쪽 바퀴의 PWM 값
       pwm_r = self.motor_packet[7]  # 오른쪽 바퀴의 PWM 값
 
-     #일단 0으로 넣음
-      vel_z = 0.0 # z축 방향으로의 회전 속도?
+      #일단 0으로 넣음
+      vel_z = self.vel_z# z축 방향으로의 회전 속도?
       # roll_imu = 0.0
       # pitch_imu = 0.0
       # yaw_imu = 0.0
@@ -383,6 +384,7 @@ class HyrianNode(Node):
     roll_imu = msg.orientation.x
     pitch_imu = msg.orientation.y
     yaw_imu = msg.orientation.z
+    self.vel_z = msg.angular_velocity.z 
     self.updatePoseStates(roll_imu, pitch_imu, yaw_imu)
     self.get_logger().info('IMU Data: Roll: %f, Pitch: %f, Yaw: %f' % (roll_imu, pitch_imu, yaw_imu))
 
