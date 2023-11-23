@@ -133,7 +133,7 @@ class HyrianNode(Node):
     self.odom_vel = OdomVel()
     self.joint = Joint()
     self.base_vel = Twist()
-  
+    
     # Services
     # self.srvHeadlight = self.create_service(Onoff, 'set_headlight', self.cbSrv_headlight)
     # self.srvSetColor = self.create_service(Color, 'set_rgbled', self.cbSrv_setColor)
@@ -143,7 +143,8 @@ class HyrianNode(Node):
     # Set subscriber
     self.subCmdVelMsg = self.create_subscription(Twist, 'cmd_vel', self.cbCmdVelMsg, 10)
     self.sub_motor_packet = self.create_subscription(Float64MultiArray, 'motor_packet', self.cbMotorPacket, 10) #son_추가
-    
+    self.subscription_imu = self.create_subscription(Imu, 'imu/data', self.cbIMU, 10) #son 추가
+
     # Set publisher
     self.pub_JointStates = self.create_publisher(JointState, 'joint_states', 10)
     self.pub_IMU = self.create_publisher(Imu, 'imu', 10)
@@ -155,6 +156,9 @@ class HyrianNode(Node):
     # Set Periodic data
     self.ph.incomming_info = ['ODO', 'VW', "POSE", "GYRO"]
     self.ph.update_battery_state()
+    self.subscription_imu 
+
+    
     #self.ph.set_periodic_info()
     sleep(0.01)
     self.ph.set_periodic_info(50)
@@ -295,14 +299,14 @@ class HyrianNode(Node):
       pwm_r = self.motor_packet[7]  # 오른쪽 바퀴의 PWM 값
 
      #일단 0으로 넣음
-      vel_z = 0.0
-      roll_imu = 0.0
-      pitch_imu = 0.0
-      yaw_imu = 0.0
+      vel_z = 0.0 # z축 방향으로의 회전 속도?
+      # roll_imu = 0.0
+      # pitch_imu = 0.0
+      # yaw_imu = 0.0
 
       self.update_odometry(odo_l, odo_r, trans_vel, orient_vel, vel_z)
       self.updateJointStates(odo_l, odo_r, trans_vel, orient_vel)
-      self.updatePoseStates(roll_imu, pitch_imu, yaw_imu)
+      # self.updatePoseStates(roll_imu, pitch_imu, yaw_imu)
       self.pub_vel.publish(self.base_vel)
 
   def cbCmdVelMsg(self, cmd_vel_msg):
@@ -374,6 +378,13 @@ class HyrianNode(Node):
   def cbMotorPacket(self, msg): #son_추가
     self.motor_packet = msg.data  # motor_packet 저장
     pass
+ 
+  def cbIMU(self, msg): #son 추가
+    roll_imu = msg.orientation.x
+    pitch_imu = msg.orientation.y
+    yaw_imu = msg.orientation.z
+    self.updatePoseStates(roll_imu, pitch_imu, yaw_imu)
+    self.get_logger().info('IMU Data: Roll: %f, Pitch: %f, Yaw: %f' % (roll_imu, pitch_imu, yaw_imu))
 
 def main(args=None):
   rclpy.init(args=args)
