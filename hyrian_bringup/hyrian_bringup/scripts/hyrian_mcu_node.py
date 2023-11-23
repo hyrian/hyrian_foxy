@@ -35,7 +35,7 @@ class OdomVel(object):
   w = 0.0
 
 class Joint(object):
-  joint_name = ['wheel_left_joint', 'wheel_right_joint']
+  joint_name = ['left_wheel_joint', 'right_wheel_joint']
   joint_pos = [0.0, 0.0]
   joint_vel = [0.0, 0.0]
 
@@ -135,8 +135,8 @@ class HyrianNode(Node):
     self.base_vel = Twist()
   
     # Services
-    self.srvHeadlight = self.create_service(Onoff, 'set_headlight', self.cbSrv_headlight)
-    self.srvSetColor = self.create_service(Color, 'set_rgbled', self.cbSrv_setColor)
+    # self.srvHeadlight = self.create_service(Onoff, 'set_headlight', self.cbSrv_headlight)
+    # self.srvSetColor = self.create_service(Color, 'set_rgbled', self.cbSrv_setColor)
     self.srvResetODOM = self.create_service(ResetOdom, 'reset_odom', self.cbSrv_resetODOM)
     # self.srvCheckBAT = self.create_service(Battery, 'check_battery', self.cbSrv_checkBattery)
 
@@ -311,29 +311,30 @@ class HyrianNode(Node):
 
     lin_vel_x = max(-self.max_lin_vel_x, min(self.max_lin_vel_x, lin_vel_x))
     ang_vel_z = max(-self.max_ang_vel_z, min(self.max_ang_vel_z, ang_vel_z))
+
     #print("CMD_VEL V_x:%s m/s, Rot_z:%s deg/s"%(lin_vel_x, ang_vel_z))
-    self.ph.write_base_velocity(lin_vel_x*1000, ang_vel_z*1000)
-    self.base_vel.linear.x = lin_vel_x * 1000
+    self.ph.write_base_velocity(lin_vel_x*1000, ang_vel_z*1000) #이문장 필요 없는거같은데?
+    self.base_vel.linear.x = lin_vel_x * 1000 #son 추가
     self.base_vel.angular.z = ang_vel_z * 1000
 
-  def cbSrv_headlight(self, request, response):
-    onoff = '0'
-    if request.set == True:
-      onoff = '1'
-      #self.d_setHDLT['switch'] = 1
-    #else:
-    #  self.d_setHDLT['switch'] = 0
-    command = "$cHDLT," + onoff
-    self.ph.write_port(command)
-    print('SERVICE: Headlight: %s'%(onoff))
-    return response
+  # def cbSrv_headlight(self, request, response):
+  #   onoff = '0'
+  #   if request.set == True:
+  #     onoff = '1'
+  #     #self.d_setHDLT['switch'] = 1
+  #   #else:
+  #   #  self.d_setHDLT['switch'] = 0
+  #   command = "$cHDLT," + onoff
+  #   self.ph.write_port(command)
+  #   print('SERVICE: Headlight: %s'%(onoff))
+  #   return response
   
-  def cbSrv_setColor(self, request, response):
-    command = "$cCOLOR,"+str(request.red) + ','+str(request.green) + ','+str(request.blue)
-    print("SERVICE: SET COLOR: R(%s)G(%s)B(%s)"
-      %(request.red, request.green, request.blue))
-    #self.packet.write_data('COLOR', self.d_setCOLOR)
-    return response
+  # def cbSrv_setColor(self, request, response):
+  #   command = "$cCOLOR,"+str(request.red) + ','+str(request.green) + ','+str(request.blue)
+  #   print("SERVICE: SET COLOR: R(%s)G(%s)B(%s)"
+  #     %(request.red, request.green, request.blue))
+  #   #self.packet.write_data('COLOR', self.d_setCOLOR)
+  #   return response
 
   # def cbSrv_checkBattery(self, request, response):
   #   self.ph.update_battery_state()
@@ -355,16 +356,16 @@ class HyrianNode(Node):
         (request.x, request.y, request.theta))
     return response
   
-  def cbSrv_setBuzzer(self, request, response):
-    onoff = '0'
-    if request.set == True:
-        onoff = '1'
-    command = "$sBUZEN," + onoff
-    print("SERVICE: SET BUZZER : %s"%(onoff))
-    self.ph.write_port(command)
-    return OnoffResponse()
+  # def cbSrv_setBuzzer(self, request, response):
+  #   onoff = '0'
+  #   if request.set == True:
+  #       onoff = '1'
+  #   command = "$sBUZEN," + onoff
+  #   print("SERVICE: SET BUZZER : %s"%(onoff))
+  #   self.ph.write_port(command)
+  #   return OnoffResponse()
 
-  def calibrate_gyro(self, request):
+  def calibrate_gyro(self, request): #이거 저희 imu 센서도 필요한가요?
     command = "$sCALG,1"
     printf("SERVICE: CALIBRATE GYRO")
     self.ph.write_port(command)

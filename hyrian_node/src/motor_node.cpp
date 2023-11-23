@@ -475,8 +475,8 @@ RosCommunicator::RosCommunicator()
   publisher_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("motor_packet", 10); // Publisher 생성
   timer_ = this->create_wall_timer(
       100ms, std::bind(&RosCommunicator::TimerCallback, this));
-  subscription_ = this->create_subscription<std_msgs::msg::Int64MultiArray>(
-      "/tutorial/teleop", 10, std::bind(&RosCommunicator::TeleopCallback, this, _1));
+  // subscription_ = this->create_subscription<std_msgs::msg::Int64MultiArray>(
+  //     "/tutorial/teleop", 10, std::bind(&RosCommunicator::TeleopCallback, this, _1));
   
   sub_vel = this->create_subscription<geometry_msgs::msg::Twist>("motor_input", 10, std::bind(&RosCommunicator::cmdCallback, this, std::placeholders::_1));
 
@@ -516,21 +516,21 @@ void RosCommunicator::TimerCallback()
   DirectMotorControl();
 }
 
-void RosCommunicator::TeleopCallback(const std_msgs::msg::Int64MultiArray::SharedPtr msg)
-{
-  bool tmp_dir1, tmp_dir2;
-  if (msg->data[0] == 0)
-    tmp_dir1 = true;
-  else
-    tmp_dir1 = false;
-  if (msg->data[1] == 0)
-    tmp_dir2 = true;
-  else
-    tmp_dir2 = false;
+// void RosCommunicator::TeleopCallback(const std_msgs::msg::Int64MultiArray::SharedPtr msg)
+// {
+//   bool tmp_dir1, tmp_dir2;
+//   if (msg->data[0] == 0)
+//     tmp_dir1 = true;
+//   else
+//     tmp_dir1 = false;
+//   if (msg->data[1] == 0)
+//     tmp_dir2 = true;
+//   else
+//     tmp_dir2 = false;
 
-  AccelController(1, tmp_dir1, msg->data[2]);
-  AccelController(2, tmp_dir2, msg->data[3]);
-}
+//   AccelController(1, tmp_dir1, msg->data[2]);
+//   AccelController(2, tmp_dir2, msg->data[3]);
+// }
 
 void RosCommunicator::cmdCallback(const geometry_msgs::msg::Twist::SharedPtr msg)
 {
