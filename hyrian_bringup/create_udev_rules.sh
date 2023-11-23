@@ -13,7 +13,7 @@ else
 fi
 
 echo ""
-echo "YD LiDAR (USB Serial) : /dev/ttyUSB1 to /dev/ttyLiDAR :"
+echo "YD LiDAR (USB Serial) : /dev/ttyUSBx to /dev/ttyLiDAR :"
 if [ -f "/etc/udev/rules.d/97-hyrian-lidar.rules" ]; then
     echo "97-hyrian-lidar.rules file already exist."
 else 
@@ -23,7 +23,7 @@ else
 fi
 
 echo ""
-echo "Hyrian IMU (USB Serial) : /dev/ttyUSB0 to /dev/ttyIMU :"
+echo "Hyrian IMU (USB Serial) : /dev/ttyUSBx to /dev/ttyIMU :"
 if [ -f "/etc/udev/rules.d/96-hyrian-imu.rules" ]; then
     echo "hyrian-imu.rules file already exist."
 else 
