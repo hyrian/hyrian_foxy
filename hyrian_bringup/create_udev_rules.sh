@@ -13,13 +13,23 @@ else
 fi
 
 echo ""
-echo "YD LiDAR (USB Serial) : /dev/ttyUSBx to /dev/ttyLiDAR :"
+echo "YD LiDAR (USB Serial) : /dev/ttyUSB1 to /dev/ttyLiDAR :"
 if [ -f "/etc/udev/rules.d/97-hyrian-lidar.rules" ]; then
     echo "97-hyrian-lidar.rules file already exist."
 else 
     echo 'KERNEL=="ttyUSB*", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", MODE:="0666", GROUP:="dialout",  SYMLINK+="ttyLiDAR"' >/etc/udev/rules.d/97-hyrian-lidar.rules
     
     echo '97-hyrian-lidar.rules created'
+fi
+
+echo ""
+echo "Hyrian IMU (USB Serial) : /dev/ttyUSB0 to /dev/ttyIMU :"
+if [ -f "/etc/udev/rules.d/96-hyrian-imu.rules" ]; then
+    echo "hyrian-imu.rules file already exist."
+else 
+    echo 'KERNEL=="ttyUSB*", ATTRS{idVendor}=="10c4" ATTRS{idProduct}=="ea60", MODE:="0666", GROUP:="dialout", SYMLINK+="ttyIMU" ' > /etc/udev/rules.d/96-hyrian-imu.rules
+
+    echo '96-hyrian_imu.rules created'
 fi
 
 systemctl stop nvgetty
