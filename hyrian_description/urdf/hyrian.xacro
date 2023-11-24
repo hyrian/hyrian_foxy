@@ -2,99 +2,110 @@
 <robot name="hyrian" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 <xacro:include filename="$(find hyrian_description)/urdf/materials.xacro" />
-
-<link name="base_link">
-  <inertial>
-    <origin xyz="-0.10669076554678224 1.5621095382552616e-06 0.12074565974295158" rpy="0 0 0"/>
-    <mass value="58.74508266414039"/>
-    <inertia ixx="0.436723" iyy="0.452655" izz="0.565557" ixy="0.001014" iyz="-9e-06" ixz="-0.007055"/>
-  </inertial>
-  <visual>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find hyrian_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="silver"/>
-  </visual>
-  <collision>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find hyrian_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link>
+<!-- <xacro:include filename="$(find hyrian_description)/urdf/hyrian.trans" />
+<xacro:include filename="$(find hyrian_description)/urdf/hyrian.gazebo" /> -->
 
 <link name="base_footprint"/>
 
-<!-- <joint name="base_joint" type="fixed">
-  <parent link="base_link"/>
-  <child link="base_footprint" />
-  <origin xyz="0 0.0 0.0" rpy="0 0 0.0"/>
-</joint> -->
 <joint name="base_joint" type="fixed">
   <parent link="base_footprint"/>
   <child link="base_link" />
-  <origin xyz="0 0.0 0.0" rpy="0 0 0.0"/>
+  <origin xyz="0 0 0 " rpy="0 0 0.0"/>
 </joint>
 
 
-<link name="caster_1">
+<link name="base_link">
   <inertial>
-    <origin xyz="-0.017519805982381953 4.3013561084737665e-08 -0.05240102727593725" rpy="0 0 0"/>
-    <mass value="1.6117880362991714"/>
-    <inertia ixx="0.001424" iyy="0.001841" izz="0.000923" ixy="-0.0" iyz="0.0" ixz="-0.000298"/>
+    <origin xyz="-0.10227978369059341 1.1257994758378733e-05 0.4082809761720818" rpy="0 0 0"/>
+    <mass value="50.58143073299084"/>
+    <inertia ixx="19.58631" iyy="19.219571" izz="3.81789" ixy="-0.002995" iyz="0.011725" ixz="-0.581839"/>
   </inertial>
   <visual>
-    <origin xyz="0.279 -0.0 -0.043" rpy="0 0 0"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find hyrian_description)/meshes/caster_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find hyrian_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
-    <origin xyz="0.279 -0.0 -0.043" rpy="0 0 0"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find hyrian_description)/meshes/caster_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find hyrian_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
 
-<!-- <link name="lidar_1">
+<link name="left_wheel_1">
   <inertial>
-    <origin xyz="2.5778920109686965e-09 6.0217946361192236e-18 0.023813967631461597" rpy="0 0 0"/>
-    <mass value="1.482019447760714"/>
-    <inertia ixx="0.000761" iyy="0.000761" izz="0.000958" ixy="0.0" iyz="0.0" ixz="0.0"/>
+    <origin xyz="-2.3734552044097149e-07 -0.002797911787755736 7.297815416647854e-08" rpy="0 0 0"/>
+    <mass value="0.1571644899281903"/>
+    <inertia ixx="0.000168" iyy="0.000317" izz="0.000168" ixy="0.0" iyz="0.0" ixz="-0.0"/>
   </inertial>
   <visual>
-    <origin xyz="-0.068 0.0 -0.049" rpy="0 0 0"/>
+    <origin xyz="-0.000223 -0.208786 -8.1e-05" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find hyrian_description)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find hyrian_description)/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
-    <origin xyz="-0.068 0.0 -0.049" rpy="0 0 0"/>
+    <origin xyz="-0.000223 -0.208786 -8.1e-05" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find hyrian_description)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find hyrian_description)/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
-</link> -->
+</link>
+
+<joint name="left_wheel_joint" type="continuous">
+  <origin xyz="0.000223 0.208786 8.1e-05" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<link name="right_wheel_1">
+  <inertial>
+    <origin xyz="-2.3698372196977071e-07 0.0027981825588338505 7.261635420341558e-08" rpy="0 0 0"/>
+    <mass value="0.15716448992819132"/>
+    <inertia ixx="0.000168" iyy="0.000317" izz="0.000168" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.000223 0.208014 -8.1e-05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hyrian_description)/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.000223 0.208014 -8.1e-05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hyrian_description)/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="right_wheel_joint" type="continuous">
+  <origin xyz="0.000223 -0.208014 8.1e-05" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
 
 <link name="laser_frame">
   <inertial>
-    <origin xyz="2.5778920109686965e-09 6.0217946361192236e-18 0.023813967631461597" rpy="0 0 0"/>
-    <mass value="1.482019447760714"/>
-    <inertia ixx="0.000761" iyy="0.000761" izz="0.000958" ixy="0.0" iyz="0.0" ixz="0.0"/>
+    <origin xyz="-2.360620741659325e-07 -5.8259209553173166e-08 0.01758209864836971" rpy="0 0 0"/>
+    <mass value="0.5963952762384188"/>
+    <inertia ixx="0.000193" iyy="0.000193" izz="0.00034" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
   </inertial>
   <visual>
-    <origin xyz="-0.068 0.0 -0.049" rpy="0 0 0"/>
+    <origin xyz="-0.065223 -0.000386 -0.071081" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find hyrian_description)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
-    <origin xyz="-0.068 0.0 -0.049" rpy="0 0 0"/>
+    <origin xyz="-0.065223 -0.000386 -0.071081" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find hyrian_description)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
@@ -102,185 +113,72 @@
 </link>
 
 <joint name="lidar_joint" type="fixed">
-  <origin xyz="0.068 0.0 0.049" rpy="0 0 0"/>
+  <origin xyz="0.065223 0.000386 0.071081" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="laser_frame"/>
 </joint>
 
-<link name="right_wheel_1">
-  <inertial>
-    <origin xyz="4.192763186755608e-09 0.006200869145559784 1.995829389735125e-09" rpy="0 0 0"/>
-    <mass value="1.326090407403013"/>
-    <inertia ixx="0.001415" iyy="0.002676" izz="0.001415" ixy="0.0" iyz="0.0" ixz="0.0"/>
-  </inertial>
-  <visual>
-    <origin xyz="-0.0 0.2118 0.0" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find hyrian_description)/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="silver"/>
-  </visual>
-  <collision>
-    <origin xyz="-0.0 0.2118 0.0" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find hyrian_description)/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link>
-
-<link name="left_wheel_1">
-  <inertial>
-    <origin xyz="4.192763026999893e-09 -0.006200869145558702 -1.995829641831094e-09" rpy="0 0 0"/>
-    <mass value="1.3260904074030184"/>
-    <inertia ixx="0.001415" iyy="0.002676" izz="0.001415" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
-  </inertial>
-  <visual>
-    <origin xyz="-0.0 -0.2118 0.0" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find hyrian_description)/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="silver"/>
-  </visual>
-  <collision>
-    <origin xyz="-0.0 -0.2118 0.0" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find hyrian_description)/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link>
-
-<!-- imu_link 추가 -->
-<link name="imu_link"/>
- <gazebo reference="imu_link">
-  <sensor name="imu_sensor" type="imu">
-   <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
-      <ros>
-        <namespace>/demo</namespace>
-        <remapping>~/out:=imu</remapping>
-      </ros>
-      <initial_orientation_as_reference>false</initial_orientation_as_reference>
-    </plugin>
-    <always_on>true</always_on>
-    <update_rate>100</update_rate>
-    <visualize>true</visualize>
-    <imu>
-      <angular_velocity>
-        <x>
-          <noise type="gaussian">
-            <mean>0.0</mean>
-            <stddev>2e-4</stddev>
-            <bias_mean>0.0000075</bias_mean>
-            <bias_stddev>0.0000008</bias_stddev>
-          </noise>
-        </x>
-        <y>
-          <noise type="gaussian">
-            <mean>0.0</mean>
-            <stddev>2e-4</stddev>
-            <bias_mean>0.0000075</bias_mean>
-            <bias_stddev>0.0000008</bias_stddev>
-          </noise>
-        </y>
-        <z>
-          <noise type="gaussian">
-            <mean>0.0</mean>
-            <stddev>2e-4</stddev>
-            <bias_mean>0.0000075</bias_mean>
-            <bias_stddev>0.0000008</bias_stddev>
-          </noise>
-        </z>
-      </angular_velocity>
-      <linear_acceleration>
-        <x>
-          <noise type="gaussian">
-            <mean>0.0</mean>
-            <stddev>1.7e-2</stddev>
-            <bias_mean>0.1</bias_mean>
-            <bias_stddev>0.001</bias_stddev>
-          </noise>
-        </x>
-        <y>
-          <noise type="gaussian">
-            <mean>0.0</mean>
-            <stddev>1.7e-2</stddev>
-            <bias_mean>0.1</bias_mean>
-            <bias_stddev>0.001</bias_stddev>
-          </noise>
-        </y>
-        <z>
-          <noise type="gaussian">
-            <mean>0.0</mean>
-            <stddev>1.7e-2</stddev>
-            <bias_mean>0.1</bias_mean>
-            <bias_stddev>0.001</bias_stddev>
-          </noise>
-        </z>
-      </linear_acceleration>
-    </imu>
-  </sensor>
-</gazebo>
-
 <joint name="imu_joint" type="fixed">
   <parent link="base_link"/>
   <child link="imu_link"/>
-  <origin xyz="0.0 0 0.12074565974295158" rpy="0 0 0"/>
+  <origin xyz="0.0 0.0 0.2" rpy="0 0 0"/>
 </joint>
-<!-- imu_link 추가 -->
 
-<joint name="��ü 15" type="fixed">
-  <origin xyz="-0.279 0.0 0.043" rpy="0 0 0"/>
+<link name="imu_link"/>
+
+<link name="caster_wheel_1">
+  <inertial>
+    <origin xyz="-3.774694260494371e-07 0.02649994085654633 3.6178873507805576e-07" rpy="0 0 0"/>
+    <mass value="0.30017628607414365"/>
+    <inertia ixx="0.000146" iyy="0.000231" izz="0.000146" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.281078 0.026114 0.018871" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hyrian_description)/meshes/caster_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.281078 0.026114 0.018871" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hyrian_description)/meshes/caster_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="caster_1">
+  <inertial>
+    <origin xyz="-0.00016533499198501111 -3.5359387945718625e-05 -0.019350707153866404" rpy="0 0 0"/>
+    <mass value="0.2826691939173363"/>
+    <inertia ixx="0.000229" iyy="0.000138" izz="0.000165" ixy="-0.0" iyz="-0.0" ixz="-2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.281777 -0.000386 -0.027081" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hyrian_description)/meshes/caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.281777 -0.000386 -0.027081" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hyrian_description)/meshes/caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+
+
+<joint name="°­Ã¼ 37" type="fixed">
+  <origin xyz="0.000699 -0.0265 -0.045952" rpy="0 0 0"/>
+  <parent link="caster_1"/>
+  <child link="caster_wheel_1"/>
+</joint>
+
+<joint name="°­Ã¼ 38" type="fixed">
+  <origin xyz="-0.281777 0.000386 0.027081" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="caster_1"/>
 </joint>
-
-<!-- <joint name="��ü 13" type="fixed">
-  <origin xyz="0.068 0.0 0.049" rpy="0 0 0"/>
-  <parent link="base_link"/>
-  <child link="lidar_1"/>
-</joint> -->
-
-<joint name="right_wheel_joint" type="continuous">
-  <origin xyz="0.0 -0.2118 0.0" rpy="0 0 0"/>
-  <parent link="base_link"/>
-  <child link="right_wheel_1"/>
-  <axis xyz="0.0 -1.0 0.0"/>
-</joint>
-
-<joint name="left_wheel_joint" type="continuous">
-  <origin xyz="0.0 0.2118 0.0" rpy="0 0 0"/>
-  <parent link="base_link"/>
-  <child link="left_wheel_1"/>
-  <axis xyz="-0.0 1.0 -0.0"/>
-</joint>
-
-<gazebo reference="base_link">
-  <material>Gazebo/White</material>
-  <self_collide>true</self_collide>
-  <gravity>true</gravity>
-</gazebo>
-
-<gazebo reference="right_wheel_1">
-  <material>Gazebo/White</material>
-  <self_collide>true</self_collide>
-</gazebo>
-
-<gazebo reference="left_wheel_1">
-  <material>Gazebo/White</material>
-  <self_collide>true</self_collide>
-</gazebo>
-
-<!-- <gazebo reference="lidar_1">
-  <material>Gazebo/White</material>
-  <self_collide>true</self_collide>
-</gazebo> -->
-
-<gazebo reference="caster_1">
-  <material>Gazebo/White</material>
-  <mu1>0.001</mu1>
-  <mu2>0.001</mu2>
-  <self_collide>true</self_collide>
-</gazebo>
-
-
-
 </robot>

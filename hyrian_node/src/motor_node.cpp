@@ -3,13 +3,15 @@
  *
  *      Author: Chis Chun
  */
-#include <tutorial_ros2_motor/motor_node.hpp>
+
+#include <hyrian_node/motor_node.hpp>
 #include "std_msgs/msg/float64_multi_array.hpp"
 #include "geometry_msgs/msg/twist.hpp"
 
 void LoadParameters(void)
 {
-  std::ifstream inFile("/home/ubuntu/robot_ws/src/tutorial_ros2_motor/data/motor_input.txt");
+  std::ifstream inFile("/home/ubuntu/feature_ws/src/hyrian_foxy/hyrian_node/data/motor_input.txt");
+  // std::ifstream inFile("/home/ubuntu/feature_ws/src/hyrian_node/data/motor_input.txt");
   if (!inFile.is_open())
   {
     RCLCPP_ERROR(rclcpp::get_logger("motor_node"), "Unable to open the file");
@@ -213,27 +215,33 @@ void Initialize(void)
 
 void MotorController(int motor_num, bool direction, int pwm)
 {
+
+
   int local_pwm = LimitPwm(pwm);
 
-  if (motor_num == 1)
+  if (motor_num == 1) //cw_1
   {
     if (direction == true)
     {
       gpio_write(pinum, motor1_dir, PI_LOW);
       set_PWM_dutycycle(pinum, motor1_pwm, local_pwm);
       current_pwm1 = local_pwm;
-      current_direction1 = true;
+      current_direction1 = true; 
+      linear_vel1 = ((2 * PI * wheel_radius * rpm_value1) / 60);  //left
+
     }
-    else if (direction == false)
+    else if (direction == false) //ccw_1
     {
       gpio_write(pinum, motor1_dir, PI_HIGH);
       set_PWM_dutycycle(pinum, motor1_pwm, local_pwm);
       current_pwm1 = local_pwm;
       current_direction1 = false;
+      linear_vel1 = -((2 * PI * wheel_radius * rpm_value1) / 60); 
+
     }
   }
 
-  else if (motor_num == 2)
+  else if (motor_num == 2) //cw_2
   {
     if (direction == true)
     {
@@ -241,13 +249,17 @@ void MotorController(int motor_num, bool direction, int pwm)
       set_PWM_dutycycle(pinum, motor2_pwm, local_pwm);
       current_pwm2 = local_pwm;
       current_direction2 = true;
+      linear_vel2 = -((2 * PI * wheel_radius * rpm_value2) / 60); //right
+
     }
-    else if (direction == false)
+    else if (direction == false) //ccw_2
     {
       gpio_write(pinum, motor2_dir, PI_HIGH);
       set_PWM_dutycycle(pinum, motor2_pwm, local_pwm);
       current_pwm2 = local_pwm;
       current_direction2 = false;
+      linear_vel2 = ((2 * PI * wheel_radius * rpm_value2) / 60);
+
     }
   }
 }
@@ -464,6 +476,11 @@ void InfoMotors()
   printf("PWM1 : %10.0d    ||  PWM2 : %10.0d\n", current_pwm1, current_pwm2);
   printf("DIR1 :%11s    ||  DIR2 :%11s\n", current_direction1 ? "CW" : "CCW", current_direction2 ? "CW" : "CCW");
   printf("ACC  :%11.0d\n", acceleration);
+  printf("wheel_radius : %11.0f\n", wheel_radius);
+  printf("robot_radius  :%11.0f\n", robot_radius);
+  printf("encoder_resolution  :%11.0d\n", encoder_resolution);
+  printf("pwm_frequency  :%11.0d\n", pwm_frequency);
+  printf("control_cycle  :%11.0f\n", control_cycle);
   printf("\n");
 }
 
@@ -475,8 +492,8 @@ RosCommunicator::RosCommunicator()
   publisher_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("motor_packet", 10); // Publisher 생성
   timer_ = this->create_wall_timer(
       100ms, std::bind(&RosCommunicator::TimerCallback, this));
-  // subscription_ = this->create_subscription<std_msgs::msg::Int64MultiArray>(
-  //     "/tutorial/teleop", 10, std::bind(&RosCommunicator::TeleopCallback, this, _1));
+  subscription_ = this->create_subscription<std_msgs::msg::Int64MultiArray>(
+      "/tutorial/teleop", 10, std::bind(&RosCommunicator::TeleopCallback, this, _1));
   
   sub_vel = this->create_subscription<geometry_msgs::msg::Twist>("motor_input", 10, std::bind(&RosCommunicator::cmdCallback, this, std::placeholders::_1));
 
@@ -492,13 +509,18 @@ void RosCommunicator::TimerCallback()
   // ThetaTurnDistanceGo(180,100,30,110);
 
   double vw[2];
-  vw[0] = (rpm_value1 - rpm_value2) * (wheel_radius / robot_radius); //angular vel
-  vw[1] = (rpm_value1 + rpm_value2) * (wheel_radius / 2); //linear vel
+  // vw[0] = (rpm_value1 - rpm_value2) * (wheel_radius / robot_radius); //angular vel
+  // vw[1] = (rpm_value1 + rpm_value2) * (wheel_radius / 2); //linear vel
+  
 
-
+  vw[0] = (linear_vel1 - linear_vel2) / (robot_radius * 2) * 1000; //angular
+  vw[1] = (linear_vel1 + linear_vel2) / 2; //linear vel
   double encod[2];
-  encod[0] = encoder_count_1;
-  encod[1] = encoder_count_2;
+  // encod[0] = encoder_count_1;
+  // encod[1] = encoder_count_2;
+
+  encod[0] = SumMotor1Encoder();
+  encod[1] = SumMotor2Encoder();
 
   double odo[2];
   odo[0] = (encod[0] / (encoder_resolution * 4)) * wheel_round;
@@ -516,22 +538,6 @@ void RosCommunicator::TimerCallback()
   DirectMotorControl();
 }
 
-// void RosCommunicator::TeleopCallback(const std_msgs::msg::Int64MultiArray::SharedPtr msg)
-// {
-//   bool tmp_dir1, tmp_dir2;
-//   if (msg->data[0] == 0)
-//     tmp_dir1 = true;
-//   else
-//     tmp_dir1 = false;
-//   if (msg->data[1] == 0)
-//     tmp_dir2 = true;
-//   else
-//     tmp_dir2 = false;
-
-//   AccelController(1, tmp_dir1, msg->data[2]);
-//   AccelController(2, tmp_dir2, msg->data[3]);
-// }
-
 void RosCommunicator::cmdCallback(const geometry_msgs::msg::Twist::SharedPtr msg)
 {
   double linear_vel = msg->linear.x;
@@ -548,20 +554,52 @@ void RosCommunicator::cmdCallback(const geometry_msgs::msg::Twist::SharedPtr msg
 void RosCommunicator::DirectMotorControl()
 {
   // 왼쪽 모터 제어
-  if(left_rpm < 0){
+  if(left_rpm < 0)
+  {
     MotorController(2, true, -left_rpm); // 회전 방향을 반대로 하고, 회전 속도는 절댓값으로 설정
   }
-  else {
+  else if (left_rpm > 0)
+  {
     MotorController(2, false, left_rpm); // 회전 방향과 회전 속도를 그대로 설정
   }
 
+  else if(left_rpm == 0)
+  {
+    MotorController(2, false, 0);
+    left_rpm = 0;
+  }
+
   // 오른쪽 모터 제어
-  if(right_rpm < 0){
+  if(right_rpm < 0)
+  {
     MotorController(1, false, -right_rpm); // 회전 방향을 반대로 하고, 회전 속도는 절댓값으로 설정
   }
-  else {
+
+  else if (right_rpm >0)
+  {
     MotorController(1, true, right_rpm); // 회전 방향과 회전 속도를 그대로 설정
   }
+
+  else if(right_rpm == 0)
+  {
+    MotorController(1, true, 0);
+    right_rpm = 0;
+  }
+}
+void RosCommunicator::TeleopCallback(const std_msgs::msg::Int64MultiArray::SharedPtr msg)
+{
+  bool tmp_dir1, tmp_dir2;
+  if (msg->data[0] == 0)
+    tmp_dir1 = true;
+  else
+    tmp_dir1 = false;
+  if (msg->data[1] == 0)
+    tmp_dir2 = true;
+  else
+    tmp_dir2 = false;
+
+  AccelController(1, tmp_dir1, msg->data[2]);
+  AccelController(2, tmp_dir2, msg->data[3]);
 }
 
 int main(int argc, char **argv)
