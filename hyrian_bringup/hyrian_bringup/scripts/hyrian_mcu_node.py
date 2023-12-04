@@ -157,7 +157,8 @@ class HyrianNode(Node):
     # Set Periodic data
     self.ph.incomming_info = ['ODO', 'VW', "POSE", "GYRO"]
     self.ph.update_battery_state()
-    self.subscription_imu 
+    # self.ph.set_periodic_info()
+    # self.subscription_imu 
 
     
     #self.ph.set_periodic_info()
@@ -386,6 +387,7 @@ class HyrianNode(Node):
     yaw_imu = msg.orientation.z
     self.vel_z = msg.angular_velocity.z 
     self.updatePoseStates(roll_imu, pitch_imu, yaw_imu)
+    # self.pub_IMU.publish(msg)
     # self.get_logger().info('IMU Data: Roll: %f, Pitch: %f, Yaw: %f' % (roll_imu, pitch_imu, yaw_imu))
 
 def main(args=None):
