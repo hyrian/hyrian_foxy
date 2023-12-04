@@ -1,9 +1,3 @@
-/*
- * motor_node.cpp
- *
- *      Author: Chis Chun
- */
-
 #include <hyrian_node/motor_node.hpp>
 #include "std_msgs/msg/float64_multi_array.hpp"
 #include "geometry_msgs/msg/twist.hpp"
@@ -11,7 +5,6 @@
 void LoadParameters(void)
 {
   std::ifstream inFile("/home/ubuntu/feature_ws/src/hyrian_foxy/hyrian_node/data/motor_input.txt");
-  // std::ifstream inFile("/home/ubuntu/feature_ws/src/hyrian_node/data/motor_input.txt");
   if (!inFile.is_open())
   {
     RCLCPP_ERROR(rclcpp::get_logger("motor_node"), "Unable to open the file");
@@ -112,7 +105,7 @@ void SetInterrupts(void)
   callback(pinum, motor2_encB, EITHER_EDGE, Interrupt2B);
 }
 
-void Interrupt1A(int pi, unsigned user_gpio, unsigned level, uint32_t tick)
+void Interrupt1A(int pi, unsigned user_gpio, unsigned level, uint32_t tick) //left
 {
   (void)pi;
   (void)user_gpio;
@@ -125,7 +118,7 @@ void Interrupt1A(int pi, unsigned user_gpio, unsigned level, uint32_t tick)
   speed_count_1++;
 }
 
-void Interrupt1B(int pi, unsigned user_gpio, unsigned level, uint32_t tick)
+void Interrupt1B(int pi, unsigned user_gpio, unsigned level, uint32_t tick) 
 {
   (void)pi;
   (void)user_gpio;
@@ -138,7 +131,7 @@ void Interrupt1B(int pi, unsigned user_gpio, unsigned level, uint32_t tick)
   speed_count_1++;
 }
 
-void Interrupt2A(int pi, unsigned user_gpio, unsigned level, uint32_t tick)
+void Interrupt2A(int pi, unsigned user_gpio, unsigned level, uint32_t tick) //right
 {
   (void)pi;
   (void)user_gpio;
@@ -406,7 +399,7 @@ void DistanceGo(double distance, int pwm)
     {
       MotorController(1, false, local_pwm);
       MotorController(2, true, local_pwm);
-      // AccelController(1, false, local_pwm);
+      // AccelController(1, false, local_pwm);  
       // AccelController(2, true, local_pwm);
     }
   }

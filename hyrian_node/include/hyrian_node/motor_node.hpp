@@ -7,15 +7,16 @@
 #include <pigpiod_if2.h>
 #include <fstream>
 
-#define motor1_dir 19
-#define motor1_pwm 26
-#define motor1_encA 23
-#define motor1_encB 24
+#define motor1_dir 6  
+#define motor1_pwm 13
 
-#define motor2_dir 6
-#define motor2_pwm 13
+#define motor1_encA 23
+#define motor1_encB 24 //left
+
+#define motor2_dir 19
+#define motor2_pwm 26
 #define motor2_encA 27
-#define motor2_encB 17
+#define motor2_encB 17 //right
 
 #define PI 3.141592
 
