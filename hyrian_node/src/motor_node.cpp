@@ -212,18 +212,18 @@ void MotorController(int motor_num, bool direction, int pwm)
 
   int local_pwm = LimitPwm(pwm);
 
-  if (motor_num == 1) //cw_1
+  if (motor_num == 1) 
   {
-    if (direction == true)
+    if (direction == true) 
     {
       gpio_write(pinum, motor1_dir, PI_LOW);
       set_PWM_dutycycle(pinum, motor1_pwm, local_pwm);
       current_pwm1 = local_pwm;
       current_direction1 = true; 
-      linear_vel1 = ((2 * PI * wheel_radius * rpm_value1) / 60);  //left
+      linear_vel1 = ((2 * PI * wheel_radius * rpm_value1) / 60);  
 
     }
-    else if (direction == false) //ccw_1
+    else if (direction == false) 
     {
       gpio_write(pinum, motor1_dir, PI_HIGH);
       set_PWM_dutycycle(pinum, motor1_pwm, local_pwm);
@@ -234,7 +234,7 @@ void MotorController(int motor_num, bool direction, int pwm)
     }
   }
 
-  else if (motor_num == 2) //cw_2
+  else if (motor_num == 2) 
   {
     if (direction == true)
     {
@@ -242,10 +242,10 @@ void MotorController(int motor_num, bool direction, int pwm)
       set_PWM_dutycycle(pinum, motor2_pwm, local_pwm);
       current_pwm2 = local_pwm;
       current_direction2 = true;
-      linear_vel2 = -((2 * PI * wheel_radius * rpm_value2) / 60); //right
+      linear_vel2 = -((2 * PI * wheel_radius * rpm_value2) / 60); 
 
     }
-    else if (direction == false) //ccw_2
+    else if (direction == false) 
     {
       gpio_write(pinum, motor2_dir, PI_HIGH);
       set_PWM_dutycycle(pinum, motor2_pwm, local_pwm);
@@ -312,62 +312,62 @@ void AccelController(int motor_num, bool direction, int desired_pwm)
   }
 }
 
-void SwitchTurn(int pwm1, int pwm2)
-{
-  int local_pwm1 = LimitPwm(pwm1);
-  int local_pwm2 = LimitPwm(pwm2);
-  if (switch_direction == true)
-  {
-    MotorController(1, switch_direction, local_pwm1);
-    MotorController(2, switch_direction, local_pwm2);
-    switch_direction = false;
-    RCLCPP_INFO(rclcpp::get_logger("motor_node"), "true");
-  }
-  else
-  {
-    MotorController(1, switch_direction, local_pwm1);
-    MotorController(2, switch_direction, local_pwm2);
-    switch_direction = true;
-    RCLCPP_INFO(rclcpp::get_logger("motor_node"), "false");
-  }
-}
+// void SwitchTurn(int pwm1, int pwm2)
+// {
+//   int local_pwm1 = LimitPwm(pwm1);
+//   int local_pwm2 = LimitPwm(pwm2);
+//   if (switch_direction == true)
+//   {
+//     MotorController(1, switch_direction, local_pwm1);
+//     MotorController(2, switch_direction, local_pwm2);
+//     switch_direction = false;
+//     RCLCPP_INFO(rclcpp::get_logger("motor_node"), "true");
+//   }
+//   else
+//   {
+//     MotorController(1, switch_direction, local_pwm1);
+//     MotorController(2, switch_direction, local_pwm2);
+//     switch_direction = true;
+//     RCLCPP_INFO(rclcpp::get_logger("motor_node"), "false");
+//   }
+// }
 
-void ThetaTurn(double theta, int pwm)
-{
-  double local_encoder;
-  int local_pwm = LimitPwm(pwm);
-  if (theta_distance_flag == 1)
-  {
-    InitEncoders();
-    theta_distance_flag = 2;
-  }
-  SumMotor1Encoder();
-  SumMotor2Encoder();
-  if (theta > 0)
-  {
-    local_encoder = (encoder_resolution * 4 / 360) * (robot_round / wheel_round) * theta;
-    MotorController(1, true, local_pwm);
-    MotorController(2, true, local_pwm);
-    // AccelController(1, true, local_pwm);
-    // AccelController(2, true, local_pwm);
-  }
-  else
-  {
-    local_encoder = -(encoder_resolution * 4 / 360) * (robot_round / wheel_round) * theta;
-    MotorController(1, false, local_pwm);
-    MotorController(2, false, local_pwm);
-    // AccelController(1, false, local_pwm);
-    // AccelController(2, false, local_pwm);
-  }
+// void ThetaTurn(double theta, int pwm)
+// {
+//   double local_encoder;
+//   int local_pwm = LimitPwm(pwm);
+//   if (theta_distance_flag == 1)
+//   {
+//     InitEncoders();
+//     theta_distance_flag = 2;
+//   }
+//   SumMotor1Encoder();
+//   SumMotor2Encoder();
+//   if (theta > 0)
+//   {
+//     local_encoder = (encoder_resolution * 4 / 360) * (robot_round / wheel_round) * theta;
+//     MotorController(1, true, local_pwm);
+//     MotorController(2, true, local_pwm);
+//     // AccelController(1, true, local_pwm);
+//     // AccelController(2, true, local_pwm);
+//   }
+//   else
+//   {
+//     local_encoder = -(encoder_resolution * 4 / 360) * (robot_round / wheel_round) * theta;
+//     MotorController(1, false, local_pwm);
+//     MotorController(2, false, local_pwm);
+//     // AccelController(1, false, local_pwm);
+//     // AccelController(2, false, local_pwm);
+//   }
 
-  if (encoder_count_1 > local_encoder)
-  {
-    InitEncoders();
-    MotorController(1, true, 0);
-    MotorController(2, true, 0);
-    theta_distance_flag = 3;
-  }
-}
+//   if (encoder_count_1 > local_encoder)
+//   {
+//     InitEncoders();
+//     MotorController(1, true, 0);
+//     MotorController(2, true, 0);
+//     theta_distance_flag = 3;
+//   }
+// }
 
 void DistanceGo(double distance, int pwm)
 {
@@ -413,22 +413,22 @@ void DistanceGo(double distance, int pwm)
     theta_distance_flag = 0;
   }
 }
-
-void ThetaTurnDistanceGo(double theta, int turn_pwm, double distance, int go_pwm)
-{
-  if (theta_distance_flag == 0)
-  {
-    theta_distance_flag = 1;
-  }
-  else if (theta_distance_flag == 1 || theta_distance_flag == 2)
-  {
-    ThetaTurn(theta, turn_pwm);
-  }
-  else if (theta_distance_flag == 3 || theta_distance_flag == 4)
-  {
-    DistanceGo(distance, go_pwm);
-  }
-}
+// 
+// void ThetaTurnDistanceGo(double theta, int turn_pwm, double distance, int go_pwm)
+// {
+//   if (theta_distance_flag == 0)
+//   {
+//     theta_distance_flag = 1;
+//   }
+//   else if (theta_distance_flag == 1 || theta_distance_flag == 2)
+//   {
+//     ThetaTurn(theta, turn_pwm);
+//   }
+//   else if (theta_distance_flag == 3 || theta_distance_flag == 4)
+//   {
+//     DistanceGo(distance, go_pwm);
+//   }
+// }
 
 int LimitPwm(int pwm)
 {
@@ -508,19 +508,17 @@ void RosCommunicator::TimerCallback()
 
   vw[0] = (linear_vel1 - linear_vel2) / (robot_radius * 2) * 1000; //angular
   vw[1] = (linear_vel1 + linear_vel2) / 2; //linear vel
-  double encod[2];
-  // encod[0] = encoder_count_1;
-  // encod[1] = encoder_count_2;
 
+  double encod[2];
   encod[0] = SumMotor1Encoder();
   encod[1] = SumMotor2Encoder();
 
   double odo[2];
-  odo[0] = (encod[0] / (encoder_resolution * 4)) * wheel_round;
-  odo[1] = (encod[1] / (encoder_resolution * 4)) * wheel_round;
+  odo[0] = (encod[0] / (encoder_resolution * 4)) * wheel_round; // 1번
+  odo[1] = (encod[1] / (encoder_resolution * 4)) * wheel_round; //2번
 
-  double pwml = current_pwm1;
-  double pwmr = current_pwm2;
+  double pwml = current_pwm1; //1번
+  double pwmr = current_pwm2; //2번
 
   std_msgs::msg::Float64MultiArray motor_data; 
   motor_data.data = std::vector<double>{vw[0], vw[1], encod[0], encod[1], odo[0], odo[1], pwml, pwmr};
@@ -549,33 +547,33 @@ void RosCommunicator::DirectMotorControl()
   // 왼쪽 모터 제어
   if(left_rpm < 0)
   {
-    MotorController(2, true, -left_rpm); // 회전 방향을 반대로 하고, 회전 속도는 절댓값으로 설정
+    MotorController(1, true, -left_rpm); // 회전 방향을 반대로 하고, 회전 속도는 절댓값으로 설정
   }
   else if (left_rpm > 0)
   {
-    MotorController(2, false, left_rpm); // 회전 방향과 회전 속도를 그대로 설정
+    MotorController(1, false, left_rpm); // 회전 방향과 회전 속도를 그대로 설정
   }
 
   else if(left_rpm == 0)
   {
-    MotorController(2, false, 0);
+    MotorController(1, false, 0);
     left_rpm = 0;
   }
 
   // 오른쪽 모터 제어
   if(right_rpm < 0)
   {
-    MotorController(1, false, -right_rpm); // 회전 방향을 반대로 하고, 회전 속도는 절댓값으로 설정
+    MotorController(2, false, -right_rpm); // 회전 방향을 반대로 하고, 회전 속도는 절댓값으로 설정
   }
 
   else if (right_rpm >0)
   {
-    MotorController(1, true, right_rpm); // 회전 방향과 회전 속도를 그대로 설정
+    MotorController(2, true, right_rpm); // 회전 방향과 회전 속도를 그대로 설정
   }
 
   else if(right_rpm == 0)
   {
-    MotorController(1, true, 0);
+    MotorController(2, true, 0);
     right_rpm = 0;
   }
 }
