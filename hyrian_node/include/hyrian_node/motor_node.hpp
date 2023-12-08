@@ -3,9 +3,15 @@
 
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/int64_multi_array.hpp"
+#include "std_msgs/msg/float64.hpp"
+#include "std_msgs/msg/float64_multi_array.hpp"
+
 #include "geometry_msgs/msg/twist.hpp"
 #include <pigpiod_if2.h>
 #include <fstream>
+
+// #define motor1_dir 6
+// #define motor1_pwm 13
 
 #define motor1_dir 19
 #define motor1_pwm 26
@@ -43,12 +49,53 @@ int current_pwm2;
 bool current_direction1;
 bool current_direction2;
 int acceleration;
+
 double left_rpm;
 double right_rpm;
 double left_speed;
 double right_speed;
 double linear_vel1; 
 double linear_vel2;
+
+bool target_dir1 = true;
+bool target_dir2 = true;
+
+//LOW-PASS FILTER
+float dzn_lower_limit = 8.0;
+float dzn_upper_limit = 60.0;
+
+double coeff_ext_filter = 0.5;
+double rpm_value2_fold = 0.0;
+
+//PID Control
+double target_pwm1 = 0.0;
+double target_pwm2 = 0.0;
+
+double topic_rpm_value1 = 0.0;
+double topic_rpm_value2 = 0.0;
+
+#define TIME 0.1
+double pidControl1 = 0.0;
+double p_gain1 = 0.0;
+double i_gain1 = 0.0;
+double d_gain1 = 0.0;
+double derivative1 = 0.0;
+double lastderivative1 = 0.0;
+double last_input1 = 0.0;
+double pControl1 = 0.0;
+double iControl1 = 0.0;
+double dControl1 = 0.0;
+
+double pidControl2 = 0.0;
+double p_gain2 = 0.0;
+double i_gain2 = 0.0;
+double d_gain2 = 0.0;
+double derivative2 = 0.0;
+double lastderivative2 = 0.0;
+double last_input2 = 0.0;
+double pControl2 = 0.0;
+double iControl2 = 0.0;
+double dControl2 = 0.0;
 
 // SetInterrupts
 void Interrupt_Setiing(void);
@@ -93,14 +140,21 @@ class RosCommunicator : public rclcpp::Node
 public:
   RosCommunicator();
 
+
 private:
   void TimerCallback();
   void TeleopCallback(const std_msgs::msg::Int64MultiArray::SharedPtr msg);
   void cmdCallback(const geometry_msgs::msg::Twist::SharedPtr msg);
+  void pidGainCallback(const std_msgs::msg::Float64MultiArray::SharedPtr msg);
+
   void DirectMotorControl();  
+  void PidMotorControl();
   rclcpp::TimerBase::SharedPtr timer_;
   rclcpp::Subscription<std_msgs::msg::Int64MultiArray>::SharedPtr subscription_;
   rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr sub_vel;
+
+  rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr pub_pid_check_;
+  rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr sub_pid_gain_;
   size_t count_;
 
 
