@@ -129,6 +129,7 @@ void Interrupt1B(int pi, unsigned user_gpio, unsigned level, uint32_t tick)
   (void)user_gpio;
   (void)level;
   (void)tick;
+
   if (gpio_read(pinum, motor1_dir) == true)
     encoder_count_1B--;
   else
@@ -164,7 +165,9 @@ void Interrupt2B(int pi, unsigned user_gpio, unsigned level, uint32_t tick)
 
 int SumMotor1Encoder()
 {
+  // encoder_count_1 = encoder_count_1A + encoder_count_1B;
   encoder_count_1 = encoder_count_1A + encoder_count_1B;
+
   return encoder_count_1;
 }
 
@@ -305,19 +308,19 @@ void CalculateRpm()
 
 
 void pidControlSystem1(double &goal, double &curr, double &pControl, double &iControl, double &dControl, double &p_gain, double &i_gain, double &d_gain, double &pidControl, double &derivative, double &lastderivative, double &last_input)
-{
+{// left
+  double TIME = 1/control_cycle;
   double error = goal - curr;
+  double ACC_ERROR_MAX = 10.0;
+  double ACC_ERROR_MIN = -10.0;
+  double ACC_ERROR_MIN_d = -10.0;
+  double ACC_ERROR_MAX_d = 10.0;
+  double filter = 10.6103e-3;
 
   pControl = p_gain * error;
 
-
-  double ACC_ERROR_MIN = -50.0;
-  double ACC_ERROR_MAX = 50.0;
-
   iControl += (error * i_gain) * TIME;
   iControl = std::min(std::max(iControl, ACC_ERROR_MIN), ACC_ERROR_MAX);
-
-  double filter = 7.9577e-3;
 
   derivative = (goal - last_input) / TIME;
   derivative = lastderivative + (TIME / (filter + TIME)) * (derivative - lastderivative);
@@ -325,28 +328,25 @@ void pidControlSystem1(double &goal, double &curr, double &pControl, double &iCo
   lastderivative = derivative;
 
   dControl = d_gain * derivative;
-
-  double ACC_ERROR_MIN_d = -50.0;
-  double ACC_ERROR_MAX_d = 50.0;
   dControl = std::min(std::max(dControl, ACC_ERROR_MIN_d), ACC_ERROR_MAX_d);
   
   pidControl = pControl + iControl + dControl;
 }
 
 void pidControlSystem2(double &goal, double &curr, double &pControl, double &iControl, double &dControl, double &p_gain, double &i_gain, double &d_gain, double &pidControl, double &derivative, double &lastderivative, double &last_input)
-{
+{// right
+  double TIME = 1/control_cycle;
   double error = goal - curr;
+  double ACC_ERROR_MIN = -10.0;
+  double ACC_ERROR_MAX = 10.0;
+  double ACC_ERROR_MIN_d = -10.0;
+  double ACC_ERROR_MAX_d = 10.0;
+  double filter = 10.6103e-3;
 
   pControl = p_gain * error;
 
-
-  double ACC_ERROR_MIN = -50.0;
-  double ACC_ERROR_MAX = 50.0;
-
   iControl += (error * i_gain) * TIME;
   iControl = std::min(std::max(iControl, ACC_ERROR_MIN), ACC_ERROR_MAX);
-
-  double filter = 7.9577e-3;
 
   derivative = (goal - last_input) / TIME;
   derivative = lastderivative + (TIME / (filter + TIME)) * (derivative - lastderivative);
@@ -354,13 +354,12 @@ void pidControlSystem2(double &goal, double &curr, double &pControl, double &iCo
   lastderivative = derivative;
 
   dControl = d_gain * derivative;
-
-  double ACC_ERROR_MIN_d = -50.0;
-  double ACC_ERROR_MAX_d = 50.0;
   dControl = std::min(std::max(dControl, ACC_ERROR_MIN_d), ACC_ERROR_MAX_d);
   
   pidControl = pControl + iControl + dControl;
 }
+
+
 
 void InfoMotors()
 {
@@ -381,6 +380,8 @@ void InfoMotors()
   printf("linear_vel1 : %10.0f    ||  linear_vel2 : %10.0f\n", linear_vel1, linear_vel2);
   // printf("odom_l: %10.0f || odom_r: %10.0f\n",odo[0], odo[1]);
   printf("left_speed: %10.0f || right_speed: %10.0f\n",left_speed, right_speed);
+  // printf("left_speed: %10.0d || right_speed: %10.0d\n",speed_count_1, speed_count2);
+
 
   printf("encoder_count_1B  :%5d\n", encoder_count_1B);
 
@@ -425,10 +426,14 @@ RosCommunicator::RosCommunicator()
 
 void RosCommunicator::TimerCallback()
 {
+  // double raw_odom_1, raw_odom_2 = {};
+
+  raw_odom_2 = linear_vel1;
+  raw_odom_1 = linear_vel2;
 
   double vw[2];
-  vw[0] = (linear_vel1 - linear_vel2) / (robot_radius * 2) * 1000; //angular
-  vw[1] = (linear_vel1 + linear_vel2) / 2.0; //linear vel
+  vw[0] = (raw_odom_2 - raw_odom_1) / (robot_radius * 2) * 1000; //angular
+  vw[1] = (raw_odom_2 + raw_odom_1) / 2.0; //linear vel
 
   double encod[2];
   encod[0] = SumMotor1Encoder();
@@ -451,8 +456,6 @@ void RosCommunicator::TimerCallback()
   msg.data = {topic_rpm_value1, topic_rpm_value2, left_rpm, right_rpm};
   pub_pid_check_->publish(msg);
   PidMotorControl();
-
-
 }
 
 void RosCommunicator::cmdCallback(const geometry_msgs::msg::Twist::SharedPtr msg)
@@ -505,37 +508,34 @@ void RosCommunicator::DirectMotorControl()
 }
 
 void RosCommunicator::PidMotorControl()
-{
-
-  // 왼쪽
+{ // 왼쪽
   if(left_rpm < 0)
   { 
     left_rpm = abs(left_rpm);
     pidControlSystem2(left_rpm, rpm_value1, pControl2, iControl2, dControl2, p_gain2, i_gain2, d_gain2, pidControl2, derivative2, lastderivative2, last_input2);
 
     target_pwm2 +=pidControl2;
+
     // target_pwm1 = abs(target_pwm1);
     // target_pwm1 = abs(pidControl1);
 
-    // MotorController(2, true, target_pwm2); // 회전 방향을 반대로 하고, 회전 속도는 절댓값으로 설정
-    MotorController(1, false, target_pwm2); // 회전 방향을 반대로 하고, 회전 속도는 절댓값으로 설정
-
-
+    MotorController(2, true, target_pwm2); // 회전 방향을 반대로 하고, 회전 속도는 절댓값으로 설정
+    // MotorController(1, false, target_pwm2); // 회전 방향을 반대로 하고, 회전 속도는 절댓값으로 설정
   }
+
   else if (left_rpm > 0)
   {
-
     pidControlSystem2(left_rpm, rpm_value1, pControl2, iControl2, dControl2, p_gain2, i_gain2, d_gain2, pidControl2, derivative2, lastderivative2, last_input2);
-    target_pwm2 +=pidControl2;
     
+    target_pwm2 +=pidControl2;
 
-    MotorController(1, true, target_pwm2); // 회전 방향과 회전 속도를 그대로 설정
-    // MotorController(2, false, target_pwm2); // 회전 방향과 회전 속도를 그대로 설정
+    // MotorController(1, true, target_pwm2); // 회전 방향과 회전 속도를 그대로 설정
+    MotorController(2, false, target_pwm2); // 회전 방향과 회전 속도를 그대로 설정
   }
 
   else if(left_rpm == 0)
   {
-    MotorController(1, true, 0);
+    MotorController(2, true, 0);
     target_pwm2 = 0;
   }
 
@@ -544,28 +544,31 @@ void RosCommunicator::PidMotorControl()
   {  
     right_rpm = abs(right_rpm);
     pidControlSystem1(right_rpm, rpm_value2, pControl1, iControl1, dControl1, p_gain1, i_gain1, d_gain1, pidControl1, derivative1, lastderivative1, last_input1);
+    
     target_pwm1 +=pidControl1;
+
     // target_pwm2 = abs(target_pwm2 + pidControl2);
     // target_pwm2 = abs(target_pwm2);
-    MotorController(2, true, target_pwm1); // 회전 방향과 회전 속도를 그대로 설정
+    // MotorController(2, true, target_pwm1); // 회전 방향과 회전 속도를 그대로 설정
 
-    // MotorController(1, false, target_pwm1); // 회전 방향을 반대로 하고, 회전 속도는 절댓값으로 설정
+    MotorController(1, false, target_pwm1); // 회전 방향을 반대로 하고, 회전 속도는 절댓값으로 설정
   }
 
   else if (right_rpm >0)
   {
     pidControlSystem1(right_rpm, rpm_value2, pControl1, iControl1, dControl1, p_gain1, i_gain1, d_gain1, pidControl1, derivative1, lastderivative1, last_input1);
+    
     target_pwm1 += pidControl1;
 
-    MotorController(2, false, target_pwm1); // 회전 방향과 회전 속도를 그대로 설정
+    // MotorController(2, false, target_pwm1); // 회전 방향과 회전 속도를 그대로 설정
 
-    // MotorController(1, true, target_pwm1); // 회전 방향과 회전 속도를 그대로 설정
+    MotorController(1, true, target_pwm1); // 회전 방향과 회전 속도를 그대로 설정
   }
 
   else if(right_rpm == 0)
   {
-    MotorController(2, false, 0);
-    // MotorController(1, true, 0);
+    // MotorController(2, false, 0);
+    MotorController(1, true, 0);
     target_pwm1 = 0;
   }
 }

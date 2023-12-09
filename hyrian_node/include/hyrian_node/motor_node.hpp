@@ -57,6 +57,10 @@ double right_speed;
 double linear_vel1; 
 double linear_vel2;
 
+double raw_odom_1;
+double raw_odom_2;
+
+
 bool target_dir1 = true;
 bool target_dir2 = true;
 
@@ -74,7 +78,7 @@ double target_pwm2 = 0.0;
 double topic_rpm_value1 = 0.0;
 double topic_rpm_value2 = 0.0;
 
-#define TIME 0.1
+// #define TIME 0.0666666667
 double pidControl1 = 0.0;
 double p_gain1 = 0.0;
 double i_gain1 = 0.0;
