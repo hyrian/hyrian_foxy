@@ -411,7 +411,7 @@ void InfoMotors()
 
 
 RosCommunicator::RosCommunicator()
-    : Node("tutorial_ros2_motor"), count_(0)
+    : Node("hyrian_motor_node"), count_(0)
 {
 
   publisher_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("motor_packet", 10); // Publisher 생성
@@ -428,12 +428,9 @@ void RosCommunicator::TimerCallback()
 {
   // double raw_odom_1, raw_odom_2 = {};
 
-  raw_odom_2 = linear_vel1;
-  raw_odom_1 = linear_vel2;
-
   double vw[2];
-  vw[0] = (raw_odom_2 - raw_odom_1) / (robot_radius * 2) * 1000; //angular
-  vw[1] = (raw_odom_2 + raw_odom_1) / 2.0; //linear vel
+  vw[0] = (linear_vel2 - linear_vel1) / (robot_radius * 2) * 1000; //angular
+  vw[1] = (linear_vel1 + linear_vel2) / 2.0; //linear vel
 
   double encod[2];
   encod[0] = SumMotor1Encoder();
