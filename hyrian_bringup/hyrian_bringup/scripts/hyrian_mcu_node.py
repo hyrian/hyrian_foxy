@@ -99,6 +99,7 @@ class HyrianNode(Node):
     self.wheel_radius = self.get_parameter_or('wheel.radius', Parameter('wheel.radius', Parameter.Type.DOUBLE, 0.0575)).get_parameter_value().double_value
     self.enc_pulse = self.get_parameter_or('sensor.enc_pulse', Parameter('sensor.enc_pulse', Parameter.Type.DOUBLE, 228.0)).get_parameter_value().double_value
     self.use_gyro = self.get_parameter_or('sensor.use_gyro', Parameter('sensor.use_gyro', Parameter.Type.BOOL, False)).get_parameter_value().bool_value
+    # self.use_gyro = self.get_parameter_or('sensor.use_gyro', Parameter('sensor.use_gyro', Parameter.Type.BOOL, True)).get_parameter_value().bool_value
     print('GEAR RATIO:\t\t%s'%(self.gear_ratio))
     print('WHEEL SEPARATION:\t%s'%(self.wheel_separation))
     print('WHEEL RADIUS:\t\t%s'%(self.wheel_radius))
@@ -149,7 +150,7 @@ class HyrianNode(Node):
     # Set publisher
     self.pub_JointStates = self.create_publisher(JointState, 'joint_states', 10)
     self.pub_IMU = self.create_publisher(Imu, 'imu', 10)
-    self.pub_Odom = self.create_publisher(Odometry, 'odom', 10)
+    self.pub_Odom = self.create_publisher(Odometry, 'odom_encoder', 10)
     self.pub_OdomTF = TransformBroadcaster(self)
     self.pub_pose = self.create_publisher(Pose, 'pose', 10)
     self.pub_vel = self.create_publisher(Twist, 'motor_input', 10)
@@ -187,9 +188,12 @@ class HyrianNode(Node):
     if self.use_gyro:
         self.calc_yaw.wheel_ang += orient_vel * dt
         self.odom_pose.theta = self.calc_yaw.calc_filter(vel_z*math.pi/180., dt)
+
+        self.get_logger().info('Hyrian state!!')
+
         # self.get_logger().info('Hyrian state : whl pos %1.2f, %1.2f, gyro : %1.2f, whl odom : %1.2f, robot theta : %1.2f' 
         #             %(odo_l, odo_r, vel_z,
-        #             self.calc_yaw.wheel_ang*180/math.pi, 
+        #             self.calc_yaw.wheel_ang*180/math.pi,  
         #             self.d_odom_pose['theta']*180/math.pi ))
     else:
         self.odom_pose.theta += orient_vel * dt
@@ -227,25 +231,27 @@ class HyrianNode(Node):
 
     self.pub_Odom.publish(odom)
 
-    # Set odomTF data
-    odom_tf = TransformStamped()
-    odom_tf.header.frame_id = odom.header.frame_id
-    odom_tf.child_frame_id = odom.child_frame_id
-    odom_tf.header.stamp = timestamp_now
+    # # Set odomTF data, ekf ㄴㄴ
+    # odom_tf = TransformStamped()
+    # odom_tf.header.frame_id = odom.header.frame_id
+    # odom_tf.child_frame_id = odom.child_frame_id
+    # odom_tf.header.stamp = timestamp_now
 
-    odom_tf.transform.translation.x = odom.pose.pose.position.x
-    odom_tf.transform.translation.y = odom.pose.pose.position.y
-    odom_tf.transform.translation.z = odom.pose.pose.position.z
-    odom_tf.transform.rotation = odom.pose.pose.orientation
-    self.pub_OdomTF.sendTransform(odom_tf)
-
-  def updatePoseStates(self, roll, pitch, yaw):
-    #Added to publish pose orientation of IMU
-    pose = Pose()
-    pose.orientation.x = roll
-    pose.orientation.y = pitch
-    pose.orientation.z = yaw
-    self.pub_pose.publish(pose)
+    # odom_tf.transform.translation.x = odom.pose.pose.position.x
+    # odom_tf.transform.translation.y = odom.pose.pose.position.y
+    # odom_tf.transform.translation.z = odom.pose.pose.position.z
+    # odom_tf.transform.rotation = odom.pose.pose.orientation
+    # self.pub_OdomTF.sendTransform(odom_tf)
+# #########################################################
+#   def updatePoseStates(self, roll, pitch, yaw):
+#     #Added to publish pose orientation of IMU
+#     pose = Pose()
+#     pose.orientation.x = roll
+#     pose.orientation.y = pitch
+#     pose.orientation.z = yaw
+#     self.pub_pose.publish(pose)
+    ################ EKF NN ###################
+    ############################################################
 
   def updateJointStates(self, odo_l, odo_r, trans_vel, orient_vel):
     odo_l /= 1000.
@@ -319,7 +325,7 @@ class HyrianNode(Node):
     ang_vel_z = max(-self.max_ang_vel_z, min(self.max_ang_vel_z, ang_vel_z))
 
     #print("CMD_VEL V_x:%s m/s, Rot_z:%s deg/s"%(lin_vel_x, ang_vel_z))
-    self.ph.write_base_velocity(lin_vel_x*1000, ang_vel_z*1000) #이문장 필요 없는거같은데?
+    self.ph.write_base_velocity(lin_vel_x*1000, ang_vel_z*1000) #이문장 필요 없는거같은데? 그러게요
     self.base_vel.linear.x = lin_vel_x * 1000 #son 추가
     self.base_vel.angular.z = ang_vel_z * 1000
 
@@ -381,7 +387,7 @@ class HyrianNode(Node):
     self.motor_packet = msg.data  # motor_packet 저장
     pass
  
-  def cbIMU(self, msg): #son 추가
+  def cbIMU(self, msg): #son 추가, 이거 없어도 될듯 싶습니다
     roll_imu = msg.orientation.x
     pitch_imu = msg.orientation.y
     yaw_imu = msg.orientation.z

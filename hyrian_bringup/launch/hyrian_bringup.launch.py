@@ -11,7 +11,7 @@ from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
 from launch.substitutions import ThisLaunchFileDir
-
+import launch_ros.actions
 
 def generate_launch_description():
   hyrian_mcu_parameter = LaunchConfiguration(
@@ -30,7 +30,7 @@ def generate_launch_description():
     )
   )
 
-  use_sim_time = LaunchConfiguration('use_sim_time', default='true') ## false -> true
+  use_sim_time = LaunchConfiguration('use_sim_time', default='false') ## false -> true
   hyrian_description_dir = LaunchConfiguration(
     'hyrian_description_dir',
     default=os.path.join(
@@ -40,6 +40,15 @@ def generate_launch_description():
   )
 
   return LaunchDescription([
+    
+    launch_ros.actions.Node(
+            package='robot_localization',
+            executable='ekf_node',
+            name='ekf_filter_node',
+            output='screen',
+            parameters=[os.path.join(get_package_share_directory("hyrian_bringup"), 'param', 'ekf.yaml')],
+    ),
+
     DeclareLaunchArgument(
       'hyrian_mcu_parameter',
       default_value=hyrian_mcu_parameter
