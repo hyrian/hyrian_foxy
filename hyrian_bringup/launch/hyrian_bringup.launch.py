@@ -39,6 +39,13 @@ def generate_launch_description():
     )
   )
 
+  hyrian_imu_dir = LaunchConfiguration(
+      'hyrian_imu_dir',
+      default=os.path.join(
+        get_package_share_directory('hyrian_imu'),
+        'launch'
+      )
+  )
   return LaunchDescription([
     
     launch_ros.actions.Node(
@@ -73,4 +80,8 @@ def generate_launch_description():
       PythonLaunchDescriptionSource([hyrian_description_dir, '/hyrian_state_publisher.launch.py']),
       launch_arguments={'use_sim_time': use_sim_time}.items(),
     ),
+
+    # IncludeLaunchDescription(
+    #   PythonLaunchDescriptionSource([hyrian_imu_dir, '/hyrian_imu.launch.py']),
+    # ),
   ])
