@@ -58,7 +58,7 @@ POSE_GRAPH.constraint_builder.min_score = 0.65
 -- 스캔 최소 스코어 설정
 POSE_GRAPH.constraint_builder.global_localization_min_score = 0.7
 
-POSE_GRAPH.optimize_every_n_nodes = 90
--- POSE_GRAPH.optimize_every_n_nodes = 0
+-- POSE_GRAPH.optimize_every_n_nodes = 90
+POSE_GRAPH.optimize_every_n_nodes = 0
 -- 원래는 0 임
 return options

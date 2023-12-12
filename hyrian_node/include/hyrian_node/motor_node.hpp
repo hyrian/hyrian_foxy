@@ -80,9 +80,9 @@ double topic_rpm_value2 = 0.0;
 
 // #define TIME 0.0666666667
 double pidControl1 = 0.0;
-double p_gain1 = 0.0;
+double p_gain1 = 0.14;
 double i_gain1 = 0.0;
-double d_gain1 = 0.0;
+double d_gain1 = 0.03;
 double derivative1 = 0.0;
 double lastderivative1 = 0.0;
 double last_input1 = 0.0;
@@ -91,9 +91,9 @@ double iControl1 = 0.0;
 double dControl1 = 0.0;
 
 double pidControl2 = 0.0;
-double p_gain2 = 0.0;
+double p_gain2 = 0.14;
 double i_gain2 = 0.0;
-double d_gain2 = 0.0;
+double d_gain2 = 0.03;
 double derivative2 = 0.0;
 double lastderivative2 = 0.0;
 double last_input2 = 0.0;
