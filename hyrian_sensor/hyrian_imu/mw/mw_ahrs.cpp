@@ -59,7 +59,8 @@ namespace ntrex
     this->get_parameter("angular_velocity_stddev", angular_velocity_stddev_);
     this->get_parameter("magnetic_field_stddev", magnetic_field_stddev_);
     this->get_parameter("orientation_stddev", orientation_stddev_);
-  
+    frame_id_ = "imu_link";
+    
     if (res)
     {
       run_bool = true;
@@ -188,6 +189,8 @@ namespace ntrex
     {
       geometry_msgs::msg::TransformStamped tf;
       tf.header.stamp = now;
+      // parent_frame_id_ = 'base_link';
+      // frame_id_ = 'imu_link';
       tf.header.frame_id = parent_frame_id_;
       tf.child_frame_id = frame_id_;
       tf.transform.translation.x = 0.0;
