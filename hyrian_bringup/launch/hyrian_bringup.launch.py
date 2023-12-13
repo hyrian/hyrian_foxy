@@ -81,7 +81,7 @@ def generate_launch_description():
       launch_arguments={'use_sim_time': use_sim_time}.items(),
     ),
 
-    # IncludeLaunchDescription(
-    #   PythonLaunchDescriptionSource([hyrian_imu_dir, '/hyrian_imu.launch.py']),
-    # ),
+    IncludeLaunchDescription(
+      PythonLaunchDescriptionSource([hyrian_imu_dir, '/hyrian_imu.launch.py']),
+    ),
   ])
