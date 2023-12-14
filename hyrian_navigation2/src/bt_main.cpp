@@ -1,4 +1,5 @@
 #include "hyrian_bt/nav2_client.hpp"
+#include "hyrian_bt/iskeyword1equalto.hpp"
 
 #include <behaviortree_cpp_v3/bt_factory.h>
 #include "std_msgs/msg/string.hpp"
@@ -34,6 +35,7 @@ int main(int argc, char **argv)
     BehaviorTreeFactory factory;
   
     factory.registerNodeType<Nav2Client>("Nav2Client");
+    factory.registerNodeType<IsKeyword1EqualTo>("IsKeyword1EqualTo");
     // factory.registerNodeType<InterruptEvent>("InterruptEvent");
     // factory.registerNodeType<SnapshotClient>("SnapshotClient");
     // factory.registerNodeType<SendCommandVel>("SendCommandVel");
