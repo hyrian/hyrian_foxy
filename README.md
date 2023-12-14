@@ -1,6 +1,8 @@
 # ROS GPT 노드 구성 및 키워드 전달 
 
 구조도에 따라 코드를 수정하기 위한 과정을 개략적으로 설명한 것
+![GPT ROS Flowchart](https://github.com/hyrian/hyrian_foxy/blob/feature/gpthri/GPTflowchart.jpg)
+
 
 
 1. **노드 및 토픽 정의:** 각 노드가 어떤 토픽을 구독하고 발행할 것인지 정의해야 합니다. 구조도에서는 각 노드가 특정 키워드에 반응하여 메시지를 발행하는 것으로 보입니다.
