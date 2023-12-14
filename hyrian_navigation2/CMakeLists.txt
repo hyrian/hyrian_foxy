@@ -17,6 +17,7 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+<<<<<<< HEAD
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_action REQUIRED)
 find_package(nav2_msgs REQUIRED)
@@ -26,10 +27,13 @@ find_package(std_srvs REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 find_package(behaviortree_cpp_v3 REQUIRED)
 
+=======
+>>>>>>> 3c22981dce932cfa6a1863dd8907db256d3f0fd3
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
+<<<<<<< HEAD
 add_executable(movebase src/movebase.cpp)
 ament_target_dependencies(movebase rclcpp rclcpp_action nav2_msgs geometry_msgs std_msgs std_srvs tf2_geometry_msgs)
 
@@ -52,6 +56,13 @@ install(TARGETS
   bt_main
   DESTINATION lib/${PROJECT_NAME}
 )
+=======
+install(
+  DIRECTORY launch map param rviz
+  DESTINATION share/$(PROJECT_NAME)
+)
+
+>>>>>>> 3c22981dce932cfa6a1863dd8907db256d3f0fd3
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights

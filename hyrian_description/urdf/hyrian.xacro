@@ -112,9 +112,14 @@
   </collision>
 </link>
 
+<<<<<<< HEAD
 <!-- 0.065223변경, 0.125223 -->
 <joint name="lidar_joint" type="fixed">
   <origin xyz="0.125223 0.000386 0.071081" rpy="0 0 0"/>
+=======
+<joint name="lidar_joint" type="fixed">
+  <origin xyz="0.065223 0.000386 0.071081" rpy="0 0 0"/>
+>>>>>>> 3c22981dce932cfa6a1863dd8907db256d3f0fd3
   <parent link="base_link"/>
   <child link="laser_frame"/>
 </joint>
