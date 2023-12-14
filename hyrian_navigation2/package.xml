@@ -8,7 +8,6 @@
   <license>TODO: License declaration</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
-<<<<<<< HEAD
 
   <depend>rclcpp</depend>
   <depend>rclcpp_action</depend>
@@ -25,13 +24,6 @@
   <test_depend>ament_lint_common</test_depend>
 
 
-=======
-  <exec_depend>nav2_bringup</exec_depend>
-
-  <test_depend>ament_lint_auto</test_depend>
-  <test_depend>ament_lint_common</test_depend>
-
->>>>>>> 3c22981dce932cfa6a1863dd8907db256d3f0fd3
   <export>
     <build_type>ament_cmake</build_type>
   </export>
