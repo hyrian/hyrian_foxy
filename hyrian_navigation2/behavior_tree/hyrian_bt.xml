@@ -5,12 +5,12 @@
             <CheckBlackboardKeys keys="keyword1,keyword2" />
             <Fallback>
                 <Sequence>
-                    <Condition ID="IsKeyword1EqualTo" value="navigation" />
+                    <Condition ID="KeywordCheck" value="navigation" />
                     <SubTree ID="MoveToProduct" />
                 </Sequence>
                 <Sequence>
-                    <Condition ID="IsKeyword1EqualTo" value="gesture" />
-                    <SubTree ID="Gesture" />
+                    <Condition ID="KeywordCheck" value="gesture" />
+                    <SubTree ID="Gesture_Select" />
                 </Sequence>
             </Fallback>
         </Sequence>
@@ -19,27 +19,27 @@
     <BehaviorTree ID="MoveToProduct">
         <Fallback>
             <Sequence>
-                <Condition ID="IsKeyword2EqualTo" value="product1" />
+                <Condition ID="IsKeyword2EqualTo" value="product1" keyword2="${keyword2}"/>
                 <SetBlackboard output_key="Goal" value="0.1;1.0;0.0;1.0" />
                 <SubTree ID="MoveRobot" target="Goal" />
             </Sequence>
             <Sequence>
-                <Condition ID="IsKeyword2EqualTo" value="product2" />
+                <Condition ID="IsKeyword2EqualTo" value="product2" keyword2="${keyword2}" />
                 <SetBlackboard output_key="Goal" value="2.0;2.5;0.0;1.0" />
                 <SubTree ID="MoveRobot" target="Goal" />
             </Sequence>
             <Sequence>
-                <Condition ID="IsKeyword2EqualTo" value="product3" />
+                <Condition ID="IsKeyword2EqualTo" value="product3" keyword2="${keyword2}" />
                 <SetBlackboard output_key="Goal" value="2.0;-1.5;0.0;1.0" />
                 <SubTree ID="MoveRobot" target="Goal" />
             </Sequence>
             <Sequence>
-                <Condition ID="IsKeyword2EqualTo" value="product4" />
+                <Condition ID="IsKeyword2EqualTo" value="product4" keyword2="${keyword2}"/>
                 <SetBlackboard output_key="Goal" value="4.0;0.1;0.0;1.0" />
                 <SubTree ID="MoveRobot" target="Goal" />
             </Sequence>
             <Sequence>
-                <Condition ID="IsKeyword2EqualTo" value="origin" />
+                <Condition ID="IsKeyword2EqualTo" value="origin" keyword2="${keyword2}" />
                 <SetBlackboard output_key="Goal" value="0.0;0.0;0.0;1.0" />
                 <SubTree ID="MoveRobot" target="Goal" />
             </Sequence>
@@ -55,9 +55,9 @@
         </Sequence>
     </BehaviorTree>
 
-    <BehaviorTree ID="Gesture">
-        <Sequence name="SetGoal">
-            <Nav2Client goal="{target}" />
+    <BehaviorTree ID="Gesture_Select">
+        <Sequence name="gesture_sequence">
+            <Action ID="Gesture" value="${keyword2}" />
         </Sequence>
     </BehaviorTree>
 
