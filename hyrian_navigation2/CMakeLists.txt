@@ -24,6 +24,8 @@ find_package(geometry_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(std_srvs REQUIRED) 
 find_package(tf2_geometry_msgs REQUIRED)
+find_package(behaviortree_cpp_v3 REQUIRED)
+
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
@@ -34,25 +36,31 @@ ament_target_dependencies(movebase rclcpp rclcpp_action nav2_msgs geometry_msgs 
 add_executable(gesture src/gesture.cpp)  
 ament_target_dependencies(gesture rclcpp std_srvs)  
 
+add_executable(bt_main src/bt_main.cpp)  
+ament_target_dependencies(bt_main rclcpp std_srvs behaviortree_cpp_v3)  
+target_link_libraries(bt_main ${ZMQ_LIBRARIES})
+
+
 install(
-  DIRECTORY launch map param rviz src
+  DIRECTORY launch map param rviz src behavior_tree cmake include
   DESTINATION share/${PROJECT_NAME}
 )
 
 install(TARGETS
   movebase
   gesture
+  bt_main
   DESTINATION lib/${PROJECT_NAME}
 )
-# if(BUILD_TESTING)
-#   find_package(ament_lint_auto REQUIRED)
-#   # the following line skips the linter which checks for copyrights
-#   # uncomment the line when a copyright and license is not present in all source files
-#   #set(ament_cmake_copyright_FOUND TRUE)
-#   # the following line skips cpplint (only works in a git repo)
-#   # uncomment the line when this package is not in a git repo
-#   #set(ament_cmake_cpplint_FOUND TRUE)
-#   ament_lint_auto_find_test_dependencies()
-# endif()
+if(BUILD_TESTING)
+  find_package(ament_lint_auto REQUIRED)
+  # the following line skips the linter which checks for copyrights
+  # uncomment the line when a copyright and license is not present in all source files
+  #set(ament_cmake_copyright_FOUND TRUE)
+  # the following line skips cpplint (only works in a git repo)
+  # uncomment the line when this package is not in a git repo
+  #set(ament_cmake_cpplint_FOUND TRUE)
+  ament_lint_auto_find_test_dependencies()
+endif()
 
 ament_package()
