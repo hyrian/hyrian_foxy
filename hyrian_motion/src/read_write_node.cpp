@@ -65,7 +65,7 @@
 
 // Default setting
 #define BAUDRATE 57600  // Default Baudrate of DYNAMIXEL X series
-#define DEVICE_NAME "/dev/ttyUSB0"  // [Linux]: "/dev/ttyUSB*", [Windows]: "COM*"
+#define DEVICE_NAME "/dev/ttyUSB1"  // [Linux]: "/dev/ttyUSB*", [Windows]: "COM*"
 
 
 
@@ -391,8 +391,9 @@ int main(int argc, char * argv[])
   std::chrono::milliseconds timespan_1(2000);
   std::chrono::milliseconds timespan_2(2000);
   // Open Serial Port
-  dxl_comm_result = portHandler->openPort();
+  dxl_comm_result = portHandler->openPort();                                   
   if (dxl_comm_result == false) {
+
     RCLCPP_ERROR(rclcpp::get_logger("read_write_node"), "Failed to open the port!");
     return -1;
   } else {
@@ -410,7 +411,6 @@ int main(int argc, char * argv[])
 
 
   setupDynamixel(BROADCAST_ID);
-
   rclcpp::init(argc, argv);
   auto gesture_node = std::make_shared<GestureNode>();
 

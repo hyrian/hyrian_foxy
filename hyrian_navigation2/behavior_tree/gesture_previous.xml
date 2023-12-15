@@ -1,0 +1,15 @@
+<root main_tree_to_execute = "MainTree">
+    <BehaviorTree ID="MainTree">
+        <Sequence>
+            <Condition ID="KeywordCheck" value="gesture" />
+            <SubTree ID="Gesture_Select" />
+        </Sequence>
+    </BehaviorTree>
+
+    <BehaviorTree ID="Gesture_Select">
+        <Sequence name="gesture_sequence">
+            <Action ID="Gesture" value="${keyword2}" />
+        </Sequence>
+    </BehaviorTree>
+
+</root>

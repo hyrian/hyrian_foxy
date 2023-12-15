@@ -22,15 +22,10 @@ options = {
   trajectory_builder = TRAJECTORY_BUILDER,
   map_frame = "map",
   tracking_frame = "imu_link",
-<<<<<<< HEAD
   -- 바꿈
   published_frame = "odom",
   odom_frame = "odom",
   -- odom -> odometry/filtered       
-=======
-  published_frame = "odom",
-  odom_frame = "odom",
->>>>>>> 3c22981dce932cfa6a1863dd8907db256d3f0fd3
   provide_odom_frame = false,
   publish_frame_projected_to_2d = true,
   use_odometry = true,
