@@ -22,8 +22,15 @@ options = {
   trajectory_builder = TRAJECTORY_BUILDER,
   map_frame = "map",
   tracking_frame = "imu_link",
+<<<<<<< HEAD
+  -- 바꿈
   published_frame = "odom",
   odom_frame = "odom",
+  -- odom -> odometry/filtered       
+=======
+  published_frame = "odom",
+  odom_frame = "odom",
+>>>>>>> 3c22981dce932cfa6a1863dd8907db256d3f0fd3
   provide_odom_frame = false,
   publish_frame_projected_to_2d = true,
   use_odometry = true,
@@ -58,7 +65,12 @@ POSE_GRAPH.constraint_builder.min_score = 0.65
 -- 스캔 최소 스코어 설정
 POSE_GRAPH.constraint_builder.global_localization_min_score = 0.7
 
+<<<<<<< HEAD
 -- POSE_GRAPH.optimize_every_n_nodes = 90
 POSE_GRAPH.optimize_every_n_nodes = 0
+=======
+POSE_GRAPH.optimize_every_n_nodes = 90
+-- POSE_GRAPH.optimize_every_n_nodes = 0
+>>>>>>> 3c22981dce932cfa6a1863dd8907db256d3f0fd3
 -- 원래는 0 임
 return options

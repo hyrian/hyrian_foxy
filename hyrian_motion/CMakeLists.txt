@@ -19,11 +19,28 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclpy REQUIRED)
+find_package(std_srvs REQUIRED)
+
 
 find_package(rosidl_default_generators REQUIRED)
+
+find_package(dynamixel_sdk REQUIRED)
+find_package(hyrian_interfaces REQUIRED)
+find_package(dynamixel_sdk_custom_interfaces REQUIRED)
+
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/SetMotorPWM.msg"
   "msg/MotorPWM.msg"
+)
+include_directories(include)
+
+add_executable(read_write_node src/read_write_node.cpp)
+ament_target_dependencies(read_write_node rclcpp std_msgs std_srvs dynamixel_sdk_custom_interfaces hyrian_interfaces dynamixel_sdk)
+
+install(TARGETS
+  read_write_node
+
+  DESTINATION lib/${PROJECT_NAME}
 )
 
 
