@@ -18,25 +18,20 @@ public:
         rclcpp::shutdown();
     }
 
-    static BT::PortsList providedPorts()
-    {
-        return{ BT::InputPort<std::string>("keyword2") };
-    }
-
     BT::NodeStatus tick() override
     {
-        BT::Optional<std::string> keyword2 = getInput<std::string>("keyword2_out");
+        BT::Optional<std::string> keyword2_ = getInput<std::string>("option");
         
 
-        if (!keyword2 || keyword2->empty()) {
+        if (!keyword2_) {
             RCLCPP_ERROR(nh->get_logger(), "No keyword2 received");
             return BT::NodeStatus::FAILURE;
         }
 
-        RCLCPP_INFO(nh->get_logger(), "Received keyword2: %s", keyword2->c_str());
+        RCLCPP_INFO(nh->get_logger(), "Received keyword2: %s", keyword2_->c_str());
 
         auto request = std::make_shared<hyrian_interfaces::srv::GetGesture::Request>();
-        request->gesture = *keyword2;
+        request->gesture = *keyword2_;
 
         auto future = client->async_send_request(request);
 
@@ -53,6 +48,11 @@ public:
             RCLCPP_ERROR(nh->get_logger(), "Service call failed");
             return BT::NodeStatus::FAILURE;
         }
+    }
+
+    static BT::PortsList providedPorts()
+    {
+        return{ BT::InputPort<std::string>("option") };
     }
 
 private:

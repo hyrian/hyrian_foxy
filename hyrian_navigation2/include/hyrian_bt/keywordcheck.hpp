@@ -15,29 +15,34 @@ public:
 
     BT::NodeStatus tick() override
     {
-        BT::Optional<std::string> opt_keyword1 = getInput<std::string>("keyword1");
-        BT::Optional<std::string> opt_keyword2 = getInput<std::string>("keyword2");
+        BT::Optional<std::string> opt_value = getInput<std::string>("value");
+        BT::Optional<std::string> opt_keyword1 = getInput<std::string>("keyword");
 
-        if (!opt_keyword1 || !opt_keyword2) {
+        if (!opt_value || !opt_keyword1) {
             std::cout << "Waiting for message..." << std::endl;
             return BT::NodeStatus::RUNNING;
         }
 
-        std::string keyword1 = opt_keyword1.value();
-        std::string keyword2 = opt_keyword2.value();
+        std::string value = opt_value.value();
+        std::string keyword = opt_keyword1.value();
 
-        RCLCPP_INFO(nh->get_logger(), "KeywordCheck: keyword1 = %s, keyword2 = %s", keyword1.c_str(), keyword2.c_str());
+        RCLCPP_INFO(nh->get_logger(), "KeywordCheck: value = %s, keyword = %s", value.c_str(), keyword.c_str());
 
-        setOutput("keyword2_out", keyword2);
-
-        return BT::NodeStatus::SUCCESS;
+        if (value == keyword) {
+            // setOutput("keyword2_out", keyword2);
+            return BT::NodeStatus::SUCCESS;
+        } else {
+            return BT::NodeStatus::FAILURE;
+        }
     }
 
     static BT::PortsList providedPorts()
     {
-        return{ BT::InputPort<std::string>("keyword1"),
-                BT::InputPort<std::string>("keyword2"),
-                BT::OutputPort<std::string>("keyword2_out") };
+        return{ 
+                BT::InputPort<std::string>("value"),
+                BT::InputPort<std::string>("keyword"),
+                // BT::OutputPort<std::string>("keyword2_out") 
+                };
     }
 
 private:

@@ -22,6 +22,7 @@ public:
                 BT::OutputPort<std::string>("keyword2") };
     }
 
+
     BT::NodeStatus tick() override
     {
         if (keyword1.empty() || keyword2.empty()) {
@@ -29,12 +30,18 @@ public:
         }
 
         setResult(keyword1, keyword2);
+        RCLCPP_INFO(nh->get_logger(), "KeywordCheck: keyword1 = %s, keyword2 = %s", keyword1.c_str(), keyword2.c_str());
+
+        keyword1.clear();
+        keyword2.clear();
         return BT::NodeStatus::SUCCESS;
     }
 
     void halt() override
     {
-        clean_up();
+        if (spin_thread->joinable()) {
+            spin_thread->join();
+        }
     }
 
 private:
@@ -49,8 +56,7 @@ private:
         std::istringstream ss(msg->data);
         std::getline(ss, keyword1, ',');
         std::getline(ss, keyword2, ',');
-
-        RCLCPP_INFO(nh->get_logger(), "KeywordTrigger: keyword1 = %s, keyword2 = %s", keyword1.c_str(), keyword2.c_str());
+        setResult(keyword1, keyword2);
     }
 
     void setResult(const std::string& keyword1, const std::string& keyword2)
