@@ -26,8 +26,10 @@ find_package(std_msgs REQUIRED)
 find_package(std_srvs REQUIRED) 
 find_package(tf2_geometry_msgs REQUIRED)
 find_package(nav2_behavior_tree REQUIRED)
-
 find_package(behaviortree_cpp_v3 REQUIRED)
+
+find_package(hyrian_interfaces REQUIRED)
+find_package(dynamixel_sdk_custom_interfaces REQUIRED)
 
 # uncomment the following section in order to fill in
 # further dependencies manually.
@@ -40,7 +42,7 @@ add_executable(gesture src/gesture.cpp)
 ament_target_dependencies(gesture rclcpp std_srvs)  
 
 add_executable(bt_main src/bt_main.cpp)  
-ament_target_dependencies(bt_main rclcpp  rclcpp_action geometry_msgs behaviortree_cpp_v3 std_msgs ament_index_cpp nav2_behavior_tree nav2_msgs)  
+ament_target_dependencies(bt_main rclcpp  rclcpp_action geometry_msgs behaviortree_cpp_v3 std_msgs ament_index_cpp nav2_behavior_tree nav2_msgs hyrian_interfaces dynamixel_sdk_custom_interfaces)  
 target_link_libraries(bt_main ${ZMQ_LIBRARIES})
 
 

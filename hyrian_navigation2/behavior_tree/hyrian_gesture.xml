@@ -8,7 +8,7 @@
 
     <BehaviorTree ID="Gesture_Select">
         <Sequence name="gesture_sequence">
-            <Action ID="Gesture" value="${keyword2}" />
+            <Action ID="Gesture" keyword2="&{keyword2}" />
         </Sequence>
     </BehaviorTree>
 </root>

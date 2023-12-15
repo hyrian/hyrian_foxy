@@ -23,7 +23,7 @@ def generate_launch_description():
     # Parameters
     bt_xml = LaunchConfiguration(
         'bt_xml', 
-        default=bt_xml_dir+'/hyrian_bt.xml')
+        default=bt_xml_dir+'/hyrian_gesture.xml')
 
     behavior_tree = Node(
         package='hyrian_navigation2',

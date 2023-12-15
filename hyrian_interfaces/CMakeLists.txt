@@ -26,6 +26,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/Onoff.srv"
   "srv/ResetOdom.srv"
   "srv/SaveColor.srv"
+  "srv/GetGesture.srv"
 )
 # uncomment the following section in order to fill in
 # further dependencies manually.

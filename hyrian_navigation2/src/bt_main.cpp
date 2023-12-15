@@ -1,13 +1,15 @@
 #include "hyrian_bt/nav2_client.hpp"
 #include "hyrian_bt/keywordcheck.hpp"
 #include "hyrian_bt/iskeyword2equalto.hpp"
+#include "hyrian_bt/gesture.hpp"
+#include "hyrian_bt/keywordtrigger.hpp"
 
 
 #include <behaviortree_cpp_v3/bt_factory.h>
 #include "std_msgs/msg/string.hpp"
 #include <behaviortree_cpp_v3/loggers/bt_cout_logger.h>
 #include <ament_index_cpp/get_package_share_directory.hpp>
-
+#include <behaviortree_cpp_v3/loggers/bt_zmq_publisher.h>
 
 
 using namespace BT;
@@ -39,6 +41,10 @@ int main(int argc, char **argv)
     factory.registerNodeType<Nav2Client>("Nav2Client");
     factory.registerNodeType<KeywordCheck>("KeywordCheck");
     factory.registerNodeType<IsKeyword2EqualTo>("IsKeyword2EqualTo");
+    factory.registerNodeType<Gesture>("Gesture");
+    factory.registerNodeType<KeywordTrigger>("KeywordTrigger");
+
+
 
     // factory.registerNodeType<InterruptEvent>("InterruptEvent");
     // factory.registerNodeType<SnapshotClient>("SnapshotClient");
@@ -48,7 +54,9 @@ int main(int argc, char **argv)
   
     // Create a logger
     StdCoutLogger logger_cout(tree);
-  
+
+    // Create a ZeroMQ publisher
+    BT::PublisherZMQ publisher_zmq(tree);
     NodeStatus status = NodeStatus::RUNNING;
     // Keep on ticking until you get either a SUCCESS or FAILURE state
     while (rclcpp::ok() && status == NodeStatus::RUNNING) {

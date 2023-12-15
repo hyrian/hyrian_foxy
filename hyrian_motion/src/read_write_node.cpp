@@ -37,14 +37,15 @@
 
 
 #include "dynamixel_sdk_custom_interfaces/msg/set_position.hpp"
-#include "dynamixel_sdk_custom_interfaces/srv/get_gesture.hpp"
+// #include "dynamixel_sdk_custom_interfaces/srv/get_gesture.hpp"
+#include "hyrian_interfaces/srv/get_gesture.hpp"
 #include "dynamixel_sdk_custom_interfaces/srv/get_position.hpp"
 
 #include "rclcpp/rclcpp.hpp"
 #include "rcutils/cmdline_parser.h"
 #include "std_srvs/srv/set_bool.hpp"
 
-#include "read_write_node.hpp"
+#include "hyrian_motion/read_write_node.hpp"
 
 // Control table address for X series (except XL-320)
 #define ADDR_OPERATING_MODE 11
@@ -86,15 +87,15 @@ class GestureNode : public rclcpp::Node
 public:
   GestureNode(): Node("gesture_node")
   {
-    service_ = this->create_service<dynamixel_sdk_custom_interfaces::srv::GetGesture>(
+    service_ = this->create_service<hyrian_interfaces::srv::GetGesture>(
       "gesture_service",
       std::bind(&GestureNode::handle_service, this, std::placeholders::_1, std::placeholders::_2)
     );
   }
 private:
   void handle_service(
-    const std::shared_ptr<dynamixel_sdk_custom_interfaces::srv::GetGesture::Request> request,
-    std::shared_ptr<dynamixel_sdk_custom_interfaces::srv::GetGesture::Response> response)
+    const std::shared_ptr<hyrian_interfaces::srv::GetGesture::Request> request,
+    std::shared_ptr<hyrian_interfaces::srv::GetGesture::Response> response)
   {
     (void)request;  // 일단 요청 사용 x
 
@@ -338,7 +339,7 @@ private:
 
 
 
-  rclcpp::Service<dynamixel_sdk_custom_interfaces::srv::GetGesture>::SharedPtr service_;
+  rclcpp::Service<hyrian_interfaces::srv::GetGesture>::SharedPtr service_;
 };
 
 
