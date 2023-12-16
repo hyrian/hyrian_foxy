@@ -68,17 +68,17 @@ private:
       cmd_vel_msg.linear.x = 0.2;
       cmd_vel_msg.linear.x = 0.3;
       cmd_vel.msg.angular.z = 0.0;
-      
-      // 선속도 제어 - 거리에 따라
-      if(min_distance > 0.7)
-      {
-        cmd_vel_msg.linear.x = 0.2;
-      }
-      else
-      {
-        cmd_vel_msg.linear.x = 0.1;
-      ///
-      }
+
+      // // 선속도 제어 - 거리에 따라
+      // if(min_distance > 0.7)
+      // {
+      //   cmd_vel_msg.linear.x = 0.2;
+      // }
+      // else
+      // {
+      //   cmd_vel_msg.linear.x = 0.1;
+      // ///
+      // }
       publisher_cmd_vel_->publish(cmd_vel_msg);
     else
     {
