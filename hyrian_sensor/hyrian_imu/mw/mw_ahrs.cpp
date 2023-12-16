@@ -59,7 +59,9 @@ namespace ntrex
     this->get_parameter("angular_velocity_stddev", angular_velocity_stddev_);
     this->get_parameter("magnetic_field_stddev", magnetic_field_stddev_);
     this->get_parameter("orientation_stddev", orientation_stddev_);
-  
+    
+    frame_id_ = "imu_link";
+    
     if (res)
     {
       run_bool = true;

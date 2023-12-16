@@ -21,6 +21,14 @@ def generate_launch_description():
       'param/hyrian_mcu.yaml'
     )
   )
+  
+  # hyrian_imu_dir = LaunchConfiguration(
+  #     'hyrian_imu_dir',
+  #     default=os.path.join(
+  #       get_package_share_directory('hyrian_imu'),
+  #       'launch'
+  #     )
+  # )
 
   hyrian_lidar_parameter = LaunchConfiguration(
     'hyrian_lidar_parameter',
@@ -39,16 +47,6 @@ def generate_launch_description():
     )
   )
 
-<<<<<<< HEAD
-  hyrian_imu_dir = LaunchConfiguration(
-      'hyrian_imu_dir',
-      default=os.path.join(
-        get_package_share_directory('hyrian_imu'),
-        'launch'
-      )
-  )
-=======
->>>>>>> 3c22981dce932cfa6a1863dd8907db256d3f0fd3
   return LaunchDescription([
     
     launch_ros.actions.Node(
@@ -68,11 +66,15 @@ def generate_launch_description():
       'hyrian_lidar_parameter',
       default_value=hyrian_lidar_parameter
     ),
-
+    
     IncludeLaunchDescription(
       PythonLaunchDescriptionSource([ThisLaunchFileDir(), '/hyrian_mcu.launch.py']),
       launch_arguments={'hyrian_mcu_parameter': hyrian_mcu_parameter}.items()
     ),
+    
+    # IncludeLaunchDescription(
+    #   PythonLaunchDescriptionSource([hyrian_imu_dir, '/hyrian_imu.launch.py']),
+    # ),
     
     IncludeLaunchDescription(
       PythonLaunchDescriptionSource([ThisLaunchFileDir(), '/hyrian_lidar.launch.py']),
@@ -83,11 +85,4 @@ def generate_launch_description():
       PythonLaunchDescriptionSource([hyrian_description_dir, '/hyrian_state_publisher.launch.py']),
       launch_arguments={'use_sim_time': use_sim_time}.items(),
     ),
-<<<<<<< HEAD
-
-    IncludeLaunchDescription(
-      PythonLaunchDescriptionSource([hyrian_imu_dir, '/hyrian_imu.launch.py']),
-    ),
-=======
->>>>>>> 3c22981dce932cfa6a1863dd8907db256d3f0fd3
   ])

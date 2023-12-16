@@ -151,13 +151,9 @@ class HyrianNode(Node):
     self.pub_JointStates = self.create_publisher(JointState, 'joint_states', 10)
     self.pub_IMU = self.create_publisher(Imu, 'imu', 10)
     self.pub_Odom = self.create_publisher(Odometry, 'odom_encoder', 10)
-<<<<<<< HEAD
     
-    # self.pub_OdomTF = TransformBroadcaster(self)
-    
-=======
     self.pub_OdomTF = TransformBroadcaster(self)
->>>>>>> 3c22981dce932cfa6a1863dd8907db256d3f0fd3
+    
     self.pub_pose = self.create_publisher(Pose, 'pose', 10)
     self.pub_vel = self.create_publisher(Twist, 'motor_input', 10)
 
@@ -205,11 +201,7 @@ class HyrianNode(Node):
         self.odom_pose.theta += orient_vel * dt
 
     d_x = trans_vel * math.cos(self.odom_pose.theta) 
-<<<<<<< HEAD
     d_y = trans_vel * math.sin(self.odom_pose.theta)
-=======
-    d_y = trans_vel * math.sin(self.odom_pose.theta) 
->>>>>>> 3c22981dce932cfa6a1863dd8907db256d3f0fd3
     self.odom_pose.x += d_x * dt
     self.odom_pose.y += d_y * dt
     #print('ODO L:%.2f, R:%.2f, V:%.2f, W=%.2f --> X:%.2f, Y:%.2f, Theta:%.2f'
@@ -402,15 +394,9 @@ class HyrianNode(Node):
     pitch_imu = msg.orientation.y
     yaw_imu = msg.orientation.z
     self.vel_z = msg.angular_velocity.z 
-<<<<<<< HEAD
     # self.updatePoseStates(roll_imu, pitch_imu, yaw_imu)
     # self.pub_IMU.publish(msg)
     # self.get_lo: Roll: %f, Pitch: %f, Yaw: %f' % (roll_imu, pitch_imu, yaw_imu))gger().info('IMU Data
-=======
-    self.updatePoseStates(roll_imu, pitch_imu, yaw_imu)
-    # self.pub_IMU.publish(msg)
-    # self.get_logger().info('IMU Data: Roll: %f, Pitch: %f, Yaw: %f' % (roll_imu, pitch_imu, yaw_imu))
->>>>>>> 3c22981dce932cfa6a1863dd8907db256d3f0fd3
 
 def main(args=None):
   rclpy.init(args=args)
