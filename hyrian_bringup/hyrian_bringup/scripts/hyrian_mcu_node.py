@@ -17,7 +17,7 @@ from hyrian_interfaces.srv import Color
 from hyrian_interfaces.srv import SaveColor
 from hyrian_interfaces.srv import ResetOdom
 from hyrian_interfaces.srv import Onoff
-from hyrian_interfaces.srv import Calg
+# from hyrian_interfaces.srv import Calg
 
 from .calc.quaternion_from_euler import *
 from .hyrian_packet_handler import PacketHandler
@@ -92,8 +92,8 @@ class HyrianNode(Node):
 
 
     # Get parameter values
-    _port_name = self.get_parameter_or('port.name', Parameter('port.name', Parameter.Type.STRING, '/dev/ttyAMA0 ')).get_parameter_value().string_value #일단 임시로 바꿈 아래 줄 디버깅하려고
-    _port_baudrate = self.get_parameter_or('port.baudrate', Parameter('port.baudrate', Parameter.Type.INTEGER, 115200)).get_parameter_value().integer_value
+    # _port_name = self.get_parameter_or('port.name', Parameter('port.name', Parameter.Type.STRING, '/dev/ttyAMA0 ')).get_parameter_value().string_value #일단 임시로 바꿈 아래 줄 디버깅하려고
+    # _port_baudrate = self.get_parameter_or('port.baudrate', Parameter('port.baudrate', Parameter.Type.INTEGER, 115200)).get_parameter_value().integer_value
     self.gear_ratio = self.get_parameter_or('motor.gear_ratio', Parameter('motor.gear_ratio', Parameter.Type.DOUBLE, 12.0)).get_parameter_value().double_value
     self.wheel_separation = self.get_parameter_or('wheel.separation', Parameter('wheel.separation', Parameter.Type.DOUBLE, 0.4236)).get_parameter_value().double_value # 0.085 cm x 2
     self.wheel_radius = self.get_parameter_or('wheel.radius', Parameter('wheel.radius', Parameter.Type.DOUBLE, 0.0575)).get_parameter_value().double_value
@@ -108,21 +108,21 @@ class HyrianNode(Node):
     self.distance_per_pulse = 2*math.pi*self.wheel_radius / self.enc_pulse / self.gear_ratio
     print('DISTANCE PER PULSE \t:%s'%(self.distance_per_pulse))
     # Packet handler
-    self.ph = PacketHandler(_port_name, _port_baudrate)
+    # self.ph = PacketHandler(_port_name, _port_baudrate)
     self.calc_yaw = ComplementaryFilter()
 
-    self.ph.robot_state = {
-      "VW" : [0., 0.],
-      "ODO" : [0., 0.],
-      "ACCL" : [0., 0., 0.],
-      "GYRO" : [0., 0., 0.],
-      "POSE" : [0., 0., 0.],
-      "BAT" : [0., 0., 0.],
-    }
+    # self.ph.robot_state = {
+    #   "VW" : [0., 0.],
+    #   "ODO" : [0., 0.],
+    #   "ACCL" : [0., 0., 0.],
+    #   "GYRO" : [0., 0., 0.],
+    #   "POSE" : [0., 0., 0.],
+    #   "BAT" : [0., 0., 0.],
+    # }
 
     
-    self.ph.incomming_info = ['ODO', 'VW', "POSE", "GYRO"]
-    self.ph.set_periodic_info(50)
+    # self.ph.incomming_info = ['ODO', 'VW', "POSE", "GYRO"]
+    # self.ph.set_periodic_info(50)
 
     self.max_lin_vel_x = self.get_parameter_or('/motor/max_lin_vel_x', 
                 Parameter('/motor/max_lin_vel_x', Parameter.Type.DOUBLE, 1.2)).get_parameter_value().double_value
@@ -158,15 +158,15 @@ class HyrianNode(Node):
     self.pub_vel = self.create_publisher(Twist, 'motor_input', 10)
 
     # Set Periodic data
-    self.ph.incomming_info = ['ODO', 'VW', "POSE", "GYRO"]
-    self.ph.update_battery_state()
+    # self.ph.incomming_info = ['ODO', 'VW', "POSE", "GYRO"]
+    # self.ph.update_battery_state()
     # self.ph.set_periodic_info()
     # self.subscription_imu 
 
     
     #self.ph.set_periodic_info()
     sleep(0.01)
-    self.ph.set_periodic_info(50)
+    # self.ph.set_periodic_info(50)
     
     # Set timer proc
     self.timerProc = self.create_timer(0.01, self.update_robot)
@@ -327,7 +327,7 @@ class HyrianNode(Node):
     ang_vel_z = max(-self.max_ang_vel_z, min(self.max_ang_vel_z, ang_vel_z))
 
     #print("CMD_VEL V_x:%s m/s, Rot_z:%s deg/s"%(lin_vel_x, ang_vel_z))
-    self.ph.write_base_velocity(lin_vel_x*1000, ang_vel_z*1000) #이문장 필요 없는거같은데? 그러게요
+    # self.ph.write_base_velocity(lin_vel_x*1000, ang_vel_z*1000) #이문장 필요 없는거같은데? 그러게요
     self.base_vel.linear.x = lin_vel_x * 1000 #son 추가
     self.base_vel.angular.z = ang_vel_z * 1000
 
@@ -379,11 +379,11 @@ class HyrianNode(Node):
   #   self.ph.write_port(command)
   #   return OnoffResponse()
 
-  def calibrate_gyro(self, request): #이거 저희 imu 센서도 필요한가요?
-    command = "$sCALG,1"
-    printf("SERVICE: CALIBRATE GYRO")
-    self.ph.write_port(command)
-    return CalgResponse()
+  # def calibrate_gyro(self, request): #이거 저희 imu 센서도 필요한가요?
+  #   command = "$sCALG,1"
+  #   printf("SERVICE: CALIBRATE GYRO")
+  #   # self.ph.write_port(command)
+  #   return CalgResponse()
 
   def cbMotorPacket(self, msg): #son_추가
     self.motor_packet = msg.data  # motor_packet 저장

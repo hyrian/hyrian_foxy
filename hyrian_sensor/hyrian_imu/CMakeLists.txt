@@ -49,8 +49,8 @@ find_library(MW_AHRS_amd64_LIBRARY
 )
 
 # file(TO_CMAKE_PATH "/feature_ws/src/hyrian_foxy/hyrian_sensor/hyrian_imu/lib/MW_AHRS_amd64.a" ABSOLUTE_LIB_PATH)
- target_link_libraries(${PROJECT_NAME}_node ${CMAKE_CURRENT_SOURCE_DIR}/lib/MW_AHRS_amd64.a)
-#target_link_libraries(${PROJECT_NAME}_node ${CMAKE_CURRENT_SOURCE_DIR}/lib/MW_AHRS_aarch64.a)
+#  target_link_libraries(${PROJECT_NAME}_node ${CMAKE_CURRENT_SOURCE_DIR}/lib/MW_AHRS_amd64.a)
+target_link_libraries(${PROJECT_NAME}_node ${CMAKE_CURRENT_SOURCE_DIR}/lib/MW_AHRS_aarch64.a)
 # target_link_libraries(${PROJECT_NAME}_node
 #     ${ABSOLUTE_LIB_PATH}
 # )

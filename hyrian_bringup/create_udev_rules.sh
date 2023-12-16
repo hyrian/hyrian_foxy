@@ -17,7 +17,8 @@ echo "YD LiDAR (USB Serial) : /dev/ttyUSBx to /dev/ttyLiDAR :"
 if [ -f "/etc/udev/rules.d/97-hyrian-lidar.rules" ]; then
     echo "97-hyrian-lidar.rules file already exist."
 else 
-    echo 'KERNEL=="ttyUSB*", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", MODE:="0666", GROUP:="dialout",  SYMLINK+="ttyLiDAR"' >/etc/udev/rules.d/97-hyrian-lidar.rules
+    # echo 'KERNEL=="ttyUSB*", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", MODE:="0666", GROUP:="dialout",  SYMLINK+="ttyLiDAR"' >/etc/udev/rules.d/97-hyrian-lidar.rules
+    echo 'KERNEL=="ttyUSB*", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", ATTRS{serial}=="0001", MODE:="0666", GROUP:="dialout", SYMLINK+="ttyLiDAR"' >/etc/udev/rules.d/97-hyrian-lidar.rules
     
     echo '97-hyrian-lidar.rules created'
 fi
@@ -27,7 +28,8 @@ echo "Hyrian IMU (USB Serial) : /dev/ttyUSBx to /dev/ttyIMU :"
 if [ -f "/etc/udev/rules.d/96-hyrian-imu.rules" ]; then
     echo "hyrian-imu.rules file already exist."
 else 
-    echo 'KERNEL=="ttyUSB*", ATTRS{idVendor}=="10c4" ATTRS{idProduct}=="ea60", MODE:="0666", GROUP:="dialout", SYMLINK+="ttyIMU" ' > /etc/udev/rules.d/96-hyrian-imu.rules
+    # echo 'KERNEL=="ttyUSB*", ATTRS{idVendor}=="10c4" ATTRS{idProduct}=="ea60", MODE:="0666", GROUP:="dialout", SYMLINK+="ttyIMU" ' > /etc/udev/rules.d/96-hyrian-imu.rules
+    echo 'KERNEL=="ttyUSB*", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", ATTRS{serial}=="b4f8aa510b9eec119c81738a43a0c072", MODE:="0666", GROUP:="dialout", SYMLINK+="ttyIMU"' > /etc/udev/rules.d/96-hyrian-imu.rules
 
     echo '96-hyrian_imu.rules created'
 fi
