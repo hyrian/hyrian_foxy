@@ -8,53 +8,44 @@ public:
     KeywordCheck(const std::string& name, const BT::NodeConfiguration& config)
         : BT::ConditionNode(name, config), nh(std::make_shared<rclcpp::Node>("KeywordCheck"))
     {
-        keyword_sub = nh->create_subscription<std_msgs::msg::String>(
-            "keyword_pub", 10, std::bind(&KeywordCheck::keywordCallback, this, std::placeholders::_1));
-
         spin_thread = std::make_shared<std::thread>([this]() {
-            while (rclcpp::ok() && keyword2.empty()) {
-                rclcpp::spin_some(this->nh);
-            }
+            rclcpp::spin(this->nh);
         });
     }
 
-    BT::NodeStatus tick() override;
+    BT::NodeStatus tick() override
+    {
+        BT::Optional<std::string> opt_value = getInput<std::string>("value");
+        BT::Optional<std::string> opt_keyword1 = getInput<std::string>("keyword");
+
+        if (!opt_value || !opt_keyword1) {
+            std::cout << "Waiting for message..." << std::endl;
+            return BT::NodeStatus::RUNNING;
+        }
+
+        std::string value = opt_value.value();
+        std::string keyword = opt_keyword1.value();
+
+        RCLCPP_INFO(nh->get_logger(), "KeywordCheck: value = %s, keyword = %s", value.c_str(), keyword.c_str());
+
+        if (value == keyword) {
+            // setOutput("keyword2_out", keyword2);
+            return BT::NodeStatus::SUCCESS;
+        } else {
+            return BT::NodeStatus::FAILURE;
+        }
+    }
 
     static BT::PortsList providedPorts()
     {
-        return{ BT::InputPort<std::string>("value") };
+        return{ 
+                BT::InputPort<std::string>("value"),
+                BT::InputPort<std::string>("keyword"),
+                // BT::OutputPort<std::string>("keyword2_out") 
+                };
     }
 
 private:
     rclcpp::Node::SharedPtr nh;
-    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr keyword_sub;
-    std::string keyword1;
-    std::string keyword2;
     std::shared_ptr<std::thread> spin_thread;
-
-    void keywordCallback(const std_msgs::msg::String::SharedPtr msg)
-    {
-        std::istringstream ss(msg->data);
-        std::getline(ss, keyword1, ',');
-        std::getline(ss, keyword2, ',');
-        setOutput("keyword2", keyword2);
-        RCLCPP_INFO(nh->get_logger(), "Received message: %s", msg->data.c_str());
-        RCLCPP_INFO(nh->get_logger(), "Keyword2: %s", keyword2.c_str()); 
-    }
 };
-
-BT::NodeStatus KeywordCheck::tick()
-{
-    BT::Optional<std::string> value = getInput<std::string>("value");
-
-    if (!value || keyword1.empty()) {
-        RCLCPP_INFO(nh->get_logger(), "Waiting for message...");
-        return BT::NodeStatus::RUNNING;
-    }
-    // if (!value) {
-    //     return BT::NodeStatus::FAILURE;
-    // }
-    RCLCPP_INFO(nh->get_logger(), "Received input value: %s", value->c_str());
-    
-    return (keyword1 == *value) ? BT::NodeStatus::SUCCESS : BT::NodeStatus::FAILURE;
-}
