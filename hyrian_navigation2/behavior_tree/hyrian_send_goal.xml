@@ -1,35 +1,37 @@
 <root main_tree_to_execute = "MainTree">
     <BehaviorTree ID="MainTree">
         <Sequence>
-            <Condition ID="KeywordCheck" value="navigation" />
-            <SubTree ID="MoveToProduct" />
+            <Action ID="KeywordTrigger" keyword1="{keyword1}" keyword2="{keyword2}"  />
+            <Condition ID="KeywordCheck" value="navigation" keyword="{keyword1}"  />
+            <SetBlackboard ID="SetKeyword2ToBlackboard" output_key="keyword2" value="{keyword2}" />
+            <SubTree ID="MoveToProduct" keyword2="keyword2" />
         </Sequence>
     </BehaviorTree>
 
     <BehaviorTree ID="MoveToProduct">
         <Fallback>
             <Sequence>
-                <Condition ID="IsKeyword2EqualTo" value="product1" keyword2="${keyword2}"/>
+                <Condition ID="KeywordCheck" value="product1" keyword="{keyword2}"/>
                 <SetBlackboard output_key="Goal" value="0.1;1.0;0.0;1.0" />
                 <SubTree ID="MoveRobot" target="Goal" />
             </Sequence>
             <Sequence>
-                <Condition ID="IsKeyword2EqualTo" value="product2" keyword2="${keyword2}" />
+                <Condition ID="KeywordCheck" value="product2" keyword="{keyword2}" />
                 <SetBlackboard output_key="Goal" value="2.0;2.5;0.0;1.0" />
                 <SubTree ID="MoveRobot" target="Goal" />
             </Sequence>
             <Sequence>
-                <Condition ID="IsKeyword2EqualTo" value="product3" keyword2="${keyword2}" />
+                <Condition ID="KeywordCheck" value="product3" keyword="{keyword2}" />
                 <SetBlackboard output_key="Goal" value="2.0;-1.5;0.0;1.0" />
                 <SubTree ID="MoveRobot" target="Goal" />
             </Sequence>
             <Sequence>
-                <Condition ID="IsKeyword2EqualTo" value="product4" keyword2="${keyword2}"/>
+                <Condition ID="KeywordCheck" value="product4" keyword="{keyword2}"/>
                 <SetBlackboard output_key="Goal" value="4.0;0.1;0.0;1.0" />
                 <SubTree ID="MoveRobot" target="Goal" />
             </Sequence>
             <Sequence>
-                <Condition ID="IsKeyword2EqualTo" value="origin" keyword2="${keyword2}" />
+                <Condition ID="KeywordCheck" value="origin" keyword="{keyword2}" />
                 <SetBlackboard output_key="Goal" value="0.0;0.0;0.0;1.0" />
                 <SubTree ID="MoveRobot" target="Goal" />
             </Sequence>

@@ -32,6 +32,7 @@ else
     echo '96-hyrian_imu.rules created'
 fi
 
+
 systemctl stop nvgetty
 systemctl disable nvgetty
 

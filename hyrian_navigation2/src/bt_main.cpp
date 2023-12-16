@@ -1,6 +1,5 @@
 #include "hyrian_bt/nav2_client.hpp"
 #include "hyrian_bt/keywordcheck.hpp"
-#include "hyrian_bt/iskeyword2equalto.hpp"
 #include "hyrian_bt/gesture.hpp"
 #include "hyrian_bt/keywordtrigger.hpp"
 
@@ -40,7 +39,6 @@ int main(int argc, char **argv)
   
     factory.registerNodeType<Nav2Client>("Nav2Client");
     factory.registerNodeType<KeywordCheck>("KeywordCheck");
-    factory.registerNodeType<IsKeyword2EqualTo>("IsKeyword2EqualTo");
     factory.registerNodeType<Gesture>("Gesture");
     factory.registerNodeType<KeywordTrigger>("KeywordTrigger");
 

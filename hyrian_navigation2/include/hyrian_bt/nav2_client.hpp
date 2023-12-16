@@ -6,6 +6,7 @@
 #include <memory>
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_action/rclcpp_action.hpp"
+#include <std_msgs/msg/string.hpp>
 
 #include "geometry_msgs/msg/pose_stamped.hpp"
 #include "std_msgs/msg/header.hpp"
@@ -118,9 +119,16 @@ public:
         }
 
         rclcpp_action::ClientGoalHandle<nav2_msgs::action::NavigateToPose>::WrappedResult wrapped_result = result_future.get();
+        auto publisher = node_->create_publisher<std_msgs::msg::String>("goal_arrive", 10);
+        std_msgs::msg::String message;
 
         switch (wrapped_result.code) {
             case rclcpp_action::ResultCode::SUCCEEDED:
+                // 추가
+                message.data = "goal_arrive";
+                publisher->publish(message);
+
+                RCLCPP_INFO(node_->get_logger(), "Published 'goal_arrive' message");
                 break;
             case rclcpp_action::ResultCode::ABORTED:
                 RCLCPP_ERROR(node_->get_logger(), "Goal was aborted");
@@ -132,6 +140,7 @@ public:
                 RCLCPP_ERROR(node_->get_logger(), "Unknown result code");
                 return BT::NodeStatus::FAILURE;
         }
+
 
         if (_aborted) {
             // this happens only if method halt() was invoked
