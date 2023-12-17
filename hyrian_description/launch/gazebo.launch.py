@@ -1,7 +1,7 @@
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription
+from launch.actions import IncludeLaunchDescription,ExecuteProcess
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import PathJoinSubstitution
 import os
@@ -16,6 +16,14 @@ def generate_launch_description():
     robot_description_config = xacro.process_file(xacro_file)
     robot_urdf = robot_description_config.toxml()
 
+    rviz_config_file = os.path.join(share_dir, 'config', 'display.rviz')
+
+    controller_params = os.path.join(
+        get_package_share_directory('hyrian_bringup'), 
+        'config',
+        'my_controllers.yaml'
+        )
+    
     robot_state_publisher_node = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
@@ -31,6 +39,15 @@ def generate_launch_description():
         name='joint_state_publisher'
     )
 
+    controller_manager = Node(
+        package='controller_manager',
+        executable='ros2_control_node',
+        parameters=[
+            {'robot_description': robot_urdf},
+            controller_params
+        ]
+        )
+    
     gazebo_server = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             PathJoinSubstitution([
@@ -54,7 +71,7 @@ def generate_launch_description():
         ])
     )
 
-    urdf_spawn_node = Node(
+    spawn_entity = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
         arguments=[
@@ -62,8 +79,21 @@ def generate_launch_description():
             '-topic', 'robot_description',
             '-x', '0',
             '-y', '0',
-            '-z', '0.0575'
+            '-z', '0.058'
         ],
+        output='screen'
+    )
+
+
+    load_diff_drive_controller = ExecuteProcess(
+        cmd=['ros2', 'control', 'load_controller', '--set-state', 'start',
+             'diff_drive_controller'],
+        output='screen'
+    )
+
+    load_joint_state_controller = ExecuteProcess(
+        cmd=['ros2', 'control', 'load_controller', '--set-state', 'start',
+             'joint_state_broadcaster'],
         output='screen'
     )
 
@@ -72,5 +102,8 @@ def generate_launch_description():
         joint_state_publisher_node,
         gazebo_server,
         gazebo_client,
-        urdf_spawn_node,
+        spawn_entity,
+        controller_manager,
+        load_joint_state_controller,
+        load_diff_drive_controller,
     ])

@@ -26,19 +26,15 @@ include_directories(include)
 
 add_executable(motor_node src/motor_node.cpp)
 target_link_libraries(motor_node pigpiod_if2)
-ament_target_dependencies(motor_node rclcpp std_msgs)
+ament_target_dependencies(motor_node rclcpp std_msgs geometry_msgs)
 
 add_executable(teleop_node src/teleop_node.cpp)
-ament_target_dependencies(teleop_node rclcpp std_msgs)
+ament_target_dependencies(teleop_node rclcpp std_msgs geometry_msgs)
 
-add_executable(motor_command_pub src/motor_command_pub.cpp)
-target_link_libraries(motor_command_pub pigpiod_if2)
-ament_target_dependencies(motor_command_pub rclcpp std_msgs geometry_msgs)
 
 install(TARGETS
   motor_node
   teleop_node
-  motor_command_pub
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
