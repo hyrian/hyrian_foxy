@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(topic_subnode)
+project(hyrian_track)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -22,26 +22,26 @@ find_package(darknet_ros_msgs REQUIRED)
 find_package(pcl_conversions REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(pcl_ros REQUIRED)
-
-# Add PCL library
 find_package(PCL 1.8 REQUIRED)
+find_package(geometry_msgs REQUIRED)
+
 include_directories(${PCL_INCLUDE_DIRS})
 link_directories(${PCL_LIBRARY_DIRS})
 add_definitions(${PCL_DEFINITIONS})
 
-add_executable(topic_sub_node src/topic_sub_node.cpp)
-ament_target_dependencies(topic_sub_node rclcpp darknet_ros_msgs pcl_ros pcl_conversions sensor_msgs)
-
-# Link PCL libraries
-target_link_libraries(topic_sub_node ${PCL_LIBRARIES})
-
-install(TARGETS
-  topic_sub_node
-  DESTINATION lib/${PROJECT_NAME})
-
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
+
+add_executable(hyrian_track src/topic_sub_node.cpp)
+ament_target_dependencies(hyrian_track rclcpp darknet_ros_msgs pcl_ros pcl_conversions sensor_msgs geometry_msgs)
+
+target_link_libraries(hyrian_track ${PCL_LIBRARIES})
+
+install(TARGETS
+  hyrian_track
+  DESTINATION lib/${PROJECT_NAME})
+
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -55,4 +55,3 @@ if(BUILD_TESTING)
 endif()
 
 ament_package()
-

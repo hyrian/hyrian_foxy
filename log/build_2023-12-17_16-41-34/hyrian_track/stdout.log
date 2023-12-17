@@ -1,0 +1,22 @@
+[35m[1mScanning dependencies of target hyrian_track[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/hyrian_track.dir/src/topic_sub_node.cpp.o[0m
+[100%] [32m[1mLinking CXX executable hyrian_track[0m
+[100%] Built target hyrian_track
+-- Install configuration: ""
+-- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/lib/hyrian_track/hyrian_track
+-- Set runtime path of "/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/lib/hyrian_track/hyrian_track" to ""
+-- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/ament_index/resource_index/package_run_dependencies/hyrian_track
+-- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/ament_index/resource_index/parent_prefix_path/hyrian_track
+-- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/environment/ament_prefix_path.sh
+-- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/environment/ament_prefix_path.dsv
+-- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/environment/path.sh
+-- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/environment/path.dsv
+-- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/local_setup.bash
+-- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/local_setup.sh
+-- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/local_setup.zsh
+-- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/local_setup.dsv
+-- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/package.dsv
+-- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/ament_index/resource_index/packages/hyrian_track
+-- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/cmake/hyrian_trackConfig.cmake
+-- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/cmake/hyrian_trackConfig-version.cmake
+-- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/package.xml

@@ -1,0 +1,351 @@
+[0.000000] (-) TimerEvent: {}
+[0.001253] (-) JobUnselected: {'identifier': 'hyrian_bringup'}
+[0.001589] (-) JobUnselected: {'identifier': 'hyrian_cartographer'}
+[0.002266] (-) JobUnselected: {'identifier': 'hyrian_description'}
+[0.002815] (-) JobUnselected: {'identifier': 'hyrian_gazebo'}
+[0.003098] (-) JobUnselected: {'identifier': 'hyrian_imu'}
+[0.003217] (-) JobUnselected: {'identifier': 'hyrian_interfaces'}
+[0.003316] (-) JobUnselected: {'identifier': 'hyrian_lidar'}
+[0.003411] (-) JobUnselected: {'identifier': 'hyrian_motion'}
+[0.003504] (-) JobUnselected: {'identifier': 'hyrian_navigation2'}
+[0.003596] (-) JobUnselected: {'identifier': 'hyrian_node'}
+[0.003684] (-) JobUnselected: {'identifier': 'hyrian_sensor'}
+[0.003774] (-) JobUnselected: {'identifier': 'hyrian_teleop'}
+[0.003874] (hyrian_track) JobQueued: {'identifier': 'hyrian_track', 'dependencies': OrderedDict()}
+[0.003978] (hyrian_track) JobStarted: {'identifier': 'hyrian_track'}
+[0.099183] (-) TimerEvent: {}
+[0.200938] (-) TimerEvent: {}
+[0.302264] (-) TimerEvent: {}
+[0.403380] (-) TimerEvent: {}
+[0.505424] (-) TimerEvent: {}
+[0.606842] (-) TimerEvent: {}
+[0.708359] (-) TimerEvent: {}
+[0.809314] (-) TimerEvent: {}
+[0.911698] (-) TimerEvent: {}
+[0.936830] (hyrian_track) JobProgress: {'identifier': 'hyrian_track', 'progress': 'cmake'}
+[0.941729] (hyrian_track) JobProgress: {'identifier': 'hyrian_track', 'progress': 'build'}
+[0.944971] (hyrian_track) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track', '--', '-j4', '-l4'], 'cwd': '/home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'ko:en_US:en'), ('USER', 'jetson'), ('SSH_CLIENT', '192.168.242.139 35310 22'), ('LC_TIME', 'en_US.UTF-8'), ('ROS_NAMESPACE', 'robot1'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/jetson/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/jetson/robot_ws/install/hyrian_interfaces/lib:/home/jetson/robot_ws/install/darknet_ros/lib:/home/jetson/robot_ws/install/darknet_ros_msgs/lib:/home/jetson/robot_ws/install/astra_camera/lib:/home/jetson/robot_ws/install/astra_camera_msgs/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib'), ('BROWSER', '/home/jetson/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jetson'), ('TERM_PROGRAM_VERSION', '1.85.1'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-dc88b27e-1737-449c-b4de-4e387f1dd939.sock'), ('JETSON_L4T', '32.6.1'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Nano Developer Kit'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/jetson/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'en_US.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/home/jetson/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/node'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/jetson/robot_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jetson'), ('JETSON_MODULE', 'NVIDIA Jetson Nano (4 GB ram)'), ('JETSON_SERIAL_NUMBER', '1420121080913'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Porg'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '3'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/usr/local/cuda/bin:/usr/local/cuda/bin:/usr/local/cuda/bin:/home/jetson/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/home/jetson/.local/bin:/opt/ros/foxy/bin:/usr/local/cuda/bin:/home/jetson/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('PAPERSIZE', 'letter'), ('LC_ADDRESS', 'en_US.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'ko_KR.UTF-8'), ('LC_TELEPHONE', 'en_US.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_fastrtps_cpp'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra210'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-eaab4f747c.sock'), ('TERM_PROGRAM', 'vscode'), ('ROS_DOMAIN_ID', '1'), ('AMENT_PREFIX_PATH', '/home/jetson/robot_ws/install/topic_subsub:/home/jetson/robot_ws/install/topic_subnode:/home/jetson/robot_ws/install/hyrian_track:/home/jetson/robot_ws/install/hyrian_teleop:/home/jetson/robot_ws/install/hyrian_lidar:/home/jetson/robot_ws/install/hyrian_interfaces:/home/jetson/robot_ws/install/hyrian_imu:/home/jetson/robot_ws/install/hyrian_gazebo:/home/jetson/robot_ws/install/hyrian_description:/home/jetson/robot_ws/install/hyrian_cartographer:/home/jetson/robot_ws/install/darknet_ros:/home/jetson/robot_ws/install/darknet_ros_msgs:/home/jetson/robot_ws/install/astra_camera:/home/jetson/robot_ws/install/astra_camera_msgs:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'en_US.UTF-8'), ('ROS_WS', '/home/jetson/robot_ws'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('JETSON_BOARDIDS', 'p3448'), ('LC_MEASUREMENT', 'en_US.UTF-8'), ('LC_IDENTIFICATION', 'en_US.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('JETSON_CUDA_ARCH_BIN', '5.3'), ('PWD', '/home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.242.139 35310 192.168.242.194 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/jetson/robot_ws/install/hyrian_teleop/lib/python3.8/site-packages:/home/jetson/robot_ws/install/hyrian_interfaces/lib/python3.8/site-packages:/home/jetson/robot_ws/build/hyrian_description:/home/jetson/robot_ws/install/hyrian_description/lib/python3.8/site-packages:/home/jetson/robot_ws/install/darknet_ros_msgs/lib/python3.8/site-packages:/home/jetson/robot_ws/install/astra_camera_msgs/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'en_US.UTF-8'), ('LC_PAPER', 'en_US.UTF-8'), ('COLCON', '1'), ('JETSON_JETPACK', '4.6'), ('CMAKE_PREFIX_PATH', '/home/jetson/robot_ws/install/topic_subsub:/home/jetson/robot_ws/install/topic_subnode:/home/jetson/robot_ws/install/hyrian_track:/home/jetson/robot_ws/install/hyrian_lidar:/home/jetson/robot_ws/install/hyrian_interfaces:/home/jetson/robot_ws/install/hyrian_imu:/home/jetson/robot_ws/install/hyrian_gazebo:/home/jetson/robot_ws/install/hyrian_cartographer:/home/jetson/robot_ws/install/darknet_ros:/home/jetson/robot_ws/install/darknet_ros_msgs:/home/jetson/robot_ws/install/astra_camera:/home/jetson/robot_ws/install/astra_camera_msgs:/home/jetson/robot_ws/install/hyrian_teleop:/home/jetson/robot_ws/install/hyrian_description:/opt/ros/foxy'), ('JETSON_P_NUMBER', 'p3448-0000')]), 'shell': False}
+[1.011964] (-) TimerEvent: {}
+[1.112958] (-) TimerEvent: {}
+[1.186881] (hyrian_track) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target hyrian_track\x1b[0m\n'}
+[1.213121] (-) TimerEvent: {}
+[1.313784] (-) TimerEvent: {}
+[1.389008] (hyrian_track) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/hyrian_track.dir/src/topic_sub_node.cpp.o\x1b[0m\n'}
+[1.413953] (-) TimerEvent: {}
+[1.514632] (-) TimerEvent: {}
+[1.615307] (-) TimerEvent: {}
+[1.716023] (-) TimerEvent: {}
+[1.816712] (-) TimerEvent: {}
+[1.917493] (-) TimerEvent: {}
+[2.018249] (-) TimerEvent: {}
+[2.118921] (-) TimerEvent: {}
+[2.219940] (-) TimerEvent: {}
+[2.320997] (-) TimerEvent: {}
+[2.421699] (-) TimerEvent: {}
+[2.522380] (-) TimerEvent: {}
+[2.623083] (-) TimerEvent: {}
+[2.723752] (-) TimerEvent: {}
+[2.824514] (-) TimerEvent: {}
+[2.925171] (-) TimerEvent: {}
+[3.025858] (-) TimerEvent: {}
+[3.126539] (-) TimerEvent: {}
+[3.227231] (-) TimerEvent: {}
+[3.327910] (-) TimerEvent: {}
+[3.428715] (-) TimerEvent: {}
+[3.529405] (-) TimerEvent: {}
+[3.630125] (-) TimerEvent: {}
+[3.730819] (-) TimerEvent: {}
+[3.831514] (-) TimerEvent: {}
+[3.932275] (-) TimerEvent: {}
+[4.032951] (-) TimerEvent: {}
+[4.133640] (-) TimerEvent: {}
+[4.234356] (-) TimerEvent: {}
+[4.335064] (-) TimerEvent: {}
+[4.435758] (-) TimerEvent: {}
+[4.536507] (-) TimerEvent: {}
+[4.637207] (-) TimerEvent: {}
+[4.737900] (-) TimerEvent: {}
+[4.838605] (-) TimerEvent: {}
+[4.939285] (-) TimerEvent: {}
+[5.039996] (-) TimerEvent: {}
+[5.140763] (-) TimerEvent: {}
+[5.241463] (-) TimerEvent: {}
+[5.342184] (-) TimerEvent: {}
+[5.442867] (-) TimerEvent: {}
+[5.543542] (-) TimerEvent: {}
+[5.644266] (-) TimerEvent: {}
+[5.744948] (-) TimerEvent: {}
+[5.845642] (-) TimerEvent: {}
+[5.946328] (-) TimerEvent: {}
+[6.047024] (-) TimerEvent: {}
+[6.147773] (-) TimerEvent: {}
+[6.248525] (-) TimerEvent: {}
+[6.349220] (-) TimerEvent: {}
+[6.449916] (-) TimerEvent: {}
+[6.550574] (-) TimerEvent: {}
+[6.651242] (-) TimerEvent: {}
+[6.751919] (-) TimerEvent: {}
+[6.852679] (-) TimerEvent: {}
+[6.953363] (-) TimerEvent: {}
+[7.054113] (-) TimerEvent: {}
+[7.154798] (-) TimerEvent: {}
+[7.255489] (-) TimerEvent: {}
+[7.356227] (-) TimerEvent: {}
+[7.456874] (-) TimerEvent: {}
+[7.557543] (-) TimerEvent: {}
+[7.658240] (-) TimerEvent: {}
+[7.758922] (-) TimerEvent: {}
+[7.859677] (-) TimerEvent: {}
+[7.960513] (-) TimerEvent: {}
+[8.061214] (-) TimerEvent: {}
+[8.161905] (-) TimerEvent: {}
+[8.262627] (-) TimerEvent: {}
+[8.363319] (-) TimerEvent: {}
+[8.463996] (-) TimerEvent: {}
+[8.564732] (-) TimerEvent: {}
+[8.665416] (-) TimerEvent: {}
+[8.766112] (-) TimerEvent: {}
+[8.866797] (-) TimerEvent: {}
+[8.967484] (-) TimerEvent: {}
+[9.068214] (-) TimerEvent: {}
+[9.168893] (-) TimerEvent: {}
+[9.269585] (-) TimerEvent: {}
+[9.370276] (-) TimerEvent: {}
+[9.470966] (-) TimerEvent: {}
+[9.571681] (-) TimerEvent: {}
+[9.672441] (-) TimerEvent: {}
+[9.773129] (-) TimerEvent: {}
+[9.873831] (-) TimerEvent: {}
+[9.974522] (-) TimerEvent: {}
+[10.075229] (-) TimerEvent: {}
+[10.175983] (-) TimerEvent: {}
+[10.276741] (-) TimerEvent: {}
+[10.377446] (-) TimerEvent: {}
+[10.478161] (-) TimerEvent: {}
+[10.578852] (-) TimerEvent: {}
+[10.679569] (-) TimerEvent: {}
+[10.780278] (-) TimerEvent: {}
+[10.880968] (-) TimerEvent: {}
+[10.981671] (-) TimerEvent: {}
+[11.082382] (-) TimerEvent: {}
+[11.183147] (-) TimerEvent: {}
+[11.283884] (-) TimerEvent: {}
+[11.384631] (-) TimerEvent: {}
+[11.485336] (-) TimerEvent: {}
+[11.586026] (-) TimerEvent: {}
+[11.686724] (-) TimerEvent: {}
+[11.787436] (-) TimerEvent: {}
+[11.888230] (-) TimerEvent: {}
+[11.988914] (-) TimerEvent: {}
+[12.089596] (-) TimerEvent: {}
+[12.190286] (-) TimerEvent: {}
+[12.290996] (-) TimerEvent: {}
+[12.391699] (-) TimerEvent: {}
+[12.492460] (-) TimerEvent: {}
+[12.593160] (-) TimerEvent: {}
+[12.693860] (-) TimerEvent: {}
+[12.794569] (-) TimerEvent: {}
+[12.895265] (-) TimerEvent: {}
+[12.995957] (-) TimerEvent: {}
+[13.096706] (-) TimerEvent: {}
+[13.197399] (-) TimerEvent: {}
+[13.298110] (-) TimerEvent: {}
+[13.398835] (-) TimerEvent: {}
+[13.499528] (-) TimerEvent: {}
+[13.600275] (-) TimerEvent: {}
+[13.700950] (-) TimerEvent: {}
+[13.801679] (-) TimerEvent: {}
+[13.902357] (-) TimerEvent: {}
+[14.003064] (-) TimerEvent: {}
+[14.103764] (-) TimerEvent: {}
+[14.204512] (-) TimerEvent: {}
+[14.305214] (-) TimerEvent: {}
+[14.405910] (-) TimerEvent: {}
+[14.506619] (-) TimerEvent: {}
+[14.607405] (-) TimerEvent: {}
+[14.708095] (-) TimerEvent: {}
+[14.808946] (-) TimerEvent: {}
+[14.909642] (-) TimerEvent: {}
+[15.010344] (-) TimerEvent: {}
+[15.111049] (-) TimerEvent: {}
+[15.211755] (-) TimerEvent: {}
+[15.312533] (-) TimerEvent: {}
+[15.413236] (-) TimerEvent: {}
+[15.513947] (-) TimerEvent: {}
+[15.614648] (-) TimerEvent: {}
+[15.715370] (-) TimerEvent: {}
+[15.816055] (-) TimerEvent: {}
+[15.916793] (-) TimerEvent: {}
+[16.017504] (-) TimerEvent: {}
+[16.118246] (-) TimerEvent: {}
+[16.218943] (-) TimerEvent: {}
+[16.319648] (-) TimerEvent: {}
+[16.420414] (-) TimerEvent: {}
+[16.521159] (-) TimerEvent: {}
+[16.621871] (-) TimerEvent: {}
+[16.722621] (-) TimerEvent: {}
+[16.823371] (-) TimerEvent: {}
+[16.924180] (-) TimerEvent: {}
+[17.024879] (-) TimerEvent: {}
+[17.125572] (-) TimerEvent: {}
+[17.226309] (-) TimerEvent: {}
+[17.327040] (-) TimerEvent: {}
+[17.427737] (-) TimerEvent: {}
+[17.528514] (-) TimerEvent: {}
+[17.629209] (-) TimerEvent: {}
+[17.729912] (-) TimerEvent: {}
+[17.830612] (-) TimerEvent: {}
+[17.931320] (-) TimerEvent: {}
+[18.032005] (-) TimerEvent: {}
+[18.132730] (-) TimerEvent: {}
+[18.233424] (-) TimerEvent: {}
+[18.334126] (-) TimerEvent: {}
+[18.434805] (-) TimerEvent: {}
+[18.535510] (-) TimerEvent: {}
+[18.636241] (-) TimerEvent: {}
+[18.736927] (-) TimerEvent: {}
+[18.837616] (-) TimerEvent: {}
+[18.938318] (-) TimerEvent: {}
+[19.039027] (-) TimerEvent: {}
+[19.139714] (-) TimerEvent: {}
+[19.240483] (-) TimerEvent: {}
+[19.341180] (-) TimerEvent: {}
+[19.441879] (-) TimerEvent: {}
+[19.542583] (-) TimerEvent: {}
+[19.643292] (-) TimerEvent: {}
+[19.743989] (-) TimerEvent: {}
+[19.844754] (-) TimerEvent: {}
+[19.945445] (-) TimerEvent: {}
+[20.046146] (-) TimerEvent: {}
+[20.146909] (-) TimerEvent: {}
+[20.247597] (-) TimerEvent: {}
+[20.348282] (-) TimerEvent: {}
+[20.448957] (-) TimerEvent: {}
+[20.549656] (-) TimerEvent: {}
+[20.650400] (-) TimerEvent: {}
+[20.751983] (-) TimerEvent: {}
+[20.852812] (-) TimerEvent: {}
+[20.959534] (-) TimerEvent: {}
+[21.060281] (-) TimerEvent: {}
+[21.062543] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid TopicSubscriber::pcl_callback(sensor_msgs::msg::PointCloud2_<std::allocator<void> >::SharedPtr)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[21.063389] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:95:11:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Know_distance\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[21.063897] (hyrian_track) StderrLine: {'line': b'           \x1b[01;31m\x1b[Know_distance\x1b[m\x1b[K = z;\n'}
+[21.064497] (hyrian_track) StderrLine: {'line': b'           \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[21.083057] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:95:11:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Ksuggested alternative: \xe2\x80\x98\x1b[01m\x1b[Kmin_distance\x1b[m\x1b[K\xe2\x80\x99\n'}
+[21.083911] (hyrian_track) StderrLine: {'line': b'           \x1b[01;36m\x1b[Know_distance\x1b[m\x1b[K = z;\n'}
+[21.084534] (hyrian_track) StderrLine: {'line': b'           \x1b[01;36m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[21.085011] (hyrian_track) StderrLine: {'line': b'           \x1b[32m\x1b[Kmin_distance\x1b[m\x1b[K\n'}
+[21.085468] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:98:24:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Know_distance\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[21.086048] (hyrian_track) StderrLine: {'line': b'       this->distance = \x1b[01;31m\x1b[Know_distance\x1b[m\x1b[K;\n'}
+[21.086551] (hyrian_track) StderrLine: {'line': b'                        \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[21.104683] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:98:24:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Ksuggested alternative: \xe2\x80\x98\x1b[01m\x1b[Kmin_distance\x1b[m\x1b[K\xe2\x80\x99\n'}
+[21.105421] (hyrian_track) StderrLine: {'line': b'       this->distance = \x1b[01;36m\x1b[Know_distance\x1b[m\x1b[K;\n'}
+[21.105935] (hyrian_track) StderrLine: {'line': b'                        \x1b[01;36m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[21.106366] (hyrian_track) StderrLine: {'line': b'                        \x1b[32m\x1b[Kmin_distance\x1b[m\x1b[K\n'}
+[21.160450] (-) TimerEvent: {}
+[21.261142] (-) TimerEvent: {}
+[21.362157] (-) TimerEvent: {}
+[21.462853] (-) TimerEvent: {}
+[21.563864] (-) TimerEvent: {}
+[21.664639] (-) TimerEvent: {}
+[21.765646] (-) TimerEvent: {}
+[21.866334] (-) TimerEvent: {}
+[21.967071] (-) TimerEvent: {}
+[22.068052] (-) TimerEvent: {}
+[22.168785] (-) TimerEvent: {}
+[22.269487] (-) TimerEvent: {}
+[22.370189] (-) TimerEvent: {}
+[22.470892] (-) TimerEvent: {}
+[22.571587] (-) TimerEvent: {}
+[22.672399] (-) TimerEvent: {}
+[22.773101] (-) TimerEvent: {}
+[22.873801] (-) TimerEvent: {}
+[22.974484] (-) TimerEvent: {}
+[23.075201] (-) TimerEvent: {}
+[23.175915] (-) TimerEvent: {}
+[23.276675] (-) TimerEvent: {}
+[23.377379] (-) TimerEvent: {}
+[23.478074] (-) TimerEvent: {}
+[23.578770] (-) TimerEvent: {}
+[23.679486] (-) TimerEvent: {}
+[23.780224] (-) TimerEvent: {}
+[23.880907] (-) TimerEvent: {}
+[23.981590] (-) TimerEvent: {}
+[24.082277] (-) TimerEvent: {}
+[24.182977] (-) TimerEvent: {}
+[24.283680] (-) TimerEvent: {}
+[24.384446] (-) TimerEvent: {}
+[24.485148] (-) TimerEvent: {}
+[24.585862] (-) TimerEvent: {}
+[24.686569] (-) TimerEvent: {}
+[24.787284] (-) TimerEvent: {}
+[24.887981] (-) TimerEvent: {}
+[24.988725] (-) TimerEvent: {}
+[25.089431] (-) TimerEvent: {}
+[25.190138] (-) TimerEvent: {}
+[25.290817] (-) TimerEvent: {}
+[25.391512] (-) TimerEvent: {}
+[25.492244] (-) TimerEvent: {}
+[25.592938] (-) TimerEvent: {}
+[25.693637] (-) TimerEvent: {}
+[25.794412] (-) TimerEvent: {}
+[25.895119] (-) TimerEvent: {}
+[25.995832] (-) TimerEvent: {}
+[26.096636] (-) TimerEvent: {}
+[26.197388] (-) TimerEvent: {}
+[26.298087] (-) TimerEvent: {}
+[26.398806] (-) TimerEvent: {}
+[26.499508] (-) TimerEvent: {}
+[26.600288] (-) TimerEvent: {}
+[26.700983] (-) TimerEvent: {}
+[26.801661] (-) TimerEvent: {}
+[26.902360] (-) TimerEvent: {}
+[27.003058] (-) TimerEvent: {}
+[27.103762] (-) TimerEvent: {}
+[27.204526] (-) TimerEvent: {}
+[27.305230] (-) TimerEvent: {}
+[27.405906] (-) TimerEvent: {}
+[27.506604] (-) TimerEvent: {}
+[27.607296] (-) TimerEvent: {}
+[27.708005] (-) TimerEvent: {}
+[27.808776] (-) TimerEvent: {}
+[27.909507] (-) TimerEvent: {}
+[28.010192] (-) TimerEvent: {}
+[28.110882] (-) TimerEvent: {}
+[28.211594] (-) TimerEvent: {}
+[28.312275] (-) TimerEvent: {}
+[28.412959] (-) TimerEvent: {}
+[28.513641] (-) TimerEvent: {}
+[28.614333] (-) TimerEvent: {}
+[28.715918] (-) TimerEvent: {}
+[28.816678] (-) TimerEvent: {}
+[28.917354] (-) TimerEvent: {}
+[29.018025] (-) TimerEvent: {}
+[29.118724] (-) TimerEvent: {}
+[29.219431] (-) TimerEvent: {}
+[29.320187] (-) TimerEvent: {}
+[29.420867] (-) TimerEvent: {}
+[29.521578] (-) TimerEvent: {}
+[29.622291] (-) TimerEvent: {}
+[29.722972] (-) TimerEvent: {}
+[29.823669] (-) TimerEvent: {}
+[29.924581] (-) TimerEvent: {}
+[30.025285] (-) TimerEvent: {}
+[30.126031] (-) TimerEvent: {}
+[30.223344] (hyrian_track) StderrLine: {'line': b'make[2]: *** [CMakeFiles/hyrian_track.dir/build.make:63: CMakeFiles/hyrian_track.dir/src/topic_sub_node.cpp.o] Error 1\n'}
+[30.224231] (hyrian_track) StderrLine: {'line': b'make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/hyrian_track.dir/all] Error 2\n'}
+[30.224891] (hyrian_track) StderrLine: {'line': b'make: *** [Makefile:141: all] Error 2\n'}
+[30.226132] (-) TimerEvent: {}
+[30.231198] (hyrian_track) CommandEnded: {'returncode': 2}
+[30.326357] (-) TimerEvent: {}
+[30.427167] (-) TimerEvent: {}
+[30.529768] (-) TimerEvent: {}
+[30.632704] (-) TimerEvent: {}
+[30.734719] (-) TimerEvent: {}
+[30.837210] (-) TimerEvent: {}
+[30.938672] (-) TimerEvent: {}
+[31.043837] (-) TimerEvent: {}
+[31.145369] (-) TimerEvent: {}
+[31.248212] (-) TimerEvent: {}
+[31.271994] (hyrian_track) JobEnded: {'identifier': 'hyrian_track', 'rc': 2}
+[31.283866] (-) EventReactorShutdown: {}

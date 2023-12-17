@@ -1,0 +1,833 @@
+[0.000000] (-) TimerEvent: {}
+[0.000587] (-) JobUnselected: {'identifier': 'hyrian_bringup'}
+[0.001317] (-) JobUnselected: {'identifier': 'hyrian_cartographer'}
+[0.001642] (-) JobUnselected: {'identifier': 'hyrian_description'}
+[0.002352] (-) JobUnselected: {'identifier': 'hyrian_gazebo'}
+[0.002941] (-) JobUnselected: {'identifier': 'hyrian_imu'}
+[0.003245] (-) JobUnselected: {'identifier': 'hyrian_interfaces'}
+[0.003362] (-) JobUnselected: {'identifier': 'hyrian_lidar'}
+[0.003461] (-) JobUnselected: {'identifier': 'hyrian_motion'}
+[0.003554] (-) JobUnselected: {'identifier': 'hyrian_navigation2'}
+[0.003669] (-) JobUnselected: {'identifier': 'hyrian_node'}
+[0.003777] (-) JobUnselected: {'identifier': 'hyrian_sensor'}
+[0.003887] (-) JobUnselected: {'identifier': 'hyrian_teleop'}
+[0.004016] (hyrian_track) JobQueued: {'identifier': 'hyrian_track', 'dependencies': OrderedDict()}
+[0.004147] (hyrian_track) JobStarted: {'identifier': 'hyrian_track'}
+[0.098905] (-) TimerEvent: {}
+[0.200574] (-) TimerEvent: {}
+[0.302848] (-) TimerEvent: {}
+[0.404082] (-) TimerEvent: {}
+[0.505663] (-) TimerEvent: {}
+[0.606709] (-) TimerEvent: {}
+[0.707420] (-) TimerEvent: {}
+[0.809653] (-) TimerEvent: {}
+[0.911475] (-) TimerEvent: {}
+[0.971881] (hyrian_track) JobProgress: {'identifier': 'hyrian_track', 'progress': 'cmake'}
+[0.972873] (hyrian_track) Command: {'cmd': ['/usr/bin/cmake', '/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track', '-DCMAKE_INSTALL_PREFIX=/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track'], 'cwd': '/home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'ko:en_US:en'), ('USER', 'jetson'), ('SSH_CLIENT', '192.168.242.139 35310 22'), ('LC_TIME', 'en_US.UTF-8'), ('ROS_NAMESPACE', 'robot1'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/jetson/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/jetson/robot_ws/install/hyrian_interfaces/lib:/home/jetson/robot_ws/install/darknet_ros/lib:/home/jetson/robot_ws/install/darknet_ros_msgs/lib:/home/jetson/robot_ws/install/astra_camera/lib:/home/jetson/robot_ws/install/astra_camera_msgs/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib'), ('BROWSER', '/home/jetson/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jetson'), ('TERM_PROGRAM_VERSION', '1.85.1'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-dc88b27e-1737-449c-b4de-4e387f1dd939.sock'), ('JETSON_L4T', '32.6.1'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Nano Developer Kit'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/jetson/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'en_US.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/home/jetson/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/node'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/jetson/robot_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jetson'), ('JETSON_MODULE', 'NVIDIA Jetson Nano (4 GB ram)'), ('JETSON_SERIAL_NUMBER', '1420121080913'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Porg'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '3'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/usr/local/cuda/bin:/home/jetson/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/home/jetson/.local/bin:/opt/ros/foxy/bin:/usr/local/cuda/bin:/home/jetson/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('PAPERSIZE', 'letter'), ('LC_ADDRESS', 'en_US.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'ko_KR.UTF-8'), ('LC_TELEPHONE', 'en_US.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_fastrtps_cpp'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra210'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-eaab4f747c.sock'), ('TERM_PROGRAM', 'vscode'), ('ROS_DOMAIN_ID', '1'), ('AMENT_PREFIX_PATH', '/home/jetson/robot_ws/install/topic_subsub:/home/jetson/robot_ws/install/topic_subnode:/home/jetson/robot_ws/install/hyrian_track:/home/jetson/robot_ws/install/hyrian_teleop:/home/jetson/robot_ws/install/hyrian_lidar:/home/jetson/robot_ws/install/hyrian_interfaces:/home/jetson/robot_ws/install/hyrian_imu:/home/jetson/robot_ws/install/hyrian_gazebo:/home/jetson/robot_ws/install/hyrian_description:/home/jetson/robot_ws/install/hyrian_cartographer:/home/jetson/robot_ws/install/darknet_ros:/home/jetson/robot_ws/install/darknet_ros_msgs:/home/jetson/robot_ws/install/astra_camera:/home/jetson/robot_ws/install/astra_camera_msgs:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'en_US.UTF-8'), ('ROS_WS', '/home/jetson/robot_ws'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('JETSON_BOARDIDS', 'p3448'), ('LC_MEASUREMENT', 'en_US.UTF-8'), ('LC_IDENTIFICATION', 'en_US.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('JETSON_CUDA_ARCH_BIN', '5.3'), ('PWD', '/home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.242.139 35310 192.168.242.194 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/jetson/robot_ws/install/hyrian_teleop/lib/python3.8/site-packages:/home/jetson/robot_ws/install/hyrian_interfaces/lib/python3.8/site-packages:/home/jetson/robot_ws/build/hyrian_description:/home/jetson/robot_ws/install/hyrian_description/lib/python3.8/site-packages:/home/jetson/robot_ws/install/darknet_ros_msgs/lib/python3.8/site-packages:/home/jetson/robot_ws/install/astra_camera_msgs/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'en_US.UTF-8'), ('LC_PAPER', 'en_US.UTF-8'), ('COLCON', '1'), ('JETSON_JETPACK', '4.6'), ('CMAKE_PREFIX_PATH', '/home/jetson/robot_ws/install/topic_subsub:/home/jetson/robot_ws/install/topic_subnode:/home/jetson/robot_ws/install/hyrian_track:/home/jetson/robot_ws/install/hyrian_lidar:/home/jetson/robot_ws/install/hyrian_interfaces:/home/jetson/robot_ws/install/hyrian_imu:/home/jetson/robot_ws/install/hyrian_gazebo:/home/jetson/robot_ws/install/hyrian_cartographer:/home/jetson/robot_ws/install/darknet_ros:/home/jetson/robot_ws/install/darknet_ros_msgs:/home/jetson/robot_ws/install/astra_camera:/home/jetson/robot_ws/install/astra_camera_msgs:/home/jetson/robot_ws/install/hyrian_teleop:/home/jetson/robot_ws/install/hyrian_description:/opt/ros/foxy'), ('JETSON_P_NUMBER', 'p3448-0000')]), 'shell': False}
+[1.011732] (-) TimerEvent: {}
+[1.112652] (-) TimerEvent: {}
+[1.213361] (-) TimerEvent: {}
+[1.314076] (-) TimerEvent: {}
+[1.414823] (-) TimerEvent: {}
+[1.445336] (hyrian_track) StdoutLine: {'line': b'-- The C compiler identification is GNU 8.4.0\n'}
+[1.514996] (-) TimerEvent: {}
+[1.615734] (-) TimerEvent: {}
+[1.658943] (hyrian_track) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 8.4.0\n'}
+[1.689894] (hyrian_track) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[1.715908] (-) TimerEvent: {}
+[1.816591] (-) TimerEvent: {}
+[1.917291] (-) TimerEvent: {}
+[1.937114] (hyrian_track) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc -- works\n'}
+[1.947065] (hyrian_track) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[2.017456] (-) TimerEvent: {}
+[2.118119] (-) TimerEvent: {}
+[2.200778] (hyrian_track) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[2.218288] (-) TimerEvent: {}
+[2.254074] (hyrian_track) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[2.255984] (hyrian_track) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[2.267577] (hyrian_track) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[2.318458] (-) TimerEvent: {}
+[2.419161] (-) TimerEvent: {}
+[2.519845] (-) TimerEvent: {}
+[2.546572] (hyrian_track) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ -- works\n'}
+[2.550771] (hyrian_track) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[2.620012] (-) TimerEvent: {}
+[2.720687] (-) TimerEvent: {}
+[2.821389] (-) TimerEvent: {}
+[2.837642] (hyrian_track) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[2.886979] (hyrian_track) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[2.888932] (hyrian_track) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[2.921543] (-) TimerEvent: {}
+[2.926081] (hyrian_track) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[3.021701] (-) TimerEvent: {}
+[3.066071] (hyrian_track) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") \n'}
+[3.066749] (hyrian_track) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[3.121851] (-) TimerEvent: {}
+[3.222467] (-) TimerEvent: {}
+[3.323094] (-) TimerEvent: {}
+[3.423695] (-) TimerEvent: {}
+[3.524280] (-) TimerEvent: {}
+[3.624911] (-) TimerEvent: {}
+[3.725488] (-) TimerEvent: {}
+[3.826065] (-) TimerEvent: {}
+[3.926657] (-) TimerEvent: {}
+[4.027288] (-) TimerEvent: {}
+[4.127986] (-) TimerEvent: {}
+[4.228685] (-) TimerEvent: {}
+[4.293356] (hyrian_track) StdoutLine: {'line': b'-- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)\n'}
+[4.328884] (-) TimerEvent: {}
+[4.429526] (-) TimerEvent: {}
+[4.530170] (-) TimerEvent: {}
+[4.630819] (-) TimerEvent: {}
+[4.639225] (hyrian_track) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[4.705286] (hyrian_track) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[4.730950] (-) TimerEvent: {}
+[4.831582] (-) TimerEvent: {}
+[4.932252] (-) TimerEvent: {}
+[5.032956] (-) TimerEvent: {}
+[5.133587] (-) TimerEvent: {}
+[5.234251] (-) TimerEvent: {}
+[5.262784] (hyrian_track) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "1.1.1f")  \n'}
+[5.334404] (-) TimerEvent: {}
+[5.395801] (hyrian_track) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/foxy/include  \n'}
+[5.434572] (-) TimerEvent: {}
+[5.535236] (-) TimerEvent: {}
+[5.635882] (-) TimerEvent: {}
+[5.736548] (-) TimerEvent: {}
+[5.837231] (-) TimerEvent: {}
+[5.856605] (hyrian_track) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[5.937385] (-) TimerEvent: {}
+[6.038046] (-) TimerEvent: {}
+[6.138721] (-) TimerEvent: {}
+[6.218834] (hyrian_track) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)\n'}
+[6.229731] (hyrian_track) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[6.235223] (hyrian_track) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[6.238850] (-) TimerEvent: {}
+[6.339453] (-) TimerEvent: {}
+[6.440125] (-) TimerEvent: {}
+[6.499181] (hyrian_track) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[6.500058] (hyrian_track) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[6.540290] (-) TimerEvent: {}
+[6.641054] (-) TimerEvent: {}
+[6.741715] (-) TimerEvent: {}
+[6.775405] (hyrian_track) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed\n'}
+[6.776137] (hyrian_track) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads\n'}
+[6.841876] (-) TimerEvent: {}
+[6.942562] (-) TimerEvent: {}
+[7.015899] (hyrian_track) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads - not found\n'}
+[7.016669] (hyrian_track) StdoutLine: {'line': b'-- Looking for pthread_create in pthread\n'}
+[7.042726] (-) TimerEvent: {}
+[7.143423] (-) TimerEvent: {}
+[7.244117] (-) TimerEvent: {}
+[7.273554] (hyrian_track) StdoutLine: {'line': b'-- Looking for pthread_create in pthread - found\n'}
+[7.277050] (hyrian_track) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[7.344275] (-) TimerEvent: {}
+[7.444925] (-) TimerEvent: {}
+[7.545573] (-) TimerEvent: {}
+[7.646220] (-) TimerEvent: {}
+[7.746878] (-) TimerEvent: {}
+[7.847500] (-) TimerEvent: {}
+[7.948120] (-) TimerEvent: {}
+[8.048755] (-) TimerEvent: {}
+[8.082330] (hyrian_track) StdoutLine: {'line': b'-- Found darknet_ros_msgs: 1.1.5 (/home/jetson/robot_ws/install/darknet_ros_msgs/share/darknet_ros_msgs/cmake)\n'}
+[8.148976] (-) TimerEvent: {}
+[8.249630] (-) TimerEvent: {}
+[8.350278] (-) TimerEvent: {}
+[8.450912] (-) TimerEvent: {}
+[8.551538] (-) TimerEvent: {}
+[8.652222] (-) TimerEvent: {}
+[8.752887] (-) TimerEvent: {}
+[8.853510] (-) TimerEvent: {}
+[8.954124] (-) TimerEvent: {}
+[9.054772] (-) TimerEvent: {}
+[9.155390] (-) TimerEvent: {}
+[9.256003] (-) TimerEvent: {}
+[9.356613] (-) TimerEvent: {}
+[9.457387] (-) TimerEvent: {}
+[9.557999] (-) TimerEvent: {}
+[9.658613] (-) TimerEvent: {}
+[9.759224] (-) TimerEvent: {}
+[9.859834] (-) TimerEvent: {}
+[9.898952] (hyrian_track) StdoutLine: {'line': b'-- Found pcl_conversions: 2.2.1 (/opt/ros/foxy/share/pcl_conversions/cmake)\n'}
+[9.959988] (-) TimerEvent: {}
+[10.060606] (-) TimerEvent: {}
+[10.161262] (-) TimerEvent: {}
+[10.261865] (-) TimerEvent: {}
+[10.362492] (-) TimerEvent: {}
+[10.463200] (-) TimerEvent: {}
+[10.564593] (-) TimerEvent: {}
+[10.665311] (-) TimerEvent: {}
+[10.718819] (hyrian_track) StdoutLine: {'line': b'-- Found pcl_ros: 2.2.1 (/opt/ros/foxy/share/pcl_ros/cmake)\n'}
+[10.765475] (-) TimerEvent: {}
+[10.866136] (-) TimerEvent: {}
+[10.966828] (-) TimerEvent: {}
+[11.067476] (-) TimerEvent: {}
+[11.168245] (-) TimerEvent: {}
+[11.222410] (hyrian_track) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/foxy/share/eigen3_cmake_module/cmake)\n'}
+[11.248030] (hyrian_track) StdoutLine: {'line': b'-- Found Eigen3: TRUE (found version "3.3.7") \n'}
+[11.268380] (-) TimerEvent: {}
+[11.369056] (-) TimerEvent: {}
+[11.469822] (-) TimerEvent: {}
+[11.570489] (-) TimerEvent: {}
+[11.671154] (-) TimerEvent: {}
+[11.771787] (-) TimerEvent: {}
+[11.872444] (-) TimerEvent: {}
+[11.973149] (-) TimerEvent: {}
+[12.073802] (-) TimerEvent: {}
+[12.174479] (-) TimerEvent: {}
+[12.275101] (-) TimerEvent: {}
+[12.375742] (-) TimerEvent: {}
+[12.476393] (-) TimerEvent: {}
+[12.577136] (-) TimerEvent: {}
+[12.677831] (-) TimerEvent: {}
+[12.778486] (-) TimerEvent: {}
+[12.879152] (-) TimerEvent: {}
+[12.979806] (-) TimerEvent: {}
+[13.056533] (hyrian_track) StdoutLine: {'line': b"-- Checking for module 'eigen3'\n"}
+[13.079993] (-) TimerEvent: {}
+[13.132521] (hyrian_track) StdoutLine: {'line': b'--   Found eigen3, version 3.3.7\n'}
+[13.180150] (-) TimerEvent: {}
+[13.280826] (-) TimerEvent: {}
+[13.310121] (hyrian_track) StdoutLine: {'line': b'-- Found Eigen: /usr/include/eigen3 (Required is at least version "3.1") \n'}
+[13.310776] (hyrian_track) StdoutLine: {'line': b'-- Eigen found (include: /usr/include/eigen3, version: 3.3.7)\n'}
+[13.380936] (-) TimerEvent: {}
+[13.481619] (-) TimerEvent: {}
+[13.582294] (-) TimerEvent: {}
+[13.682948] (-) TimerEvent: {}
+[13.719522] (hyrian_track) StdoutLine: {'line': b"-- Checking for module 'flann'\n"}
+[13.783113] (-) TimerEvent: {}
+[13.799491] (hyrian_track) StdoutLine: {'line': b'--   Found flann, version 1.9.1\n'}
+[13.883283] (-) TimerEvent: {}
+[13.984004] (-) TimerEvent: {}
+[14.002718] (hyrian_track) StdoutLine: {'line': b'-- Found FLANN: /usr/lib/aarch64-linux-gnu/libflann_cpp.so  \n'}
+[14.084166] (-) TimerEvent: {}
+[14.184876] (-) TimerEvent: {}
+[14.275672] (hyrian_track) StdoutLine: {'line': b'-- The imported target "vtkParseOGLExt" references the file\n'}
+[14.276349] (hyrian_track) StdoutLine: {'line': b'   "/usr/bin/vtkParseOGLExt-7.1"\n'}
+[14.276717] (hyrian_track) StdoutLine: {'line': b'but this file does not exist.  Possible reasons include:\n'}
+[14.277130] (hyrian_track) StdoutLine: {'line': b'* The file was deleted, renamed, or moved to another location.\n'}
+[14.277463] (hyrian_track) StdoutLine: {'line': b'* An install or uninstall procedure did not complete successfully.\n'}
+[14.277783] (hyrian_track) StdoutLine: {'line': b'* The installation package was faulty and contained\n'}
+[14.278111] (hyrian_track) StdoutLine: {'line': b'   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"\n'}
+[14.278426] (hyrian_track) StdoutLine: {'line': b'but not all the files it references.\n'}
+[14.278735] (hyrian_track) StdoutLine: {'line': b'\n'}
+[14.280245] (hyrian_track) StdoutLine: {'line': b'-- The imported target "vtkRenderingPythonTkWidgets" references the file\n'}
+[14.280605] (hyrian_track) StdoutLine: {'line': b'   "/usr/lib/aarch64-linux-gnu/libvtkRenderingPythonTkWidgets.so"\n'}
+[14.280995] (hyrian_track) StdoutLine: {'line': b'but this file does not exist.  Possible reasons include:\n'}
+[14.281323] (hyrian_track) StdoutLine: {'line': b'* The file was deleted, renamed, or moved to another location.\n'}
+[14.281665] (hyrian_track) StdoutLine: {'line': b'* An install or uninstall procedure did not complete successfully.\n'}
+[14.281989] (hyrian_track) StdoutLine: {'line': b'* The installation package was faulty and contained\n'}
+[14.282308] (hyrian_track) StdoutLine: {'line': b'   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"\n'}
+[14.282620] (hyrian_track) StdoutLine: {'line': b'but not all the files it references.\n'}
+[14.282924] (hyrian_track) StdoutLine: {'line': b'\n'}
+[14.283437] (hyrian_track) StdoutLine: {'line': b'-- The imported target "vtk" references the file\n'}
+[14.283768] (hyrian_track) StdoutLine: {'line': b'   "/usr/bin/vtk"\n'}
+[14.284295] (hyrian_track) StdoutLine: {'line': b'but this file does not exist.  Possible reasons include:\n'}
+[14.284620] (hyrian_track) StdoutLine: {'line': b'* The file was deleted, renamed, or moved to another location.\n'}
+[14.284984] (-) TimerEvent: {}
+[14.285341] (hyrian_track) StdoutLine: {'line': b'* An install or uninstall procedure did not complete successfully.\n'}
+[14.285818] (hyrian_track) StdoutLine: {'line': b'* The installation package was faulty and contained\n'}
+[14.286177] (hyrian_track) StdoutLine: {'line': b'   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"\n'}
+[14.286500] (hyrian_track) StdoutLine: {'line': b'but not all the files it references.\n'}
+[14.286816] (hyrian_track) StdoutLine: {'line': b'\n'}
+[14.287133] (hyrian_track) StdoutLine: {'line': b'-- The imported target "pvtk" references the file\n'}
+[14.287462] (hyrian_track) StdoutLine: {'line': b'   "/usr/bin/pvtk"\n'}
+[14.287790] (hyrian_track) StdoutLine: {'line': b'but this file does not exist.  Possible reasons include:\n'}
+[14.288114] (hyrian_track) StdoutLine: {'line': b'* The file was deleted, renamed, or moved to another location.\n'}
+[14.288435] (hyrian_track) StdoutLine: {'line': b'* An install or uninstall procedure did not complete successfully.\n'}
+[14.288749] (hyrian_track) StdoutLine: {'line': b'* The installation package was faulty and contained\n'}
+[14.289153] (hyrian_track) StdoutLine: {'line': b'   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"\n'}
+[14.289516] (hyrian_track) StdoutLine: {'line': b'but not all the files it references.\n'}
+[14.289834] (hyrian_track) StdoutLine: {'line': b'\n'}
+[14.385164] (-) TimerEvent: {}
+[14.395589] (hyrian_track) StdoutLine: {'line': b"-- Checking for module 'libusb-1.0'\n"}
+[14.475971] (hyrian_track) StdoutLine: {'line': b'--   Found libusb-1.0, version 1.0.23\n'}
+[14.485309] (-) TimerEvent: {}
+[14.585964] (-) TimerEvent: {}
+[14.678495] (hyrian_track) StdoutLine: {'line': b'-- Found USB_10: /usr/lib/aarch64-linux-gnu/libusb-1.0.so  \n'}
+[14.686097] (-) TimerEvent: {}
+[14.786747] (-) TimerEvent: {}
+[14.887539] (-) TimerEvent: {}
+[14.955788] (hyrian_track) StdoutLine: {'line': b'-- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)\n'}
+[14.987701] (-) TimerEvent: {}
+[15.088420] (-) TimerEvent: {}
+[15.189108] (-) TimerEvent: {}
+[15.251937] (hyrian_track) StdoutLine: {'line': b'-- OpenNI2 found (include: /home/jetson/robot_ws/install/astra_camera/include/openni2, lib: /home/jetson/robot_ws/install/astra_camera/lib/libOpenNI2.so)\n'}
+[15.289247] (-) TimerEvent: {}
+[15.321046] (hyrian_track) StdoutLine: {'line': b'-- Found libusb-1.0: /usr/include  \n'}
+[15.343676] (hyrian_track) StdoutLine: {'line': b'-- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)\n'}
+[15.367297] (hyrian_track) StdoutLine: {'line': b'-- OpenNI2 found (include: /home/jetson/robot_ws/install/astra_camera/include/openni2, lib: /home/jetson/robot_ws/install/astra_camera/lib/libOpenNI2.so)\n'}
+[15.389385] (-) TimerEvent: {}
+[15.490000] (-) TimerEvent: {}
+[15.519594] (hyrian_track) StdoutLine: {'line': b'-- Found Qhull: optimized;/usr/lib/aarch64-linux-gnu/libqhull.so;debug;/usr/lib/aarch64-linux-gnu/libqhull.so  \n'}
+[15.520379] (hyrian_track) StdoutLine: {'line': b'-- QHULL found (include: /usr/include, lib: optimized;/usr/lib/aarch64-linux-gnu/libqhull.so;debug;/usr/lib/aarch64-linux-gnu/libqhull.so)\n'}
+[15.546288] (hyrian_track) StdoutLine: {'line': b'-- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)\n'}
+[15.590164] (-) TimerEvent: {}
+[15.615456] (hyrian_track) StdoutLine: {'line': b'-- Found PCL_COMMON: /usr/lib/aarch64-linux-gnu/libpcl_common.so  \n'}
+[15.622147] (hyrian_track) StdoutLine: {'line': b'-- Found PCL_KDTREE: /usr/lib/aarch64-linux-gnu/libpcl_kdtree.so  \n'}
+[15.628948] (hyrian_track) StdoutLine: {'line': b'-- Found PCL_OCTREE: /usr/lib/aarch64-linux-gnu/libpcl_octree.so  \n'}
+[15.635622] (hyrian_track) StdoutLine: {'line': b'-- Found PCL_SEARCH: /usr/lib/aarch64-linux-gnu/libpcl_search.so  \n'}
+[15.642570] (hyrian_track) StdoutLine: {'line': b'-- Found PCL_SAMPLE_CONSENSUS: /usr/lib/aarch64-linux-gnu/libpcl_sample_consensus.so  \n'}
+[15.649268] (hyrian_track) StdoutLine: {'line': b'-- Found PCL_FILTERS: /usr/lib/aarch64-linux-gnu/libpcl_filters.so  \n'}
+[15.652075] (hyrian_track) StdoutLine: {'line': b'-- Found PCL_2D: /usr/include/pcl-1.10  \n'}
+[15.654528] (hyrian_track) StdoutLine: {'line': b'-- Found PCL_GEOMETRY: /usr/include/pcl-1.10  \n'}
+[15.661648] (hyrian_track) StdoutLine: {'line': b'-- Found PCL_IO: /usr/lib/aarch64-linux-gnu/libpcl_io.so  \n'}
+[15.669636] (hyrian_track) StdoutLine: {'line': b'-- Found PCL_FEATURES: /usr/lib/aarch64-linux-gnu/libpcl_features.so  \n'}
+[15.676944] (hyrian_track) StdoutLine: {'line': b'-- Found PCL_ML: /usr/lib/aarch64-linux-gnu/libpcl_ml.so  \n'}
+[15.683408] (hyrian_track) StdoutLine: {'line': b'-- Found PCL_SEGMENTATION: /usr/lib/aarch64-linux-gnu/libpcl_segmentation.so  \n'}
+[15.690336] (-) TimerEvent: {}
+[15.692734] (hyrian_track) StdoutLine: {'line': b'-- Found PCL_VISUALIZATION: /usr/lib/aarch64-linux-gnu/libpcl_visualization.so  \n'}
+[15.701120] (hyrian_track) StdoutLine: {'line': b'-- Found PCL_SURFACE: /usr/lib/aarch64-linux-gnu/libpcl_surface.so  \n'}
+[15.708264] (hyrian_track) StdoutLine: {'line': b'-- Found PCL_REGISTRATION: /usr/lib/aarch64-linux-gnu/libpcl_registration.so  \n'}
+[15.715434] (hyrian_track) StdoutLine: {'line': b'-- Found PCL_KEYPOINTS: /usr/lib/aarch64-linux-gnu/libpcl_keypoints.so  \n'}
+[15.722157] (hyrian_track) StdoutLine: {'line': b'-- Found PCL_TRACKING: /usr/lib/aarch64-linux-gnu/libpcl_tracking.so  \n'}
+[15.728619] (hyrian_track) StdoutLine: {'line': b'-- Found PCL_RECOGNITION: /usr/lib/aarch64-linux-gnu/libpcl_recognition.so  \n'}
+[15.735919] (hyrian_track) StdoutLine: {'line': b'-- Found PCL_STEREO: /usr/lib/aarch64-linux-gnu/libpcl_stereo.so  \n'}
+[15.742200] (hyrian_track) StdoutLine: {'line': b'-- Found PCL_APPS: /usr/lib/aarch64-linux-gnu/libpcl_apps.so  \n'}
+[15.747457] (hyrian_track) StdoutLine: {'line': b'-- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.10  \n'}
+[15.754057] (hyrian_track) StdoutLine: {'line': b'-- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.10  \n'}
+[15.761154] (hyrian_track) StdoutLine: {'line': b'-- Found PCL_OUTOFCORE: /usr/lib/aarch64-linux-gnu/libpcl_outofcore.so  \n'}
+[15.769221] (hyrian_track) StdoutLine: {'line': b'-- Found PCL_PEOPLE: /usr/lib/aarch64-linux-gnu/libpcl_people.so  \n'}
+[15.790508] (-) TimerEvent: {}
+[15.891190] (-) TimerEvent: {}
+[15.991822] (-) TimerEvent: {}
+[16.092458] (-) TimerEvent: {}
+[16.193164] (-) TimerEvent: {}
+[16.293745] (-) TimerEvent: {}
+[16.308561] (hyrian_track) StderrLine: {'line': b'CMake Warning (dev) at CMakeLists.txt:25 (find_package):\n'}
+[16.309382] (hyrian_track) StderrLine: {'line': b'  Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.\n'}
+[16.309782] (hyrian_track) StderrLine: {'line': b'  Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy\n'}
+[16.310122] (hyrian_track) StderrLine: {'line': b'  command to set the policy and suppress this warning.\n'}
+[16.310448] (hyrian_track) StderrLine: {'line': b'\n'}
+[16.310795] (hyrian_track) StderrLine: {'line': b'  CMake variable PCL_ROOT is set to:\n'}
+[16.311135] (hyrian_track) StderrLine: {'line': b'\n'}
+[16.311473] (hyrian_track) StderrLine: {'line': b'    /usr\n'}
+[16.311825] (hyrian_track) StderrLine: {'line': b'\n'}
+[16.312162] (hyrian_track) StderrLine: {'line': b'  For compatibility, CMake is ignoring the variable.\n'}
+[16.312478] (hyrian_track) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[16.312831] (hyrian_track) StderrLine: {'line': b'\n'}
+[16.393905] (-) TimerEvent: {}
+[16.494605] (-) TimerEvent: {}
+[16.529516] (hyrian_track) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)\n'}
+[16.594753] (-) TimerEvent: {}
+[16.695418] (-) TimerEvent: {}
+[16.796090] (-) TimerEvent: {}
+[16.896939] (-) TimerEvent: {}
+[16.967082] (hyrian_track) StdoutLine: {'line': b"-- Added test 'copyright' to check source files copyright and LICENSE\n"}
+[16.973327] (hyrian_track) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[16.975699] (hyrian_track) StdoutLine: {'line': b'-- Configured cppcheck include dirs: \n'}
+[16.976199] (hyrian_track) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[16.981021] (hyrian_track) StdoutLine: {'line': b"-- Added test 'cpplint' to check C / C++ code against the Google style\n"}
+[16.981497] (hyrian_track) StdoutLine: {'line': b'-- Configured cpplint exclude dirs and/or files: \n'}
+[16.985612] (hyrian_track) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[16.991502] (hyrian_track) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[16.991950] (hyrian_track) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[16.994771] (hyrian_track) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[16.997040] (-) TimerEvent: {}
+[17.018158] (hyrian_track) StdoutLine: {'line': b'-- Configuring done\n'}
+[17.097222] (-) TimerEvent: {}
+[17.197913] (-) TimerEvent: {}
+[17.285497] (hyrian_track) StdoutLine: {'line': b'-- Generating done\n'}
+[17.295329] (hyrian_track) StdoutLine: {'line': b'-- Build files have been written to: /home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track\n'}
+[17.298055] (-) TimerEvent: {}
+[17.354708] (hyrian_track) CommandEnded: {'returncode': 0}
+[17.356412] (hyrian_track) JobProgress: {'identifier': 'hyrian_track', 'progress': 'build'}
+[17.356534] (hyrian_track) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track', '--', '-j4', '-l4'], 'cwd': '/home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'ko:en_US:en'), ('USER', 'jetson'), ('SSH_CLIENT', '192.168.242.139 35310 22'), ('LC_TIME', 'en_US.UTF-8'), ('ROS_NAMESPACE', 'robot1'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/jetson/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/jetson/robot_ws/install/hyrian_interfaces/lib:/home/jetson/robot_ws/install/darknet_ros/lib:/home/jetson/robot_ws/install/darknet_ros_msgs/lib:/home/jetson/robot_ws/install/astra_camera/lib:/home/jetson/robot_ws/install/astra_camera_msgs/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib'), ('BROWSER', '/home/jetson/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jetson'), ('TERM_PROGRAM_VERSION', '1.85.1'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-dc88b27e-1737-449c-b4de-4e387f1dd939.sock'), ('JETSON_L4T', '32.6.1'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Nano Developer Kit'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/jetson/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'en_US.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/home/jetson/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/node'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/jetson/robot_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jetson'), ('JETSON_MODULE', 'NVIDIA Jetson Nano (4 GB ram)'), ('JETSON_SERIAL_NUMBER', '1420121080913'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Porg'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '3'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/usr/local/cuda/bin:/home/jetson/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/home/jetson/.local/bin:/opt/ros/foxy/bin:/usr/local/cuda/bin:/home/jetson/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('PAPERSIZE', 'letter'), ('LC_ADDRESS', 'en_US.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'ko_KR.UTF-8'), ('LC_TELEPHONE', 'en_US.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_fastrtps_cpp'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra210'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-eaab4f747c.sock'), ('TERM_PROGRAM', 'vscode'), ('ROS_DOMAIN_ID', '1'), ('AMENT_PREFIX_PATH', '/home/jetson/robot_ws/install/topic_subsub:/home/jetson/robot_ws/install/topic_subnode:/home/jetson/robot_ws/install/hyrian_track:/home/jetson/robot_ws/install/hyrian_teleop:/home/jetson/robot_ws/install/hyrian_lidar:/home/jetson/robot_ws/install/hyrian_interfaces:/home/jetson/robot_ws/install/hyrian_imu:/home/jetson/robot_ws/install/hyrian_gazebo:/home/jetson/robot_ws/install/hyrian_description:/home/jetson/robot_ws/install/hyrian_cartographer:/home/jetson/robot_ws/install/darknet_ros:/home/jetson/robot_ws/install/darknet_ros_msgs:/home/jetson/robot_ws/install/astra_camera:/home/jetson/robot_ws/install/astra_camera_msgs:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'en_US.UTF-8'), ('ROS_WS', '/home/jetson/robot_ws'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('JETSON_BOARDIDS', 'p3448'), ('LC_MEASUREMENT', 'en_US.UTF-8'), ('LC_IDENTIFICATION', 'en_US.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('JETSON_CUDA_ARCH_BIN', '5.3'), ('PWD', '/home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.242.139 35310 192.168.242.194 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/jetson/robot_ws/install/hyrian_teleop/lib/python3.8/site-packages:/home/jetson/robot_ws/install/hyrian_interfaces/lib/python3.8/site-packages:/home/jetson/robot_ws/build/hyrian_description:/home/jetson/robot_ws/install/hyrian_description/lib/python3.8/site-packages:/home/jetson/robot_ws/install/darknet_ros_msgs/lib/python3.8/site-packages:/home/jetson/robot_ws/install/astra_camera_msgs/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'en_US.UTF-8'), ('LC_PAPER', 'en_US.UTF-8'), ('COLCON', '1'), ('JETSON_JETPACK', '4.6'), ('CMAKE_PREFIX_PATH', '/home/jetson/robot_ws/install/topic_subsub:/home/jetson/robot_ws/install/topic_subnode:/home/jetson/robot_ws/install/hyrian_track:/home/jetson/robot_ws/install/hyrian_lidar:/home/jetson/robot_ws/install/hyrian_interfaces:/home/jetson/robot_ws/install/hyrian_imu:/home/jetson/robot_ws/install/hyrian_gazebo:/home/jetson/robot_ws/install/hyrian_cartographer:/home/jetson/robot_ws/install/darknet_ros:/home/jetson/robot_ws/install/darknet_ros_msgs:/home/jetson/robot_ws/install/astra_camera:/home/jetson/robot_ws/install/astra_camera_msgs:/home/jetson/robot_ws/install/hyrian_teleop:/home/jetson/robot_ws/install/hyrian_description:/opt/ros/foxy'), ('JETSON_P_NUMBER', 'p3448-0000')]), 'shell': False}
+[17.398399] (-) TimerEvent: {}
+[17.499247] (-) TimerEvent: {}
+[17.531239] (hyrian_track) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target hyrian_track\x1b[0m\n'}
+[17.599389] (-) TimerEvent: {}
+[17.700055] (-) TimerEvent: {}
+[17.800746] (-) TimerEvent: {}
+[17.901449] (-) TimerEvent: {}
+[18.002097] (-) TimerEvent: {}
+[18.046888] (hyrian_track) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/hyrian_track.dir/src/topic_sub_node.cpp.o\x1b[0m\n'}
+[18.102265] (-) TimerEvent: {}
+[18.202948] (-) TimerEvent: {}
+[18.303624] (-) TimerEvent: {}
+[18.404288] (-) TimerEvent: {}
+[18.504931] (-) TimerEvent: {}
+[18.605572] (-) TimerEvent: {}
+[18.706243] (-) TimerEvent: {}
+[18.806908] (-) TimerEvent: {}
+[18.907603] (-) TimerEvent: {}
+[19.008270] (-) TimerEvent: {}
+[19.108913] (-) TimerEvent: {}
+[19.209560] (-) TimerEvent: {}
+[19.310247] (-) TimerEvent: {}
+[19.410932] (-) TimerEvent: {}
+[19.511595] (-) TimerEvent: {}
+[19.612305] (-) TimerEvent: {}
+[19.713120] (-) TimerEvent: {}
+[19.813792] (-) TimerEvent: {}
+[19.914470] (-) TimerEvent: {}
+[20.015166] (-) TimerEvent: {}
+[20.115845] (-) TimerEvent: {}
+[20.216523] (-) TimerEvent: {}
+[20.317254] (-) TimerEvent: {}
+[20.417913] (-) TimerEvent: {}
+[20.518580] (-) TimerEvent: {}
+[20.619255] (-) TimerEvent: {}
+[20.719981] (-) TimerEvent: {}
+[20.820712] (-) TimerEvent: {}
+[20.921497] (-) TimerEvent: {}
+[21.022226] (-) TimerEvent: {}
+[21.123725] (-) TimerEvent: {}
+[21.224420] (-) TimerEvent: {}
+[21.325180] (-) TimerEvent: {}
+[21.425837] (-) TimerEvent: {}
+[21.526501] (-) TimerEvent: {}
+[21.627191] (-) TimerEvent: {}
+[21.727860] (-) TimerEvent: {}
+[21.828509] (-) TimerEvent: {}
+[21.929222] (-) TimerEvent: {}
+[22.029880] (-) TimerEvent: {}
+[22.130570] (-) TimerEvent: {}
+[22.231279] (-) TimerEvent: {}
+[22.331963] (-) TimerEvent: {}
+[22.432642] (-) TimerEvent: {}
+[22.533431] (-) TimerEvent: {}
+[22.634084] (-) TimerEvent: {}
+[22.734750] (-) TimerEvent: {}
+[22.835425] (-) TimerEvent: {}
+[22.936085] (-) TimerEvent: {}
+[23.036743] (-) TimerEvent: {}
+[23.137463] (-) TimerEvent: {}
+[23.238117] (-) TimerEvent: {}
+[23.338768] (-) TimerEvent: {}
+[23.439421] (-) TimerEvent: {}
+[23.540069] (-) TimerEvent: {}
+[23.640728] (-) TimerEvent: {}
+[23.741459] (-) TimerEvent: {}
+[23.842127] (-) TimerEvent: {}
+[23.942753] (-) TimerEvent: {}
+[24.043413] (-) TimerEvent: {}
+[24.144057] (-) TimerEvent: {}
+[24.244717] (-) TimerEvent: {}
+[24.345421] (-) TimerEvent: {}
+[24.446077] (-) TimerEvent: {}
+[24.546739] (-) TimerEvent: {}
+[24.647419] (-) TimerEvent: {}
+[24.748087] (-) TimerEvent: {}
+[24.848753] (-) TimerEvent: {}
+[24.949497] (-) TimerEvent: {}
+[25.050170] (-) TimerEvent: {}
+[25.150843] (-) TimerEvent: {}
+[25.251506] (-) TimerEvent: {}
+[25.352193] (-) TimerEvent: {}
+[25.452939] (-) TimerEvent: {}
+[25.553615] (-) TimerEvent: {}
+[25.654285] (-) TimerEvent: {}
+[25.754950] (-) TimerEvent: {}
+[25.857016] (-) TimerEvent: {}
+[25.957703] (-) TimerEvent: {}
+[26.058417] (-) TimerEvent: {}
+[26.159095] (-) TimerEvent: {}
+[26.259750] (-) TimerEvent: {}
+[26.360406] (-) TimerEvent: {}
+[26.461098] (-) TimerEvent: {}
+[26.561781] (-) TimerEvent: {}
+[26.662446] (-) TimerEvent: {}
+[26.763106] (-) TimerEvent: {}
+[26.863761] (-) TimerEvent: {}
+[26.964420] (-) TimerEvent: {}
+[27.065136] (-) TimerEvent: {}
+[27.165791] (-) TimerEvent: {}
+[27.266471] (-) TimerEvent: {}
+[27.367146] (-) TimerEvent: {}
+[27.467828] (-) TimerEvent: {}
+[27.568496] (-) TimerEvent: {}
+[27.669280] (-) TimerEvent: {}
+[27.769968] (-) TimerEvent: {}
+[27.870652] (-) TimerEvent: {}
+[27.971317] (-) TimerEvent: {}
+[28.072058] (-) TimerEvent: {}
+[28.172849] (-) TimerEvent: {}
+[28.273535] (-) TimerEvent: {}
+[28.374214] (-) TimerEvent: {}
+[28.474891] (-) TimerEvent: {}
+[28.575567] (-) TimerEvent: {}
+[28.676224] (-) TimerEvent: {}
+[28.776938] (-) TimerEvent: {}
+[28.877609] (-) TimerEvent: {}
+[28.978278] (-) TimerEvent: {}
+[29.078941] (-) TimerEvent: {}
+[29.179608] (-) TimerEvent: {}
+[29.280269] (-) TimerEvent: {}
+[29.380918] (-) TimerEvent: {}
+[29.481561] (-) TimerEvent: {}
+[29.582221] (-) TimerEvent: {}
+[29.682880] (-) TimerEvent: {}
+[29.783574] (-) TimerEvent: {}
+[29.884237] (-) TimerEvent: {}
+[29.984954] (-) TimerEvent: {}
+[30.085639] (-) TimerEvent: {}
+[30.186283] (-) TimerEvent: {}
+[30.286972] (-) TimerEvent: {}
+[30.387641] (-) TimerEvent: {}
+[30.488323] (-) TimerEvent: {}
+[30.589062] (-) TimerEvent: {}
+[30.689728] (-) TimerEvent: {}
+[30.790420] (-) TimerEvent: {}
+[30.891084] (-) TimerEvent: {}
+[30.991796] (-) TimerEvent: {}
+[31.092506] (-) TimerEvent: {}
+[31.193292] (-) TimerEvent: {}
+[31.293958] (-) TimerEvent: {}
+[31.394620] (-) TimerEvent: {}
+[31.495275] (-) TimerEvent: {}
+[31.595940] (-) TimerEvent: {}
+[31.696599] (-) TimerEvent: {}
+[31.797314] (-) TimerEvent: {}
+[31.897972] (-) TimerEvent: {}
+[31.998646] (-) TimerEvent: {}
+[32.099323] (-) TimerEvent: {}
+[32.200001] (-) TimerEvent: {}
+[32.300676] (-) TimerEvent: {}
+[32.401439] (-) TimerEvent: {}
+[32.502145] (-) TimerEvent: {}
+[32.602900] (-) TimerEvent: {}
+[32.703572] (-) TimerEvent: {}
+[32.804262] (-) TimerEvent: {}
+[32.904930] (-) TimerEvent: {}
+[33.005601] (-) TimerEvent: {}
+[33.106270] (-) TimerEvent: {}
+[33.206948] (-) TimerEvent: {}
+[33.307670] (-) TimerEvent: {}
+[33.408388] (-) TimerEvent: {}
+[33.509109] (-) TimerEvent: {}
+[33.609899] (-) TimerEvent: {}
+[33.710663] (-) TimerEvent: {}
+[33.811332] (-) TimerEvent: {}
+[33.912003] (-) TimerEvent: {}
+[34.012688] (-) TimerEvent: {}
+[34.113415] (-) TimerEvent: {}
+[34.214070] (-) TimerEvent: {}
+[34.314732] (-) TimerEvent: {}
+[34.415392] (-) TimerEvent: {}
+[34.516095] (-) TimerEvent: {}
+[34.616768] (-) TimerEvent: {}
+[34.717489] (-) TimerEvent: {}
+[34.818166] (-) TimerEvent: {}
+[34.918882] (-) TimerEvent: {}
+[35.019563] (-) TimerEvent: {}
+[35.120250] (-) TimerEvent: {}
+[35.220921] (-) TimerEvent: {}
+[35.321570] (-) TimerEvent: {}
+[35.422235] (-) TimerEvent: {}
+[35.522895] (-) TimerEvent: {}
+[35.623559] (-) TimerEvent: {}
+[35.724225] (-) TimerEvent: {}
+[35.825017] (-) TimerEvent: {}
+[35.925646] (-) TimerEvent: {}
+[36.026426] (-) TimerEvent: {}
+[36.128351] (-) TimerEvent: {}
+[36.229101] (-) TimerEvent: {}
+[36.329775] (-) TimerEvent: {}
+[36.382209] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:102:4:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K;\x1b[m\x1b[K\xe2\x80\x99 after class definition\n'}
+[36.383198] (hyrian_track) StderrLine: {'line': b'   }\n'}
+[36.383664] (hyrian_track) StderrLine: {'line': b'    \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[36.384055] (hyrian_track) StderrLine: {'line': b'    \x1b[32m\x1b[K;\x1b[m\x1b[K\n'}
+[36.384431] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[KTopicSubscriber::TopicSubscriber()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[36.384858] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:18:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Ksubscription_boxes_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[36.385301] (hyrian_track) StderrLine: {'line': b'     \x1b[01;31m\x1b[Ksubscription_boxes_\x1b[m\x1b[K = this->create_subscription<darknet_ros_msgs::msg::BoundingBoxes>(\n'}
+[36.385687] (hyrian_track) StderrLine: {'line': b'     \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[36.427759] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:18:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Ksuggested alternative: \xe2\x80\x98\x1b[01m\x1b[Krcl_subscription_fini\x1b[m\x1b[K\xe2\x80\x99\n'}
+[36.428387] (hyrian_track) StderrLine: {'line': b'     \x1b[01;36m\x1b[Ksubscription_boxes_\x1b[m\x1b[K = this->create_subscription<darknet_ros_msgs::msg::BoundingBoxes>(\n'}
+[36.428781] (hyrian_track) StderrLine: {'line': b'     \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[36.429257] (hyrian_track) StderrLine: {'line': b'     \x1b[32m\x1b[Krcl_subscription_fini\x1b[m\x1b[K\n'}
+[36.429870] (-) TimerEvent: {}
+[36.489057] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:20:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Ksubscription_pcl_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[36.489701] (hyrian_track) StderrLine: {'line': b'     \x1b[01;31m\x1b[Ksubscription_pcl_\x1b[m\x1b[K = this->create_subscription<sensor_msgs::msg::PointCloud2>(\n'}
+[36.490123] (hyrian_track) StderrLine: {'line': b'     \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[36.527423] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:20:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Ksuggested alternative: \xe2\x80\x98\x1b[01m\x1b[Krcl_subscription_fini\x1b[m\x1b[K\xe2\x80\x99\n'}
+[36.528060] (hyrian_track) StderrLine: {'line': b'     \x1b[01;36m\x1b[Ksubscription_pcl_\x1b[m\x1b[K = this->create_subscription<sensor_msgs::msg::PointCloud2>(\n'}
+[36.528464] (hyrian_track) StderrLine: {'line': b'     \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[36.528928] (hyrian_track) StderrLine: {'line': b'     \x1b[32m\x1b[Krcl_subscription_fini\x1b[m\x1b[K\n'}
+[36.529997] (-) TimerEvent: {}
+[36.568177] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:28:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpublisher_person_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[36.568920] (hyrian_track) StderrLine: {'line': b'     \x1b[01;31m\x1b[Kpublisher_person_\x1b[m\x1b[K = this->create_publisher<std_msgs::msg::String>("person", 10);\n'}
+[36.569410] (hyrian_track) StderrLine: {'line': b'     \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[36.620856] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:29:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpublisher_stop_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[36.621510] (hyrian_track) StderrLine: {'line': b'     \x1b[01;31m\x1b[Kpublisher_stop_\x1b[m\x1b[K = this->create_publisher<std_msgs::msg::String>("stop", 10);\n'}
+[36.621939] (hyrian_track) StderrLine: {'line': b'     \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[36.630180] (-) TimerEvent: {}
+[36.657516] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:30:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpublisher_cmd_vel_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[36.658248] (hyrian_track) StderrLine: {'line': b'     \x1b[01;31m\x1b[Kpublisher_cmd_vel_\x1b[m\x1b[K = this->create_publisher<geometry_msgs::msg::Twist>("cmd_vel", 10);\n'}
+[36.658780] (hyrian_track) StderrLine: {'line': b'     \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[36.702680] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:30:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Ksuggested alternative: \xe2\x80\x98\x1b[01m\x1b[Krcl_publisher_is_valid\x1b[m\x1b[K\xe2\x80\x99\n'}
+[36.703302] (hyrian_track) StderrLine: {'line': b'     \x1b[01;36m\x1b[Kpublisher_cmd_vel_\x1b[m\x1b[K = this->create_publisher<geometry_msgs::msg::Twist>("cmd_vel", 10);\n'}
+[36.703828] (hyrian_track) StderrLine: {'line': b'     \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[36.704214] (hyrian_track) StderrLine: {'line': b'     \x1b[32m\x1b[Krcl_publisher_is_valid\x1b[m\x1b[K\n'}
+[36.730350] (-) TimerEvent: {}
+[36.747103] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid TopicSubscriber::boxes_callback(darknet_ros_msgs::msg::BoundingBoxes_<std::allocator<void> >::SharedPtr)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[36.747727] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:64:58:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Khuman_tracking\x1b[m\x1b[K\xe2\x80\x99 is not a member of \xe2\x80\x98\x1b[01m\x1b[KTopicSubscriber\x1b[m\x1b[K\xe2\x80\x99\n'}
+[36.748131] (hyrian_track) StderrLine: {'line': b'         std::async(std::launch::async, &TopicSubscriber::\x1b[01;31m\x1b[Khuman_tracking\x1b[m\x1b[K, this);\n'}
+[36.748546] (hyrian_track) StderrLine: {'line': b'                                                          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[36.770327] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid human_tracking()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[36.771390] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:106:12:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kinvalid use of \xe2\x80\x98\x1b[01m\x1b[Kthis\x1b[m\x1b[K\xe2\x80\x99 in non-member function\n'}
+[36.772553] (hyrian_track) StderrLine: {'line': b'       if (!\x1b[01;31m\x1b[Kthis\x1b[m\x1b[K->is_person_detected_) // \xec\x82\xac\xeb\x9e\x8c\xec\x9d\xb4 \xea\xb0\x90\xec\xa7\x80\xeb\x90\x98\xec\xa7\x80 \xec\x95\x8a\xec\x9c\xbc\xeb\xa9\xb4 \xeb\xa1\x9c\xeb\xb4\x87\xec\x9d\x84 \xeb\xa9\x88\xec\xb6\xa5\xeb\x8b\x88\xeb\x8b\xa4.\n'}
+[36.773188] (hyrian_track) StderrLine: {'line': b'            \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[36.773597] (hyrian_track) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/service.hpp:34\x1b[m\x1b[K,\n'}
+[36.773988] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/callback_group.hpp:25\x1b[m\x1b[K,\n'}
+[36.774366] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:20\x1b[m\x1b[K,\n'}
+[36.774741] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24\x1b[m\x1b[K,\n'}
+[36.775126] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18\x1b[m\x1b[K,\n'}
+[36.775482] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20\x1b[m\x1b[K,\n'}
+[36.775872] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executor.hpp:33\x1b[m\x1b[K,\n'}
+[36.776328] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26\x1b[m\x1b[K,\n'}
+[36.776731] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executors.hpp:21\x1b[m\x1b[K,\n'}
+[36.777152] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146\x1b[m\x1b[K,\n'}
+[36.777500] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:1\x1b[m\x1b[K:\n'}
+[36.777842] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:108:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kinvalid use of \xe2\x80\x98\x1b[01m\x1b[Kthis\x1b[m\x1b[K\xe2\x80\x99 in non-member function\n'}
+[36.778211] (hyrian_track) StderrLine: {'line': b'         RCLCPP_INFO(\x1b[01;31m\x1b[Kthis\x1b[m\x1b[K->get_logger(), "not start");\n'}
+[36.778577] (hyrian_track) StderrLine: {'line': b'                     \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[36.778904] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:108:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kinvalid use of \xe2\x80\x98\x1b[01m\x1b[Kthis\x1b[m\x1b[K\xe2\x80\x99 in non-member function\n'}
+[36.779260] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:108:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[36.779629] (hyrian_track) StderrLine: {'line': b'         \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(this->get_logger(), "not start");\n'}
+[36.780093] (hyrian_track) StderrLine: {'line': b'         \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[36.780557] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:108:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[36.781011] (hyrian_track) StderrLine: {'line': b'         \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(this->get_logger(), "not start");\n'}
+[36.781427] (hyrian_track) StderrLine: {'line': b'         \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[36.781825] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:108:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[36.782253] (hyrian_track) StderrLine: {'line': b'         \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(this->get_logger(), "not start");\n'}
+[36.782660] (hyrian_track) StderrLine: {'line': b'         \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[36.783049] (hyrian_track) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/client.hpp:40\x1b[m\x1b[K,\n'}
+[36.783453] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/callback_group.hpp:23\x1b[m\x1b[K,\n'}
+[36.783898] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:20\x1b[m\x1b[K,\n'}
+[36.784423] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24\x1b[m\x1b[K,\n'}
+[36.784908] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18\x1b[m\x1b[K,\n'}
+[36.785332] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20\x1b[m\x1b[K,\n'}
+[36.785726] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executor.hpp:33\x1b[m\x1b[K,\n'}
+[36.786136] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26\x1b[m\x1b[K,\n'}
+[36.786538] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executors.hpp:21\x1b[m\x1b[K,\n'}
+[36.786936] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146\x1b[m\x1b[K,\n'}
+[36.787345] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:1\x1b[m\x1b[K:\n'}
+[36.787781] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:108:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kinvalid use of \xe2\x80\x98\x1b[01m\x1b[Kthis\x1b[m\x1b[K\xe2\x80\x99 in non-member function\n'}
+[36.788329] (hyrian_track) StderrLine: {'line': b'         RCLCPP_INFO(\x1b[01;31m\x1b[Kthis\x1b[m\x1b[K->get_logger(), "not start");\n'}
+[36.788908] (hyrian_track) StderrLine: {'line': b'                     \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[36.790139] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:108:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kinvalid use of \xe2\x80\x98\x1b[01m\x1b[Kthis\x1b[m\x1b[K\xe2\x80\x99 in non-member function\n'}
+[36.790551] (hyrian_track) StderrLine: {'line': b'         RCLCPP_INFO(\x1b[01;31m\x1b[Kthis\x1b[m\x1b[K->get_logger(), "not start");\n'}
+[36.790922] (hyrian_track) StderrLine: {'line': b'                     \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[36.792150] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:110:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kstop_robot\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[36.792691] (hyrian_track) StderrLine: {'line': b'         \x1b[01;31m\x1b[Kstop_robot\x1b[m\x1b[K();\n'}
+[36.793201] (hyrian_track) StderrLine: {'line': b'         \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[36.793602] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:114:11:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kinvalid use of \xe2\x80\x98\x1b[01m\x1b[Kthis\x1b[m\x1b[K\xe2\x80\x99 in non-member function\n'}
+[36.793993] (hyrian_track) StderrLine: {'line': b'       if (\x1b[01;31m\x1b[Kthis\x1b[m\x1b[K->distance <= 0.5) // \xec\x82\xac\xeb\x9e\x8c\xea\xb3\xbc\xec\x9d\x98 \xea\xb1\xb0\xeb\xa6\xac\xea\xb0\x80 0.7 \xec\x9d\xb4\xed\x95\x98\xeb\xa9\xb4 \xeb\xa1\x9c\xeb\xb4\x87\xec\x9d\x84 \xeb\xa9\x88\xec\xb6\xa5\xeb\x8b\x88\xeb\x8b\xa4.\n'}
+[36.794406] (hyrian_track) StderrLine: {'line': b'           \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[36.794760] (hyrian_track) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/service.hpp:34\x1b[m\x1b[K,\n'}
+[36.795094] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/callback_group.hpp:25\x1b[m\x1b[K,\n'}
+[36.795423] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:20\x1b[m\x1b[K,\n'}
+[36.795804] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24\x1b[m\x1b[K,\n'}
+[36.796288] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18\x1b[m\x1b[K,\n'}
+[36.796701] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20\x1b[m\x1b[K,\n'}
+[36.797163] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executor.hpp:33\x1b[m\x1b[K,\n'}
+[36.797519] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26\x1b[m\x1b[K,\n'}
+[36.797869] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executors.hpp:21\x1b[m\x1b[K,\n'}
+[36.798200] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146\x1b[m\x1b[K,\n'}
+[36.798557] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:1\x1b[m\x1b[K:\n'}
+[36.798916] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:116:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kinvalid use of \xe2\x80\x98\x1b[01m\x1b[Kthis\x1b[m\x1b[K\xe2\x80\x99 in non-member function\n'}
+[36.799282] (hyrian_track) StderrLine: {'line': b'         RCLCPP_INFO(\x1b[01;31m\x1b[Kthis\x1b[m\x1b[K->get_logger(), "too close");\n'}
+[36.799649] (hyrian_track) StderrLine: {'line': b'                     \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[36.800103] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:116:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kinvalid use of \xe2\x80\x98\x1b[01m\x1b[Kthis\x1b[m\x1b[K\xe2\x80\x99 in non-member function\n'}
+[36.800612] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:116:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[36.801075] (hyrian_track) StderrLine: {'line': b'         \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(this->get_logger(), "too close");\n'}
+[36.801469] (hyrian_track) StderrLine: {'line': b'         \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[36.801881] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:116:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[36.802289] (hyrian_track) StderrLine: {'line': b'         \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(this->get_logger(), "too close");\n'}
+[36.802699] (hyrian_track) StderrLine: {'line': b'         \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[36.803089] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:116:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[36.803483] (hyrian_track) StderrLine: {'line': b'         \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(this->get_logger(), "too close");\n'}
+[36.803984] (hyrian_track) StderrLine: {'line': b'         \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[36.804514] (hyrian_track) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/client.hpp:40\x1b[m\x1b[K,\n'}
+[36.804985] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/callback_group.hpp:23\x1b[m\x1b[K,\n'}
+[36.805416] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:20\x1b[m\x1b[K,\n'}
+[36.805834] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24\x1b[m\x1b[K,\n'}
+[36.806237] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18\x1b[m\x1b[K,\n'}
+[36.806643] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20\x1b[m\x1b[K,\n'}
+[36.807050] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executor.hpp:33\x1b[m\x1b[K,\n'}
+[36.807461] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26\x1b[m\x1b[K,\n'}
+[36.807940] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executors.hpp:21\x1b[m\x1b[K,\n'}
+[36.808492] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146\x1b[m\x1b[K,\n'}
+[36.809609] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:1\x1b[m\x1b[K:\n'}
+[36.810052] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:116:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kinvalid use of \xe2\x80\x98\x1b[01m\x1b[Kthis\x1b[m\x1b[K\xe2\x80\x99 in non-member function\n'}
+[36.810870] (hyrian_track) StderrLine: {'line': b'         RCLCPP_INFO(\x1b[01;31m\x1b[Kthis\x1b[m\x1b[K->get_logger(), "too close");\n'}
+[36.811587] (hyrian_track) StderrLine: {'line': b'                     \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[36.812091] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:116:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kinvalid use of \xe2\x80\x98\x1b[01m\x1b[Kthis\x1b[m\x1b[K\xe2\x80\x99 in non-member function\n'}
+[36.812647] (hyrian_track) StderrLine: {'line': b'         RCLCPP_INFO(\x1b[01;31m\x1b[Kthis\x1b[m\x1b[K->get_logger(), "too close");\n'}
+[36.813167] (hyrian_track) StderrLine: {'line': b'                     \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[36.813565] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:118:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kstop_robot\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[36.813982] (hyrian_track) StderrLine: {'line': b'         \x1b[01;31m\x1b[Kstop_robot\x1b[m\x1b[K();\n'}
+[36.814346] (hyrian_track) StderrLine: {'line': b'         \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[36.814675] (hyrian_track) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/service.hpp:34\x1b[m\x1b[K,\n'}
+[36.815004] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/callback_group.hpp:25\x1b[m\x1b[K,\n'}
+[36.815336] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:20\x1b[m\x1b[K,\n'}
+[36.815667] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24\x1b[m\x1b[K,\n'}
+[36.815998] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18\x1b[m\x1b[K,\n'}
+[36.816339] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20\x1b[m\x1b[K,\n'}
+[36.816667] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executor.hpp:33\x1b[m\x1b[K,\n'}
+[36.817039] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26\x1b[m\x1b[K,\n'}
+[36.817369] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executors.hpp:21\x1b[m\x1b[K,\n'}
+[36.817716] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146\x1b[m\x1b[K,\n'}
+[36.818159] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:1\x1b[m\x1b[K:\n'}
+[36.818590] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:122:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kinvalid use of \xe2\x80\x98\x1b[01m\x1b[Kthis\x1b[m\x1b[K\xe2\x80\x99 in non-member function\n'}
+[36.818928] (hyrian_track) StderrLine: {'line': b'         RCLCPP_INFO(\x1b[01;31m\x1b[Kthis\x1b[m\x1b[K->get_logger(), "move");\n'}
+[36.819243] (hyrian_track) StderrLine: {'line': b'                     \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[36.819565] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:122:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kinvalid use of \xe2\x80\x98\x1b[01m\x1b[Kthis\x1b[m\x1b[K\xe2\x80\x99 in non-member function\n'}
+[36.819950] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:122:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[36.820404] (hyrian_track) StderrLine: {'line': b'         \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(this->get_logger(), "move");\n'}
+[36.820815] (hyrian_track) StderrLine: {'line': b'         \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[36.821180] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:122:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[36.821513] (hyrian_track) StderrLine: {'line': b'         \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(this->get_logger(), "move");\n'}
+[36.821827] (hyrian_track) StderrLine: {'line': b'         \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[36.822147] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:122:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[36.822484] (hyrian_track) StderrLine: {'line': b'         \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(this->get_logger(), "move");\n'}
+[36.822804] (hyrian_track) StderrLine: {'line': b'         \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[36.823135] (hyrian_track) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/client.hpp:40\x1b[m\x1b[K,\n'}
+[36.823523] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/callback_group.hpp:23\x1b[m\x1b[K,\n'}
+[36.823991] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:20\x1b[m\x1b[K,\n'}
+[36.824497] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24\x1b[m\x1b[K,\n'}
+[36.824920] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18\x1b[m\x1b[K,\n'}
+[36.825267] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20\x1b[m\x1b[K,\n'}
+[36.825650] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executor.hpp:33\x1b[m\x1b[K,\n'}
+[36.825995] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26\x1b[m\x1b[K,\n'}
+[36.826345] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executors.hpp:21\x1b[m\x1b[K,\n'}
+[36.826690] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146\x1b[m\x1b[K,\n'}
+[36.827028] (hyrian_track) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:1\x1b[m\x1b[K:\n'}
+[36.827407] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:122:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kinvalid use of \xe2\x80\x98\x1b[01m\x1b[Kthis\x1b[m\x1b[K\xe2\x80\x99 in non-member function\n'}
+[36.827795] (hyrian_track) StderrLine: {'line': b'         RCLCPP_INFO(\x1b[01;31m\x1b[Kthis\x1b[m\x1b[K->get_logger(), "move");\n'}
+[36.828242] (hyrian_track) StderrLine: {'line': b'                     \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[36.828655] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:122:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kinvalid use of \xe2\x80\x98\x1b[01m\x1b[Kthis\x1b[m\x1b[K\xe2\x80\x99 in non-member function\n'}
+[36.829088] (hyrian_track) StderrLine: {'line': b'         RCLCPP_INFO(\x1b[01;31m\x1b[Kthis\x1b[m\x1b[K->get_logger(), "move");\n'}
+[36.829457] (hyrian_track) StderrLine: {'line': b'                     \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[36.829802] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:127:50:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kinvalid use of \xe2\x80\x98\x1b[01m\x1b[Kthis\x1b[m\x1b[K\xe2\x80\x99 in non-member function\n'}
+[36.830145] (hyrian_track) StderrLine: {'line': b'         cmd_vel_msg.angular.z = -tracking_gain * \x1b[01;31m\x1b[Kthis\x1b[m\x1b[K->error_x;\n'}
+[36.830469] (-) TimerEvent: {}
+[36.830847] (hyrian_track) StderrLine: {'line': b'                                                  \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[36.831335] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:128:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpublisher_cmd_vel_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[36.831728] (hyrian_track) StderrLine: {'line': b'         \x1b[01;31m\x1b[Kpublisher_cmd_vel_\x1b[m\x1b[K->publish(cmd_vel_msg);\n'}
+[36.832183] (hyrian_track) StderrLine: {'line': b'         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[36.847372] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:128:9:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Ksuggested alternative: \xe2\x80\x98\x1b[01m\x1b[Krcl_publisher_is_valid\x1b[m\x1b[K\xe2\x80\x99\n'}
+[36.848053] (hyrian_track) StderrLine: {'line': b'         \x1b[01;36m\x1b[Kpublisher_cmd_vel_\x1b[m\x1b[K->publish(cmd_vel_msg);\n'}
+[36.848913] (hyrian_track) StderrLine: {'line': b'         \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[36.849374] (hyrian_track) StderrLine: {'line': b'         \x1b[32m\x1b[Krcl_publisher_is_valid\x1b[m\x1b[K\n'}
+[36.849755] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid control_robot(float)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[36.850145] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:142:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpublisher_cmd_vel_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[36.850550] (hyrian_track) StderrLine: {'line': b'       \x1b[01;31m\x1b[Kpublisher_cmd_vel_\x1b[m\x1b[K->publish(cmd_vel_msg);\n'}
+[36.850930] (hyrian_track) StderrLine: {'line': b'       \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[36.883969] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:142:7:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Ksuggested alternative: \xe2\x80\x98\x1b[01m\x1b[Krcl_publisher_is_valid\x1b[m\x1b[K\xe2\x80\x99\n'}
+[36.884771] (hyrian_track) StderrLine: {'line': b'       \x1b[01;36m\x1b[Kpublisher_cmd_vel_\x1b[m\x1b[K->publish(cmd_vel_msg);\n'}
+[36.885310] (hyrian_track) StderrLine: {'line': b'       \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[36.885724] (hyrian_track) StderrLine: {'line': b'       \x1b[32m\x1b[Krcl_publisher_is_valid\x1b[m\x1b[K\n'}
+[36.886220] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid stop_robot()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[36.886717] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:148:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kcmd_vel_msg\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[36.887164] (hyrian_track) StderrLine: {'line': b'       \x1b[01;31m\x1b[Kcmd_vel_msg\x1b[m\x1b[K.linear.x = 0.0;\n'}
+[36.887537] (hyrian_track) StderrLine: {'line': b'       \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[36.902636] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:151:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpublisher_cmd_vel_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[36.903284] (hyrian_track) StderrLine: {'line': b'       \x1b[01;31m\x1b[Kpublisher_cmd_vel_\x1b[m\x1b[K->publish(cmd_vel_msg);\n'}
+[36.903757] (hyrian_track) StderrLine: {'line': b'       \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[36.930658] (-) TimerEvent: {}
+[36.938278] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:151:7:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Ksuggested alternative: \xe2\x80\x98\x1b[01m\x1b[Krcl_publisher_is_valid\x1b[m\x1b[K\xe2\x80\x99\n'}
+[36.938999] (hyrian_track) StderrLine: {'line': b'       \x1b[01;36m\x1b[Kpublisher_cmd_vel_\x1b[m\x1b[K->publish(cmd_vel_msg);\n'}
+[36.939529] (hyrian_track) StderrLine: {'line': b'       \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[36.939955] (hyrian_track) StderrLine: {'line': b'       \x1b[32m\x1b[Krcl_publisher_is_valid\x1b[m\x1b[K\n'}
+[36.940330] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:152:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpublisher_stop_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[36.940715] (hyrian_track) StderrLine: {'line': b'       \x1b[01;31m\x1b[Kpublisher_stop_\x1b[m\x1b[K->publish(stop_msg);\n'}
+[36.941142] (hyrian_track) StderrLine: {'line': b'       \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[37.030825] (-) TimerEvent: {}
+[37.044131] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:\x1b[m\x1b[K At global scope:\n'}
+[37.044775] (hyrian_track) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:164:1:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected declaration before \xe2\x80\x98\x1b[01m\x1b[K}\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[37.045334] (hyrian_track) StderrLine: {'line': b' \x1b[01;31m\x1b[K}\x1b[m\x1b[K;\n'}
+[37.045777] (hyrian_track) StderrLine: {'line': b' \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[37.130998] (-) TimerEvent: {}
+[37.231695] (-) TimerEvent: {}
+[37.332371] (-) TimerEvent: {}
+[37.433085] (-) TimerEvent: {}
+[37.533748] (-) TimerEvent: {}
+[37.634394] (-) TimerEvent: {}
+[37.735064] (-) TimerEvent: {}
+[37.835734] (-) TimerEvent: {}
+[37.936403] (-) TimerEvent: {}
+[38.037189] (-) TimerEvent: {}
+[38.137858] (-) TimerEvent: {}
+[38.238522] (-) TimerEvent: {}
+[38.339207] (-) TimerEvent: {}
+[38.439864] (-) TimerEvent: {}
+[38.540531] (-) TimerEvent: {}
+[38.641236] (-) TimerEvent: {}
+[38.741903] (-) TimerEvent: {}
+[38.842555] (-) TimerEvent: {}
+[38.943192] (-) TimerEvent: {}
+[39.043858] (-) TimerEvent: {}
+[39.144515] (-) TimerEvent: {}
+[39.245237] (-) TimerEvent: {}
+[39.345892] (-) TimerEvent: {}
+[39.446549] (-) TimerEvent: {}
+[39.547210] (-) TimerEvent: {}
+[39.647887] (-) TimerEvent: {}
+[39.748553] (-) TimerEvent: {}
+[39.849281] (-) TimerEvent: {}
+[39.949942] (-) TimerEvent: {}
+[40.050629] (-) TimerEvent: {}
+[40.151308] (-) TimerEvent: {}
+[40.251985] (-) TimerEvent: {}
+[40.352630] (-) TimerEvent: {}
+[40.453370] (-) TimerEvent: {}
+[40.554033] (-) TimerEvent: {}
+[40.654710] (-) TimerEvent: {}
+[40.755366] (-) TimerEvent: {}
+[40.856024] (-) TimerEvent: {}
+[40.956680] (-) TimerEvent: {}
+[41.057411] (-) TimerEvent: {}
+[41.158125] (-) TimerEvent: {}
+[41.258832] (-) TimerEvent: {}
+[41.359502] (-) TimerEvent: {}
+[41.460328] (-) TimerEvent: {}
+[41.561156] (-) TimerEvent: {}
+[41.661922] (-) TimerEvent: {}
+[41.762586] (-) TimerEvent: {}
+[41.863256] (-) TimerEvent: {}
+[41.963923] (-) TimerEvent: {}
+[42.064590] (-) TimerEvent: {}
+[42.165318] (-) TimerEvent: {}
+[42.265989] (-) TimerEvent: {}
+[42.366652] (-) TimerEvent: {}
+[42.467309] (-) TimerEvent: {}
+[42.567982] (-) TimerEvent: {}
+[42.668661] (-) TimerEvent: {}
+[42.769387] (-) TimerEvent: {}
+[42.870051] (-) TimerEvent: {}
+[42.970727] (-) TimerEvent: {}
+[43.071408] (-) TimerEvent: {}
+[43.172078] (-) TimerEvent: {}
+[43.272760] (-) TimerEvent: {}
+[43.373495] (-) TimerEvent: {}
+[43.474161] (-) TimerEvent: {}
+[43.574852] (-) TimerEvent: {}
+[43.675537] (-) TimerEvent: {}
+[43.776219] (-) TimerEvent: {}
+[43.877068] (-) TimerEvent: {}
+[43.977877] (-) TimerEvent: {}
+[44.078544] (-) TimerEvent: {}
+[44.179216] (-) TimerEvent: {}
+[44.279883] (-) TimerEvent: {}
+[44.380554] (-) TimerEvent: {}
+[44.481371] (-) TimerEvent: {}
+[44.582042] (-) TimerEvent: {}
+[44.682721] (-) TimerEvent: {}
+[44.783489] (-) TimerEvent: {}
+[44.884180] (-) TimerEvent: {}
+[44.951571] (hyrian_track) StderrLine: {'line': b'make[2]: *** [CMakeFiles/hyrian_track.dir/build.make:63: CMakeFiles/hyrian_track.dir/src/topic_sub_node.cpp.o] Error 1\n'}
+[44.952372] (hyrian_track) StderrLine: {'line': b'make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/hyrian_track.dir/all] Error 2\n'}
+[44.952968] (hyrian_track) StderrLine: {'line': b'make: *** [Makefile:141: all] Error 2\n'}
+[44.958904] (hyrian_track) CommandEnded: {'returncode': 2}
+[44.984431] (-) TimerEvent: {}
+[45.085768] (-) TimerEvent: {}
+[45.187566] (-) TimerEvent: {}
+[45.291670] (-) TimerEvent: {}
+[45.392437] (-) TimerEvent: {}
+[45.494310] (-) TimerEvent: {}
+[45.595180] (-) TimerEvent: {}
+[45.697418] (-) TimerEvent: {}
+[45.740469] (hyrian_track) JobEnded: {'identifier': 'hyrian_track', 'rc': 2}
+[45.752851] (-) EventReactorShutdown: {}

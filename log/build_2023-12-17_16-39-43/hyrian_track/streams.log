@@ -1,0 +1,360 @@
+[0.971s] Invoking command in '/home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jetson/robot_ws/install/hyrian_teleop:/home/jetson/robot_ws/install/hyrian_description:/opt/ros/foxy /usr/bin/cmake /home/jetson/robot_ws/src/hyrian_foxy/hyrian_track -DCMAKE_INSTALL_PREFIX=/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track
+[1.442s] -- The C compiler identification is GNU 8.4.0
+[1.655s] -- The CXX compiler identification is GNU 8.4.0
+[1.686s] -- Check for working C compiler: /usr/bin/cc
+[1.933s] -- Check for working C compiler: /usr/bin/cc -- works
+[1.943s] -- Detecting C compiler ABI info
+[2.197s] -- Detecting C compiler ABI info - done
+[2.250s] -- Detecting C compile features
+[2.252s] -- Detecting C compile features - done
+[2.264s] -- Check for working CXX compiler: /usr/bin/c++
+[2.543s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[2.547s] -- Detecting CXX compiler ABI info
+[2.834s] -- Detecting CXX compiler ABI info - done
+[2.883s] -- Detecting CXX compile features
+[2.885s] -- Detecting CXX compile features - done
+[2.922s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[3.062s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[3.063s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[4.290s] -- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)
+[4.635s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[4.701s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[5.259s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[5.392s] -- Found FastRTPS: /opt/ros/foxy/include  
+[5.853s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[6.215s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[6.226s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[6.231s] -- Looking for pthread.h
+[6.495s] -- Looking for pthread.h - found
+[6.496s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[6.772s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[6.772s] -- Looking for pthread_create in pthreads
+[7.012s] -- Looking for pthread_create in pthreads - not found
+[7.013s] -- Looking for pthread_create in pthread
+[7.270s] -- Looking for pthread_create in pthread - found
+[7.273s] -- Found Threads: TRUE  
+[8.079s] -- Found darknet_ros_msgs: 1.1.5 (/home/jetson/robot_ws/install/darknet_ros_msgs/share/darknet_ros_msgs/cmake)
+[9.895s] -- Found pcl_conversions: 2.2.1 (/opt/ros/foxy/share/pcl_conversions/cmake)
+[10.715s] -- Found pcl_ros: 2.2.1 (/opt/ros/foxy/share/pcl_ros/cmake)
+[11.219s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/foxy/share/eigen3_cmake_module/cmake)
+[11.244s] -- Found Eigen3: TRUE (found version "3.3.7") 
+[13.053s] -- Checking for module 'eigen3'
+[13.129s] --   Found eigen3, version 3.3.7
+[13.306s] -- Found Eigen: /usr/include/eigen3 (Required is at least version "3.1") 
+[13.307s] -- Eigen found (include: /usr/include/eigen3, version: 3.3.7)
+[13.716s] -- Checking for module 'flann'
+[13.796s] --   Found flann, version 1.9.1
+[13.999s] -- Found FLANN: /usr/lib/aarch64-linux-gnu/libflann_cpp.so  
+[14.272s] -- The imported target "vtkParseOGLExt" references the file
+[14.272s]    "/usr/bin/vtkParseOGLExt-7.1"
+[14.273s] but this file does not exist.  Possible reasons include:
+[14.273s] * The file was deleted, renamed, or moved to another location.
+[14.273s] * An install or uninstall procedure did not complete successfully.
+[14.274s] * The installation package was faulty and contained
+[14.274s]    "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+[14.274s] but not all the files it references.
+[14.275s] 
+[14.276s] -- The imported target "vtkRenderingPythonTkWidgets" references the file
+[14.277s]    "/usr/lib/aarch64-linux-gnu/libvtkRenderingPythonTkWidgets.so"
+[14.277s] but this file does not exist.  Possible reasons include:
+[14.277s] * The file was deleted, renamed, or moved to another location.
+[14.278s] * An install or uninstall procedure did not complete successfully.
+[14.278s] * The installation package was faulty and contained
+[14.278s]    "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+[14.279s] but not all the files it references.
+[14.279s] 
+[14.279s] -- The imported target "vtk" references the file
+[14.280s]    "/usr/bin/vtk"
+[14.280s] but this file does not exist.  Possible reasons include:
+[14.281s] * The file was deleted, renamed, or moved to another location.
+[14.281s] * An install or uninstall procedure did not complete successfully.
+[14.282s] * The installation package was faulty and contained
+[14.282s]    "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+[14.283s] but not all the files it references.
+[14.283s] 
+[14.283s] -- The imported target "pvtk" references the file
+[14.284s]    "/usr/bin/pvtk"
+[14.284s] but this file does not exist.  Possible reasons include:
+[14.284s] * The file was deleted, renamed, or moved to another location.
+[14.284s] * An install or uninstall procedure did not complete successfully.
+[14.285s] * The installation package was faulty and contained
+[14.285s]    "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+[14.286s] but not all the files it references.
+[14.286s] 
+[14.392s] -- Checking for module 'libusb-1.0'
+[14.472s] --   Found libusb-1.0, version 1.0.23
+[14.675s] -- Found USB_10: /usr/lib/aarch64-linux-gnu/libusb-1.0.so  
+[14.952s] -- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+[15.248s] -- OpenNI2 found (include: /home/jetson/robot_ws/install/astra_camera/include/openni2, lib: /home/jetson/robot_ws/install/astra_camera/lib/libOpenNI2.so)
+[15.317s] -- Found libusb-1.0: /usr/include  
+[15.340s] -- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+[15.364s] -- OpenNI2 found (include: /home/jetson/robot_ws/install/astra_camera/include/openni2, lib: /home/jetson/robot_ws/install/astra_camera/lib/libOpenNI2.so)
+[15.516s] -- Found Qhull: optimized;/usr/lib/aarch64-linux-gnu/libqhull.so;debug;/usr/lib/aarch64-linux-gnu/libqhull.so  
+[15.517s] -- QHULL found (include: /usr/include, lib: optimized;/usr/lib/aarch64-linux-gnu/libqhull.so;debug;/usr/lib/aarch64-linux-gnu/libqhull.so)
+[15.543s] -- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+[15.612s] -- Found PCL_COMMON: /usr/lib/aarch64-linux-gnu/libpcl_common.so  
+[15.618s] -- Found PCL_KDTREE: /usr/lib/aarch64-linux-gnu/libpcl_kdtree.so  
+[15.625s] -- Found PCL_OCTREE: /usr/lib/aarch64-linux-gnu/libpcl_octree.so  
+[15.632s] -- Found PCL_SEARCH: /usr/lib/aarch64-linux-gnu/libpcl_search.so  
+[15.639s] -- Found PCL_SAMPLE_CONSENSUS: /usr/lib/aarch64-linux-gnu/libpcl_sample_consensus.so  
+[15.645s] -- Found PCL_FILTERS: /usr/lib/aarch64-linux-gnu/libpcl_filters.so  
+[15.648s] -- Found PCL_2D: /usr/include/pcl-1.10  
+[15.651s] -- Found PCL_GEOMETRY: /usr/include/pcl-1.10  
+[15.658s] -- Found PCL_IO: /usr/lib/aarch64-linux-gnu/libpcl_io.so  
+[15.666s] -- Found PCL_FEATURES: /usr/lib/aarch64-linux-gnu/libpcl_features.so  
+[15.673s] -- Found PCL_ML: /usr/lib/aarch64-linux-gnu/libpcl_ml.so  
+[15.680s] -- Found PCL_SEGMENTATION: /usr/lib/aarch64-linux-gnu/libpcl_segmentation.so  
+[15.689s] -- Found PCL_VISUALIZATION: /usr/lib/aarch64-linux-gnu/libpcl_visualization.so  
+[15.697s] -- Found PCL_SURFACE: /usr/lib/aarch64-linux-gnu/libpcl_surface.so  
+[15.705s] -- Found PCL_REGISTRATION: /usr/lib/aarch64-linux-gnu/libpcl_registration.so  
+[15.712s] -- Found PCL_KEYPOINTS: /usr/lib/aarch64-linux-gnu/libpcl_keypoints.so  
+[15.718s] -- Found PCL_TRACKING: /usr/lib/aarch64-linux-gnu/libpcl_tracking.so  
+[15.725s] -- Found PCL_RECOGNITION: /usr/lib/aarch64-linux-gnu/libpcl_recognition.so  
+[15.732s] -- Found PCL_STEREO: /usr/lib/aarch64-linux-gnu/libpcl_stereo.so  
+[15.738s] -- Found PCL_APPS: /usr/lib/aarch64-linux-gnu/libpcl_apps.so  
+[15.744s] -- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.10  
+[15.750s] -- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.10  
+[15.757s] -- Found PCL_OUTOFCORE: /usr/lib/aarch64-linux-gnu/libpcl_outofcore.so  
+[15.765s] -- Found PCL_PEOPLE: /usr/lib/aarch64-linux-gnu/libpcl_people.so  
+[16.305s] CMake Warning (dev) at CMakeLists.txt:25 (find_package):
+[16.305s]   Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.
+[16.306s]   Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy
+[16.306s]   command to set the policy and suppress this warning.
+[16.307s] 
+[16.307s]   CMake variable PCL_ROOT is set to:
+[16.307s] 
+[16.308s]     /usr
+[16.308s] 
+[16.308s]   For compatibility, CMake is ignoring the variable.
+[16.309s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[16.309s] 
+[16.526s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[16.963s] -- Added test 'copyright' to check source files copyright and LICENSE
+[16.969s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[16.972s] -- Configured cppcheck include dirs: 
+[16.972s] -- Configured cppcheck exclude dirs and/or files: 
+[16.977s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[16.978s] -- Configured cpplint exclude dirs and/or files: 
+[16.982s] -- Added test 'lint_cmake' to check CMake code style
+[16.988s] -- Added test 'uncrustify' to check C / C++ code style
+[16.988s] -- Configured uncrustify additional arguments: 
+[16.991s] -- Added test 'xmllint' to check XML markup files
+[17.014s] -- Configuring done
+[17.282s] -- Generating done
+[17.292s] -- Build files have been written to: /home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track
+[17.351s] Invoked command in '/home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jetson/robot_ws/install/hyrian_teleop:/home/jetson/robot_ws/install/hyrian_description:/opt/ros/foxy /usr/bin/cmake /home/jetson/robot_ws/src/hyrian_foxy/hyrian_track -DCMAKE_INSTALL_PREFIX=/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track
+[17.354s] Invoking command in '/home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jetson/robot_ws/install/hyrian_teleop:/home/jetson/robot_ws/install/hyrian_description:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track -- -j4 -l4
+[17.528s] [35m[1mScanning dependencies of target hyrian_track[0m
+[18.043s] [ 50%] [32mBuilding CXX object CMakeFiles/hyrian_track.dir/src/topic_sub_node.cpp.o[0m
+[36.379s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:102:4:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ after class definition
+[36.379s]    }
+[36.380s]     [01;31m[K^[m[K
+[36.380s]     [32m[K;[m[K
+[36.381s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:[m[K In constructor ‘[01m[KTopicSubscriber::TopicSubscriber()[m[K’:
+[36.381s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:18:5:[m[K [01;31m[Kerror: [m[K‘[01m[Ksubscription_boxes_[m[K’ was not declared in this scope
+[36.381s]      [01;31m[Ksubscription_boxes_[m[K = this->create_subscription<darknet_ros_msgs::msg::BoundingBoxes>(
+[36.382s]      [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[36.424s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:18:5:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Krcl_subscription_fini[m[K’
+[36.424s]      [01;36m[Ksubscription_boxes_[m[K = this->create_subscription<darknet_ros_msgs::msg::BoundingBoxes>(
+[36.425s]      [01;36m[K^~~~~~~~~~~~~~~~~~~[m[K
+[36.425s]      [32m[Krcl_subscription_fini[m[K
+[36.485s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:20:5:[m[K [01;31m[Kerror: [m[K‘[01m[Ksubscription_pcl_[m[K’ was not declared in this scope
+[36.486s]      [01;31m[Ksubscription_pcl_[m[K = this->create_subscription<sensor_msgs::msg::PointCloud2>(
+[36.486s]      [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[36.524s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:20:5:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Krcl_subscription_fini[m[K’
+[36.524s]      [01;36m[Ksubscription_pcl_[m[K = this->create_subscription<sensor_msgs::msg::PointCloud2>(
+[36.525s]      [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+[36.525s]      [32m[Krcl_subscription_fini[m[K
+[36.564s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:28:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kpublisher_person_[m[K’ was not declared in this scope
+[36.565s]      [01;31m[Kpublisher_person_[m[K = this->create_publisher<std_msgs::msg::String>("person", 10);
+[36.565s]      [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[36.617s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:29:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kpublisher_stop_[m[K’ was not declared in this scope
+[36.618s]      [01;31m[Kpublisher_stop_[m[K = this->create_publisher<std_msgs::msg::String>("stop", 10);
+[36.618s]      [01;31m[K^~~~~~~~~~~~~~~[m[K
+[36.654s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:30:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kpublisher_cmd_vel_[m[K’ was not declared in this scope
+[36.654s]      [01;31m[Kpublisher_cmd_vel_[m[K = this->create_publisher<geometry_msgs::msg::Twist>("cmd_vel", 10);
+[36.655s]      [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[36.699s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:30:5:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Krcl_publisher_is_valid[m[K’
+[36.700s]      [01;36m[Kpublisher_cmd_vel_[m[K = this->create_publisher<geometry_msgs::msg::Twist>("cmd_vel", 10);
+[36.700s]      [01;36m[K^~~~~~~~~~~~~~~~~~[m[K
+[36.700s]      [32m[Krcl_publisher_is_valid[m[K
+[36.743s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:[m[K In member function ‘[01m[Kvoid TopicSubscriber::boxes_callback(darknet_ros_msgs::msg::BoundingBoxes_<std::allocator<void> >::SharedPtr)[m[K’:
+[36.744s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:64:58:[m[K [01;31m[Kerror: [m[K‘[01m[Khuman_tracking[m[K’ is not a member of ‘[01m[KTopicSubscriber[m[K’
+[36.744s]          std::async(std::launch::async, &TopicSubscriber::[01;31m[Khuman_tracking[m[K, this);
+[36.745s]                                                           [01;31m[K^~~~~~~~~~~~~~[m[K
+[36.767s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:[m[K In function ‘[01m[Kvoid human_tracking()[m[K’:
+[36.768s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:106:12:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[36.769s]        if (![01;31m[Kthis[m[K->is_person_detected_) // 사람이 감지되지 않으면 로봇을 멈춥니다.
+[36.769s]             [01;31m[K^~~~[m[K
+[36.770s] In file included from [01m[K/opt/ros/foxy/include/rclcpp/service.hpp:34[m[K,
+[36.770s]                  from [01m[K/opt/ros/foxy/include/rclcpp/callback_group.hpp:25[m[K,
+[36.770s]                  from [01m[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:20[m[K,
+[36.771s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24[m[K,
+[36.771s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18[m[K,
+[36.772s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20[m[K,
+[36.772s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor.hpp:33[m[K,
+[36.772s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26[m[K,
+[36.773s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors.hpp:21[m[K,
+[36.773s]                  from [01m[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146[m[K,
+[36.774s]                  from [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:1[m[K:
+[36.774s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:108:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[36.774s]          RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "not start");
+[36.775s]                      [01;31m[K^~~~[m[K
+[36.775s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:108:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[36.775s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:108:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[36.776s]          [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "not start");
+[36.776s]          [01;31m[K^~~~~~~~~~~[m[K
+[36.777s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:108:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[36.777s]          [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "not start");
+[36.778s]          [01;31m[K^~~~~~~~~~~[m[K
+[36.778s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:108:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[36.778s]          [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "not start");
+[36.779s]          [01;31m[K^~~~~~~~~~~[m[K
+[36.779s] In file included from [01m[K/opt/ros/foxy/include/rclcpp/client.hpp:40[m[K,
+[36.780s]                  from [01m[K/opt/ros/foxy/include/rclcpp/callback_group.hpp:23[m[K,
+[36.780s]                  from [01m[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:20[m[K,
+[36.781s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24[m[K,
+[36.781s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18[m[K,
+[36.781s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20[m[K,
+[36.782s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor.hpp:33[m[K,
+[36.782s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26[m[K,
+[36.783s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors.hpp:21[m[K,
+[36.783s]                  from [01m[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146[m[K,
+[36.783s]                  from [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:1[m[K:
+[36.784s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:108:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[36.785s]          RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "not start");
+[36.786s]                      [01;31m[K^~~~[m[K
+[36.786s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:108:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[36.787s]          RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "not start");
+[36.788s]                      [01;31m[K^~~~[m[K
+[36.788s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:110:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kstop_robot[m[K’ was not declared in this scope
+[36.789s]          [01;31m[Kstop_robot[m[K();
+[36.789s]          [01;31m[K^~~~~~~~~~[m[K
+[36.790s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:114:11:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[36.790s]        if ([01;31m[Kthis[m[K->distance <= 0.5) // 사람과의 거리가 0.7 이하면 로봇을 멈춥니다.
+[36.790s]            [01;31m[K^~~~[m[K
+[36.791s] In file included from [01m[K/opt/ros/foxy/include/rclcpp/service.hpp:34[m[K,
+[36.791s]                  from [01m[K/opt/ros/foxy/include/rclcpp/callback_group.hpp:25[m[K,
+[36.791s]                  from [01m[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:20[m[K,
+[36.792s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24[m[K,
+[36.792s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18[m[K,
+[36.793s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20[m[K,
+[36.793s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor.hpp:33[m[K,
+[36.794s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26[m[K,
+[36.794s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors.hpp:21[m[K,
+[36.794s]                  from [01m[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146[m[K,
+[36.795s]                  from [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:1[m[K:
+[36.795s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:116:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[36.795s]          RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "too close");
+[36.796s]                      [01;31m[K^~~~[m[K
+[36.796s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:116:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[36.797s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:116:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[36.797s]          [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "too close");
+[36.798s]          [01;31m[K^~~~~~~~~~~[m[K
+[36.798s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:116:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[36.798s]          [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "too close");
+[36.799s]          [01;31m[K^~~~~~~~~~~[m[K
+[36.799s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:116:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[36.800s]          [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "too close");
+[36.800s]          [01;31m[K^~~~~~~~~~~[m[K
+[36.801s] In file included from [01m[K/opt/ros/foxy/include/rclcpp/client.hpp:40[m[K,
+[36.801s]                  from [01m[K/opt/ros/foxy/include/rclcpp/callback_group.hpp:23[m[K,
+[36.802s]                  from [01m[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:20[m[K,
+[36.802s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24[m[K,
+[36.802s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18[m[K,
+[36.803s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20[m[K,
+[36.803s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor.hpp:33[m[K,
+[36.804s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26[m[K,
+[36.804s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors.hpp:21[m[K,
+[36.805s]                  from [01m[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146[m[K,
+[36.806s]                  from [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:1[m[K:
+[36.807s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:116:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[36.807s]          RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "too close");
+[36.808s]                      [01;31m[K^~~~[m[K
+[36.808s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:116:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[36.809s]          RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "too close");
+[36.809s]                      [01;31m[K^~~~[m[K
+[36.810s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:118:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kstop_robot[m[K’ was not declared in this scope
+[36.810s]          [01;31m[Kstop_robot[m[K();
+[36.810s]          [01;31m[K^~~~~~~~~~[m[K
+[36.811s] In file included from [01m[K/opt/ros/foxy/include/rclcpp/service.hpp:34[m[K,
+[36.811s]                  from [01m[K/opt/ros/foxy/include/rclcpp/callback_group.hpp:25[m[K,
+[36.811s]                  from [01m[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:20[m[K,
+[36.812s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24[m[K,
+[36.812s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18[m[K,
+[36.812s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20[m[K,
+[36.813s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor.hpp:33[m[K,
+[36.813s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26[m[K,
+[36.813s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors.hpp:21[m[K,
+[36.814s]                  from [01m[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146[m[K,
+[36.814s]                  from [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:1[m[K:
+[36.815s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:122:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[36.815s]          RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "move");
+[36.815s]                      [01;31m[K^~~~[m[K
+[36.816s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:122:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[36.816s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:122:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[36.816s]          [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "move");
+[36.817s]          [01;31m[K^~~~~~~~~~~[m[K
+[36.817s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:122:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[36.818s]          [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "move");
+[36.818s]          [01;31m[K^~~~~~~~~~~[m[K
+[36.818s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:122:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[36.819s]          [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "move");
+[36.819s]          [01;31m[K^~~~~~~~~~~[m[K
+[36.819s] In file included from [01m[K/opt/ros/foxy/include/rclcpp/client.hpp:40[m[K,
+[36.820s]                  from [01m[K/opt/ros/foxy/include/rclcpp/callback_group.hpp:23[m[K,
+[36.820s]                  from [01m[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:20[m[K,
+[36.821s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24[m[K,
+[36.821s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18[m[K,
+[36.821s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20[m[K,
+[36.822s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor.hpp:33[m[K,
+[36.822s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26[m[K,
+[36.822s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors.hpp:21[m[K,
+[36.823s]                  from [01m[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146[m[K,
+[36.823s]                  from [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:1[m[K:
+[36.823s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:122:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[36.824s]          RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "move");
+[36.824s]                      [01;31m[K^~~~[m[K
+[36.825s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:122:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[36.825s]          RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "move");
+[36.826s]                      [01;31m[K^~~~[m[K
+[36.826s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:127:50:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[36.826s]          cmd_vel_msg.angular.z = -tracking_gain * [01;31m[Kthis[m[K->error_x;
+[36.827s]                                                   [01;31m[K^~~~[m[K
+[36.827s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:128:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kpublisher_cmd_vel_[m[K’ was not declared in this scope
+[36.828s]          [01;31m[Kpublisher_cmd_vel_[m[K->publish(cmd_vel_msg);
+[36.828s]          [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[36.844s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:128:9:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Krcl_publisher_is_valid[m[K’
+[36.844s]          [01;36m[Kpublisher_cmd_vel_[m[K->publish(cmd_vel_msg);
+[36.845s]          [01;36m[K^~~~~~~~~~~~~~~~~~[m[K
+[36.845s]          [32m[Krcl_publisher_is_valid[m[K
+[36.846s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:[m[K In function ‘[01m[Kvoid control_robot(float)[m[K’:
+[36.846s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:142:7:[m[K [01;31m[Kerror: [m[K‘[01m[Kpublisher_cmd_vel_[m[K’ was not declared in this scope
+[36.847s]        [01;31m[Kpublisher_cmd_vel_[m[K->publish(cmd_vel_msg);
+[36.847s]        [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[36.880s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:142:7:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Krcl_publisher_is_valid[m[K’
+[36.881s]        [01;36m[Kpublisher_cmd_vel_[m[K->publish(cmd_vel_msg);
+[36.881s]        [01;36m[K^~~~~~~~~~~~~~~~~~[m[K
+[36.882s]        [32m[Krcl_publisher_is_valid[m[K
+[36.882s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:[m[K In function ‘[01m[Kvoid stop_robot()[m[K’:
+[36.883s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:148:7:[m[K [01;31m[Kerror: [m[K‘[01m[Kcmd_vel_msg[m[K’ was not declared in this scope
+[36.883s]        [01;31m[Kcmd_vel_msg[m[K.linear.x = 0.0;
+[36.884s]        [01;31m[K^~~~~~~~~~~[m[K
+[36.899s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:151:7:[m[K [01;31m[Kerror: [m[K‘[01m[Kpublisher_cmd_vel_[m[K’ was not declared in this scope
+[36.899s]        [01;31m[Kpublisher_cmd_vel_[m[K->publish(cmd_vel_msg);
+[36.900s]        [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[36.935s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:151:7:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Krcl_publisher_is_valid[m[K’
+[36.935s]        [01;36m[Kpublisher_cmd_vel_[m[K->publish(cmd_vel_msg);
+[36.936s]        [01;36m[K^~~~~~~~~~~~~~~~~~[m[K
+[36.936s]        [32m[Krcl_publisher_is_valid[m[K
+[36.936s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:152:7:[m[K [01;31m[Kerror: [m[K‘[01m[Kpublisher_stop_[m[K’ was not declared in this scope
+[36.937s]        [01;31m[Kpublisher_stop_[m[K->publish(stop_msg);
+[36.937s]        [01;31m[K^~~~~~~~~~~~~~~[m[K
+[37.040s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:[m[K At global scope:
+[37.041s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:164:1:[m[K [01;31m[Kerror: [m[Kexpected declaration before ‘[01m[K}[m[K’ token
+[37.041s]  [01;31m[K}[m[K;
+[37.042s]  [01;31m[K^[m[K
+[44.948s] make[2]: *** [CMakeFiles/hyrian_track.dir/build.make:63: CMakeFiles/hyrian_track.dir/src/topic_sub_node.cpp.o] Error 1
+[44.948s] make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/hyrian_track.dir/all] Error 2
+[44.949s] make: *** [Makefile:141: all] Error 2
+[44.956s] Invoked command in '/home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jetson/robot_ws/install/hyrian_teleop:/home/jetson/robot_ws/install/hyrian_description:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track -- -j4 -l4

@@ -1,0 +1,26 @@
+[0.902s] Invoking command in '/home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jetson/robot_ws/install/hyrian_teleop:/home/jetson/robot_ws/install/hyrian_description:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track -- -j4 -l4
+[1.097s] [35m[1mScanning dependencies of target hyrian_track[0m
+[1.288s] [ 50%] [32mBuilding CXX object CMakeFiles/hyrian_track.dir/src/topic_sub_node.cpp.o[0m
+[45.795s] [100%] [32m[1mLinking CXX executable hyrian_track[0m
+[53.141s] [100%] Built target hyrian_track
+[53.216s] Invoked command in '/home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jetson/robot_ws/install/hyrian_teleop:/home/jetson/robot_ws/install/hyrian_description:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track -- -j4 -l4
+[53.354s] Invoking command in '/home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jetson/robot_ws/install/hyrian_teleop:/home/jetson/robot_ws/install/hyrian_description:/opt/ros/foxy /usr/bin/cmake --install /home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track
+[53.388s] -- Install configuration: ""
+[53.389s] -- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/lib/hyrian_track/hyrian_track
+[53.403s] -- Set runtime path of "/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/lib/hyrian_track/hyrian_track" to ""
+[53.403s] -- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/ament_index/resource_index/package_run_dependencies/hyrian_track
+[53.404s] -- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/ament_index/resource_index/parent_prefix_path/hyrian_track
+[53.404s] -- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/environment/ament_prefix_path.sh
+[53.405s] -- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/environment/ament_prefix_path.dsv
+[53.406s] -- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/environment/path.sh
+[53.406s] -- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/environment/path.dsv
+[53.407s] -- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/local_setup.bash
+[53.407s] -- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/local_setup.sh
+[53.408s] -- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/local_setup.zsh
+[53.408s] -- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/local_setup.dsv
+[53.409s] -- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/package.dsv
+[53.410s] -- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/ament_index/resource_index/packages/hyrian_track
+[53.410s] -- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/cmake/hyrian_trackConfig.cmake
+[53.411s] -- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/cmake/hyrian_trackConfig-version.cmake
+[53.412s] -- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/package.xml
+[53.418s] Invoked command in '/home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jetson/robot_ws/install/hyrian_teleop:/home/jetson/robot_ws/install/hyrian_description:/opt/ros/foxy /usr/bin/cmake --install /home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track

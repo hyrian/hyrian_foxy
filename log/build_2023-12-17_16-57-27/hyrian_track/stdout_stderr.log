@@ -1,0 +1,22 @@
+[35m[1mScanning dependencies of target hyrian_track[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/hyrian_track.dir/src/topic_sub_node.cpp.o[0m
+[100%] [32m[1mLinking CXX executable hyrian_track[0m
+[100%] Built target hyrian_track
+-- Install configuration: ""
+-- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/lib/hyrian_track/hyrian_track
+-- Set runtime path of "/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/lib/hyrian_track/hyrian_track" to ""
+-- Up-to-date: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/ament_index/resource_index/package_run_dependencies/hyrian_track
+-- Up-to-date: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/ament_index/resource_index/parent_prefix_path/hyrian_track
+-- Up-to-date: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/environment/ament_prefix_path.sh
+-- Up-to-date: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/environment/path.sh
+-- Up-to-date: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/environment/path.dsv
+-- Up-to-date: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/local_setup.bash
+-- Up-to-date: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/local_setup.sh
+-- Up-to-date: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/local_setup.zsh
+-- Up-to-date: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/local_setup.dsv
+-- Installing: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/package.dsv
+-- Up-to-date: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/ament_index/resource_index/packages/hyrian_track
+-- Up-to-date: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/cmake/hyrian_trackConfig.cmake
+-- Up-to-date: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/cmake/hyrian_trackConfig-version.cmake
+-- Up-to-date: /home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/package.xml

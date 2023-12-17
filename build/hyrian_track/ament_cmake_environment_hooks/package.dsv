@@ -1,0 +1,4 @@
+source;share/hyrian_track/local_setup.bash
+source;share/hyrian_track/local_setup.dsv
+source;share/hyrian_track/local_setup.sh
+source;share/hyrian_track/local_setup.zsh

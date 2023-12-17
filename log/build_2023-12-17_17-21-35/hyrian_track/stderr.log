@@ -1,0 +1,14 @@
+[01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:[m[K In member function ‘[01m[Kvoid TopicSubscriber::pcl_callback(sensor_msgs::msg::PointCloud2_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:95:17:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Know_distance[m[K’ [[01;35m[K-Wunused-variable[m[K]
+           float [01;35m[Know_distance[m[K = z;
+                 [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:98:24:[m[K [01;31m[Kerror: [m[K‘[01m[Know_distance[m[K’ was not declared in this scope
+       this->distance = [01;31m[Know_distance[m[K;
+                        [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:98:24:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kmin_distance[m[K’
+       this->distance = [01;36m[Know_distance[m[K;
+                        [01;36m[K^~~~~~~~~~~~[m[K
+                        [32m[Kmin_distance[m[K
+make[2]: *** [CMakeFiles/hyrian_track.dir/build.make:63: CMakeFiles/hyrian_track.dir/src/topic_sub_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/hyrian_track.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

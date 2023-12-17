@@ -1,0 +1,22 @@
+[0.944s] Invoking command in '/home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jetson/robot_ws/install/hyrian_teleop:/home/jetson/robot_ws/install/hyrian_description:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track -- -j4 -l4
+[1.183s] [35m[1mScanning dependencies of target hyrian_track[0m
+[1.385s] [ 50%] [32mBuilding CXX object CMakeFiles/hyrian_track.dir/src/topic_sub_node.cpp.o[0m
+[21.059s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:[m[K In member function ‘[01m[Kvoid TopicSubscriber::pcl_callback(sensor_msgs::msg::PointCloud2_<std::allocator<void> >::SharedPtr)[m[K’:
+[21.060s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:95:11:[m[K [01;31m[Kerror: [m[K‘[01m[Know_distance[m[K’ was not declared in this scope
+[21.060s]            [01;31m[Know_distance[m[K = z;
+[21.061s]            [01;31m[K^~~~~~~~~~~~[m[K
+[21.080s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:95:11:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kmin_distance[m[K’
+[21.080s]            [01;36m[Know_distance[m[K = z;
+[21.081s]            [01;36m[K^~~~~~~~~~~~[m[K
+[21.081s]            [32m[Kmin_distance[m[K
+[21.082s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:98:24:[m[K [01;31m[Kerror: [m[K‘[01m[Know_distance[m[K’ was not declared in this scope
+[21.082s]        this->distance = [01;31m[Know_distance[m[K;
+[21.083s]                         [01;31m[K^~~~~~~~~~~~[m[K
+[21.101s] [01m[K/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track/src/topic_sub_node.cpp:98:24:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kmin_distance[m[K’
+[21.102s]        this->distance = [01;36m[Know_distance[m[K;
+[21.102s]                         [01;36m[K^~~~~~~~~~~~[m[K
+[21.103s]                         [32m[Kmin_distance[m[K
+[30.220s] make[2]: *** [CMakeFiles/hyrian_track.dir/build.make:63: CMakeFiles/hyrian_track.dir/src/topic_sub_node.cpp.o] Error 1
+[30.221s] make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/hyrian_track.dir/all] Error 2
+[30.221s] make: *** [Makefile:141: all] Error 2
+[30.229s] Invoked command in '/home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jetson/robot_ws/install/hyrian_teleop:/home/jetson/robot_ws/install/hyrian_description:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track -- -j4 -l4

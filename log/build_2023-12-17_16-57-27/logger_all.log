@@ -1,0 +1,273 @@
+[12.577s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'hyrian_track']
+[12.578s] DEBUG:colcon:Parsed command line arguments: Namespace(allow_overriding=[], ament_cmake_args=None, base_paths=['.'], build_base='build', catkin_cmake_args=None, catkin_skip_building_tests=False, cmake_args=None, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, cmake_target=None, cmake_target_skip_unavailable=False, continue_on_error=False, event_handlers=None, executor='parallel', ignore_user_meta=False, install_base='install', log_base=None, log_level=None, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7f7fa0ae80>>, merge_install=False, metas=['./colcon.meta'], packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=['hyrian_track'], packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, packages_up_to_regex=None, parallel_workers=4, paths=None, symlink_install=False, test_result_base=None, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7f7fa0ae80>, verb_name='build', verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7f7fa0a670>)
+[13.156s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[13.156s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[13.157s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[13.157s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[13.157s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[13.157s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[13.157s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/jetson/robot_ws/src/hyrian_foxy'
+[13.158s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[13.158s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[13.159s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[13.159s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[13.159s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[13.159s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[13.159s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[13.160s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[13.160s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[13.220s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[13.220s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[13.221s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[13.221s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[13.221s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[13.221s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[13.222s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[13.222s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[13.223s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_bringup) by extensions ['ignore', 'ignore_ament_install']
+[13.223s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_bringup) by extension 'ignore'
+[13.223s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_bringup) by extension 'ignore_ament_install'
+[13.224s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_bringup) by extensions ['colcon_pkg']
+[13.224s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_bringup) by extension 'colcon_pkg'
+[13.224s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_bringup) by extensions ['colcon_meta']
+[13.224s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_bringup) by extension 'colcon_meta'
+[13.224s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_bringup) by extensions ['ros']
+[13.224s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_bringup) by extension 'ros'
+[13.240s] DEBUG:colcon.colcon_core.package_identification:Package 'hyrian_bringup' with type 'ros.ament_python' and name 'hyrian_bringup'
+[13.241s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_cartographer) by extensions ['ignore', 'ignore_ament_install']
+[13.241s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_cartographer) by extension 'ignore'
+[13.242s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_cartographer) by extension 'ignore_ament_install'
+[13.242s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_cartographer) by extensions ['colcon_pkg']
+[13.242s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_cartographer) by extension 'colcon_pkg'
+[13.242s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_cartographer) by extensions ['colcon_meta']
+[13.242s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_cartographer) by extension 'colcon_meta'
+[13.243s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_cartographer) by extensions ['ros']
+[13.243s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_cartographer) by extension 'ros'
+[13.245s] DEBUG:colcon.colcon_core.package_identification:Package 'hyrian_cartographer' with type 'ros.ament_cmake' and name 'hyrian_cartographer'
+[13.246s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_description) by extensions ['ignore', 'ignore_ament_install']
+[13.246s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_description) by extension 'ignore'
+[13.246s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_description) by extension 'ignore_ament_install'
+[13.247s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_description) by extensions ['colcon_pkg']
+[13.247s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_description) by extension 'colcon_pkg'
+[13.247s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_description) by extensions ['colcon_meta']
+[13.247s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_description) by extension 'colcon_meta'
+[13.247s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_description) by extensions ['ros']
+[13.247s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_description) by extension 'ros'
+[13.251s] DEBUG:colcon.colcon_core.package_identification:Package 'hyrian_description' with type 'ros.ament_python' and name 'hyrian_description'
+[13.252s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_gazebo) by extensions ['ignore', 'ignore_ament_install']
+[13.252s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_gazebo) by extension 'ignore'
+[13.253s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_gazebo) by extension 'ignore_ament_install'
+[13.253s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_gazebo) by extensions ['colcon_pkg']
+[13.253s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_gazebo) by extension 'colcon_pkg'
+[13.253s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_gazebo) by extensions ['colcon_meta']
+[13.254s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_gazebo) by extension 'colcon_meta'
+[13.254s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_gazebo) by extensions ['ros']
+[13.254s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_gazebo) by extension 'ros'
+[13.258s] DEBUG:colcon.colcon_core.package_identification:Package 'hyrian_gazebo' with type 'ros.ament_cmake' and name 'hyrian_gazebo'
+[13.259s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[13.259s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_interfaces) by extension 'ignore'
+[13.260s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_interfaces) by extension 'ignore_ament_install'
+[13.260s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_interfaces) by extensions ['colcon_pkg']
+[13.260s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_interfaces) by extension 'colcon_pkg'
+[13.260s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_interfaces) by extensions ['colcon_meta']
+[13.260s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_interfaces) by extension 'colcon_meta'
+[13.261s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_interfaces) by extensions ['ros']
+[13.261s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_interfaces) by extension 'ros'
+[13.263s] DEBUG:colcon.colcon_core.package_identification:Package 'hyrian_interfaces' with type 'ros.ament_cmake' and name 'hyrian_interfaces'
+[13.263s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_motion) by extensions ['ignore', 'ignore_ament_install']
+[13.263s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_motion) by extension 'ignore'
+[13.264s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_motion) by extension 'ignore_ament_install'
+[13.264s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_motion) by extensions ['colcon_pkg']
+[13.264s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_motion) by extension 'colcon_pkg'
+[13.264s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_motion) by extensions ['colcon_meta']
+[13.264s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_motion) by extension 'colcon_meta'
+[13.265s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_motion) by extensions ['ros']
+[13.265s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_motion) by extension 'ros'
+[13.269s] DEBUG:colcon.colcon_core.package_identification:Package 'hyrian_motion' with type 'ros.ament_cmake' and name 'hyrian_motion'
+[13.269s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_navigation2) by extensions ['ignore', 'ignore_ament_install']
+[13.270s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_navigation2) by extension 'ignore'
+[13.270s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_navigation2) by extension 'ignore_ament_install'
+[13.270s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_navigation2) by extensions ['colcon_pkg']
+[13.271s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_navigation2) by extension 'colcon_pkg'
+[13.271s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_navigation2) by extensions ['colcon_meta']
+[13.271s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_navigation2) by extension 'colcon_meta'
+[13.271s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_navigation2) by extensions ['ros']
+[13.271s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_navigation2) by extension 'ros'
+[13.277s] DEBUG:colcon.colcon_core.package_identification:Package 'hyrian_navigation2' with type 'ros.ament_cmake' and name 'hyrian_navigation2'
+[13.278s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_node) by extensions ['ignore', 'ignore_ament_install']
+[13.278s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_node) by extension 'ignore'
+[13.278s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_node) by extension 'ignore_ament_install'
+[13.279s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_node) by extensions ['colcon_pkg']
+[13.279s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_node) by extension 'colcon_pkg'
+[13.279s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_node) by extensions ['colcon_meta']
+[13.279s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_node) by extension 'colcon_meta'
+[13.279s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_node) by extensions ['ros']
+[13.280s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_node) by extension 'ros'
+[13.283s] DEBUG:colcon.colcon_core.package_identification:Package 'hyrian_node' with type 'ros.ament_cmake' and name 'hyrian_node'
+[13.283s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor) by extensions ['ignore', 'ignore_ament_install']
+[13.283s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor) by extension 'ignore'
+[13.284s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor) by extension 'ignore_ament_install'
+[13.284s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor) by extensions ['colcon_pkg']
+[13.284s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor) by extension 'colcon_pkg'
+[13.284s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor) by extensions ['colcon_meta']
+[13.284s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor) by extension 'colcon_meta'
+[13.284s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor) by extensions ['ros']
+[13.285s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor) by extension 'ros'
+[13.285s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor) by extensions ['cmake', 'python']
+[13.285s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor) by extension 'cmake'
+[13.285s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor) by extension 'python'
+[13.286s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor) by extensions ['python_setup_py']
+[13.286s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor) by extension 'python_setup_py'
+[13.286s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor/hyrian_imu) by extensions ['ignore', 'ignore_ament_install']
+[13.287s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor/hyrian_imu) by extension 'ignore'
+[13.287s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor/hyrian_imu) by extension 'ignore_ament_install'
+[13.287s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor/hyrian_imu) by extensions ['colcon_pkg']
+[13.287s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor/hyrian_imu) by extension 'colcon_pkg'
+[13.287s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor/hyrian_imu) by extensions ['colcon_meta']
+[13.288s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor/hyrian_imu) by extension 'colcon_meta'
+[13.288s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor/hyrian_imu) by extensions ['ros']
+[13.288s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor/hyrian_imu) by extension 'ros'
+[13.292s] DEBUG:colcon.colcon_core.package_identification:Package 'hyrian_sensor/hyrian_imu' with type 'ros.ament_cmake' and name 'hyrian_imu'
+[13.293s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor/hyrian_lidar) by extensions ['ignore', 'ignore_ament_install']
+[13.293s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor/hyrian_lidar) by extension 'ignore'
+[13.293s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor/hyrian_lidar) by extension 'ignore_ament_install'
+[13.294s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor/hyrian_lidar) by extensions ['colcon_pkg']
+[13.294s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor/hyrian_lidar) by extension 'colcon_pkg'
+[13.294s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor/hyrian_lidar) by extensions ['colcon_meta']
+[13.294s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor/hyrian_lidar) by extension 'colcon_meta'
+[13.294s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor/hyrian_lidar) by extensions ['ros']
+[13.295s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor/hyrian_lidar) by extension 'ros'
+[13.296s] DEBUG:colcon.colcon_core.package_identification:Package 'hyrian_sensor/hyrian_lidar' with type 'ros.ament_cmake' and name 'hyrian_lidar'
+[13.297s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor/hyrian_sensor) by extensions ['ignore', 'ignore_ament_install']
+[13.297s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor/hyrian_sensor) by extension 'ignore'
+[13.297s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor/hyrian_sensor) by extension 'ignore_ament_install'
+[13.298s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor/hyrian_sensor) by extensions ['colcon_pkg']
+[13.298s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor/hyrian_sensor) by extension 'colcon_pkg'
+[13.298s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor/hyrian_sensor) by extensions ['colcon_meta']
+[13.298s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor/hyrian_sensor) by extension 'colcon_meta'
+[13.298s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor/hyrian_sensor) by extensions ['ros']
+[13.299s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_sensor/hyrian_sensor) by extension 'ros'
+[13.302s] DEBUG:colcon.colcon_core.package_identification:Package 'hyrian_sensor/hyrian_sensor' with type 'ros.ament_cmake' and name 'hyrian_sensor'
+[13.302s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_teleop) by extensions ['ignore', 'ignore_ament_install']
+[13.302s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_teleop) by extension 'ignore'
+[13.303s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_teleop) by extension 'ignore_ament_install'
+[13.303s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_teleop) by extensions ['colcon_pkg']
+[13.303s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_teleop) by extension 'colcon_pkg'
+[13.303s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_teleop) by extensions ['colcon_meta']
+[13.303s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_teleop) by extension 'colcon_meta'
+[13.304s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_teleop) by extensions ['ros']
+[13.304s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_teleop) by extension 'ros'
+[13.306s] DEBUG:colcon.colcon_core.package_identification:Package 'hyrian_teleop' with type 'ros.ament_python' and name 'hyrian_teleop'
+[13.306s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_track) by extensions ['ignore', 'ignore_ament_install']
+[13.307s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_track) by extension 'ignore'
+[13.307s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_track) by extension 'ignore_ament_install'
+[13.307s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_track) by extensions ['colcon_pkg']
+[13.307s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_track) by extension 'colcon_pkg'
+[13.307s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_track) by extensions ['colcon_meta']
+[13.308s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_track) by extension 'colcon_meta'
+[13.308s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_track) by extensions ['ros']
+[13.308s] Level 1:colcon.colcon_core.package_identification:_identify(hyrian_track) by extension 'ros'
+[13.315s] DEBUG:colcon.colcon_core.package_identification:Package 'hyrian_track' with type 'ros.ament_cmake' and name 'hyrian_track'
+[13.316s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[13.316s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[13.316s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[13.316s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[13.317s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[13.317s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[13.317s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[13.317s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[13.318s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[13.318s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[13.318s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[14.057s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'hyrian_cartographer' in 'hyrian_cartographer'
+[14.057s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'hyrian_description' in 'hyrian_description'
+[14.057s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'hyrian_gazebo' in 'hyrian_gazebo'
+[14.058s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'hyrian_imu' in 'hyrian_sensor/hyrian_imu'
+[14.058s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'hyrian_interfaces' in 'hyrian_interfaces'
+[14.058s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'hyrian_lidar' in 'hyrian_sensor/hyrian_lidar'
+[14.058s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'hyrian_node' in 'hyrian_node'
+[14.058s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'hyrian_teleop' in 'hyrian_teleop'
+[14.058s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'hyrian_bringup' in 'hyrian_bringup'
+[14.058s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'hyrian_motion' in 'hyrian_motion'
+[14.058s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'hyrian_navigation2' in 'hyrian_navigation2'
+[14.059s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'hyrian_sensor' in 'hyrian_sensor/hyrian_sensor'
+[14.471s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[14.471s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[14.912s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 15 installed packages in /home/jetson/robot_ws/install
+[15.124s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 260 installed packages in /opt/ros/foxy
+[15.132s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[16.098s] Level 5:colcon.colcon_core.verb:set package 'hyrian_track' build argument 'cmake_args' from command line to 'None'
+[16.098s] Level 5:colcon.colcon_core.verb:set package 'hyrian_track' build argument 'cmake_target' from command line to 'None'
+[16.098s] Level 5:colcon.colcon_core.verb:set package 'hyrian_track' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[16.099s] Level 5:colcon.colcon_core.verb:set package 'hyrian_track' build argument 'cmake_clean_cache' from command line to 'False'
+[16.099s] Level 5:colcon.colcon_core.verb:set package 'hyrian_track' build argument 'cmake_clean_first' from command line to 'False'
+[16.099s] Level 5:colcon.colcon_core.verb:set package 'hyrian_track' build argument 'cmake_force_configure' from command line to 'False'
+[16.099s] Level 5:colcon.colcon_core.verb:set package 'hyrian_track' build argument 'ament_cmake_args' from command line to 'None'
+[16.099s] Level 5:colcon.colcon_core.verb:set package 'hyrian_track' build argument 'catkin_cmake_args' from command line to 'None'
+[16.099s] Level 5:colcon.colcon_core.verb:set package 'hyrian_track' build argument 'catkin_skip_building_tests' from command line to 'False'
+[16.099s] DEBUG:colcon.colcon_core.verb:Building package 'hyrian_track' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track', 'merge_install': False, 'path': '/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track', 'symlink_install': False, 'test_result_base': None}
+[16.309s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[16.520s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[16.521s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track' with build type 'ament_cmake'
+[16.522s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/jetson/robot_ws/src/hyrian_foxy/hyrian_track'
+[16.757s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[16.758s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[16.758s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[17.462s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jetson/robot_ws/install/hyrian_teleop:/home/jetson/robot_ws/install/hyrian_description:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track -- -j4 -l4
+[72.795s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jetson/robot_ws/install/hyrian_teleop:/home/jetson/robot_ws/install/hyrian_description:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track -- -j4 -l4
+[72.941s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jetson/robot_ws/install/hyrian_teleop:/home/jetson/robot_ws/install/hyrian_description:/opt/ros/foxy /usr/bin/cmake --install /home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track
+[73.003s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hyrian_track)
+[73.005s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jetson/robot_ws/install/hyrian_teleop:/home/jetson/robot_ws/install/hyrian_description:/opt/ros/foxy /usr/bin/cmake --install /home/jetson/robot_ws/src/hyrian_foxy/build/hyrian_track
+[73.251s] Level 1:colcon.colcon_core.environment:checking '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track' for CMake module files
+[73.253s] Level 1:colcon.colcon_core.environment:checking '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track' for CMake config files
+[73.255s] Level 1:colcon.colcon_core.shell:create_environment_hook('hyrian_track', 'cmake_prefix_path')
+[73.475s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/hook/cmake_prefix_path.ps1'
+[73.481s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/hook/cmake_prefix_path.dsv'
+[73.484s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/hook/cmake_prefix_path.sh'
+[73.489s] Level 1:colcon.colcon_core.environment:checking '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/lib'
+[73.489s] Level 1:colcon.colcon_core.environment:checking '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/bin'
+[73.490s] Level 1:colcon.colcon_core.environment:checking '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/lib/pkgconfig/hyrian_track.pc'
+[73.491s] Level 1:colcon.colcon_core.environment:checking '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/lib/python3.8/site-packages'
+[73.491s] Level 1:colcon.colcon_core.environment:checking '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/bin'
+[73.717s] INFO:colcon.colcon_core.shell:Creating package script '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/package.ps1'
+[73.725s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/package.dsv'
+[73.728s] INFO:colcon.colcon_core.shell:Creating package script '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/package.sh'
+[73.732s] INFO:colcon.colcon_core.shell:Creating package script '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/package.bash'
+[73.735s] INFO:colcon.colcon_core.shell:Creating package script '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/package.zsh'
+[73.739s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/colcon-core/packages/hyrian_track)
+[74.056s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hyrian_track)
+[74.323s] Level 1:colcon.colcon_core.environment:checking '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track' for CMake module files
+[74.325s] Level 1:colcon.colcon_core.environment:checking '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track' for CMake config files
+[74.327s] Level 1:colcon.colcon_core.shell:create_environment_hook('hyrian_track', 'cmake_prefix_path')
+[74.546s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/hook/cmake_prefix_path.ps1'
+[74.548s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/hook/cmake_prefix_path.dsv'
+[74.549s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/hook/cmake_prefix_path.sh'
+[74.551s] Level 1:colcon.colcon_core.environment:checking '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/lib'
+[74.551s] Level 1:colcon.colcon_core.environment:checking '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/bin'
+[74.552s] Level 1:colcon.colcon_core.environment:checking '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/lib/pkgconfig/hyrian_track.pc'
+[74.553s] Level 1:colcon.colcon_core.environment:checking '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/lib/python3.8/site-packages'
+[74.554s] Level 1:colcon.colcon_core.environment:checking '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/bin'
+[74.777s] INFO:colcon.colcon_core.shell:Creating package script '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/package.ps1'
+[74.779s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/package.dsv'
+[74.781s] INFO:colcon.colcon_core.shell:Creating package script '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/package.sh'
+[74.782s] INFO:colcon.colcon_core.shell:Creating package script '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/package.bash'
+[74.784s] INFO:colcon.colcon_core.shell:Creating package script '/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/hyrian_track/package.zsh'
+[74.785s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jetson/robot_ws/src/hyrian_foxy/install/hyrian_track/share/colcon-core/packages/hyrian_track)
+[74.786s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[74.787s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[74.788s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[74.789s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[75.045s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[75.045s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[75.045s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[75.101s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[75.340s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/jetson/robot_ws/src/hyrian_foxy/install/local_setup.ps1'
+[75.348s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/jetson/robot_ws/src/hyrian_foxy/install/_local_setup_util_ps1.py'
+[75.363s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/jetson/robot_ws/src/hyrian_foxy/install/setup.ps1'
+[75.585s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/jetson/robot_ws/src/hyrian_foxy/install/local_setup.sh'
+[75.589s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/jetson/robot_ws/src/hyrian_foxy/install/_local_setup_util_sh.py'
+[75.591s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/jetson/robot_ws/src/hyrian_foxy/install/setup.sh'
+[75.811s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/jetson/robot_ws/src/hyrian_foxy/install/local_setup.bash'
+[75.813s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/jetson/robot_ws/src/hyrian_foxy/install/setup.bash'
+[76.039s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/jetson/robot_ws/src/hyrian_foxy/install/local_setup.zsh'
+[76.042s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/jetson/robot_ws/src/hyrian_foxy/install/setup.zsh'
