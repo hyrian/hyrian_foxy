@@ -1,0 +1,63 @@
+<root main_tree_to_execute="MainTree">
+    <BehaviorTree ID="MainTree">
+        <KeepRunningUntilFailure>
+            <ReactiveSequence>
+                <Action ID="KeywordTrigger" keyword1="{keyword1}" keyword2="{keyword2}" />
+                <Fallback>
+                    <Sequence>
+                        <Condition ID="KeywordCheck" value="navigation" keyword="{keyword1}" />
+                        <SetBlackboard ID="SetLocationToBlackboard" output_key="keyword2" value="{keyword2}" />
+                        <SubTree ID="MoveToProduct" keyword2="keyword2" />
+                    </Sequence>
+                    <Sequence>
+                        <Condition ID="KeywordCheck" value="gesture" keyword="{keyword1}" />
+                        <SetBlackboard ID="SetOptionToBlackboard" output_key="option" value="{keyword2}" />
+                        <SubTree ID="Gesture_Select" keyword2="option" />
+                    </Sequence>
+                </Fallback>
+            </ReactiveSequence>
+        </KeepRunningUntilFailure>
+    </BehaviorTree>
+
+    <BehaviorTree ID="MoveToProduct">
+        <ReactiveFallback>
+            <Sequence>
+                <Condition ID="KeywordCheck" value="product1" keyword="{keyword2}" />
+                <SetBlackboard output_key="Goal" value="0.1;1.0;0.0;1.0" />
+                <SubTree ID="MoveRobot" target="Goal" />
+            </Sequence>
+            <Sequence>
+                <Condition ID="KeywordCheck" value="product2" keyword="{keyword2}" />
+                <SetBlackboard output_key="Goal" value="2.0;2.5;0.0;1.0" />
+                <SubTree ID="MoveRobot" target="Goal" />
+            </Sequence>
+            <Sequence>
+                <Condition ID="KeywordCheck" value="product3" keyword="{keyword2}" />
+                <SetBlackboard output_key="Goal" value="2.0;-1.5;0.0;1.0" />
+                <SubTree ID="MoveRobot" target="Goal" />
+            </Sequence>
+            <Sequence>
+                <Condition ID="KeywordCheck" value="product4" keyword="{keyword2}" />
+                <SetBlackboard output_key="Goal" value="4.0;0.1;0.0;1.0" />
+                <SubTree ID="MoveRobot" target="Goal" />
+            </Sequence>
+            <Sequence>
+                <Condition ID="KeywordCheck" value="origin" keyword="{keyword2}" />
+                <SetBlackboard output_key="Goal" value="0.0;0.0;0.0;1.0" />
+                <SubTree ID="MoveRobot" target="Goal" />
+            </Sequence>
+        </ReactiveFallback>
+    </BehaviorTree>
+
+    <BehaviorTree ID="Gesture_Select">
+        <Sequence name="gesture_sequence">
+            <Action ID="Gesture" option="{keyword2}" />
+        </Sequence>
+    </BehaviorTree>
+
+    <BehaviorTree ID="MoveRobot">
+        <ReactiveSequence name="SetGoal">
+            <Nav2Client goal="{target}" />
+        </ReactiveSequence>
+    </BehaviorTree>
+</root>
