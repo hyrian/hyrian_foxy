@@ -104,7 +104,7 @@ private:
       // For AX & MX(1.0) use 2 byte data(uint16_t) for the Position Value.
       gesture = request->gesture;  // Convert int32 -> uint32
 
-      if (gesture == "hello") {
+      if (gesture == "Greeting") { //임시로 지정
     for (int a = 200; a <= 1700; a += 20) {
         dxl_comm_result = packetHandler->write4ByteTxRx(
             portHandler,

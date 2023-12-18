@@ -125,7 +125,7 @@ public:
         switch (wrapped_result.code) {
             case rclcpp_action::ResultCode::SUCCEEDED:
                 // 추가
-                message.data = "goal_arrive";
+                message.data = "Arrival";
                 publisher->publish(message);
 
                 RCLCPP_INFO(node_->get_logger(), "Published 'goal_arrive' message");

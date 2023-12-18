@@ -5,12 +5,12 @@
                 <Action ID="KeywordTrigger" keyword1="{keyword1}" keyword2="{keyword2}"  />
                 <ReactiveFallback>
                     <ReactiveSequence>
-                        <Condition ID="KeywordCheck" value="navigation" keyword="{keyword1}"  />
+                        <Condition ID="KeywordCheck" value="Navigation" keyword="{keyword1}"  />
                         <SetBlackboard ID="SetLocationToBlackboard" output_key="keyword2" value="{keyword2}" />
                         <SubTree ID="MoveToProduct" keyword2="keyword2" />
                     </ReactiveSequence>
                     <ReactiveSequence>
-                        <Condition ID="KeywordCheck" value="gesture" keyword="{keyword1}"  />
+                        <Condition ID="KeywordCheck" value="Gesture" keyword="{keyword1}"  />
                         <SetBlackboard ID="SetOptionToBlackboard" output_key="option" value="{keyword2}" />
                         <SubTree ID="Gesture_Select" keyword2 ="option"/>
                     </ReactiveSequence>
@@ -22,27 +22,27 @@
     <BehaviorTree ID="MoveToProduct">
         <Fallback>
             <Sequence>
-                <Condition ID="KeywordCheck" value="product1" keyword="{keyword2}"/>
+                <Condition ID="KeywordCheck" value="옷" keyword="{keyword2}"/>
                 <SetBlackboard output_key="Goal" value="0.1;1.0;0.0;1.0" />
                 <SubTree ID="MoveRobot" target="Goal" />
             </Sequence>
             <Sequence>
-                <Condition ID="KeywordCheck" value="product2" keyword="{keyword2}" />
+                <Condition ID="KeywordCheck" value="신발" keyword="{keyword2}" />
                 <SetBlackboard output_key="Goal" value="2.0;2.5;0.0;1.0" />
                 <SubTree ID="MoveRobot" target="Goal" />
             </Sequence>
             <Sequence>
-                <Condition ID="KeywordCheck" value="product3" keyword="{keyword2}" />
+                <Condition ID="KeywordCheck" value="전자기기" keyword="{keyword2}" />
                 <SetBlackboard output_key="Goal" value="2.0;-1.5;0.0;1.0" />
                 <SubTree ID="MoveRobot" target="Goal" />
             </Sequence>
             <Sequence>
-                <Condition ID="KeywordCheck" value="product4" keyword="{keyword2}"/>
+                <Condition ID="KeywordCheck" value="책" keyword="{keyword2}"/>
                 <SetBlackboard output_key="Goal" value="4.0;0.1;0.0;1.0" />
                 <SubTree ID="MoveRobot" target="Goal" />
             </Sequence>
             <Sequence>
-                <Condition ID="KeywordCheck" value="origin" keyword="{keyword2}" />
+                <Condition ID="KeywordCheck" value="Return" keyword="{keyword2}" />
                 <SetBlackboard output_key="Goal" value="0.0;0.0;0.0;1.0" />
                 <SubTree ID="MoveRobot" target="Goal" />
             </Sequence>

@@ -9,7 +9,7 @@ public:
         : BT::ActionNodeBase(name, config), nh(std::make_shared<rclcpp::Node>("KeywordTrigger"))
     {
         keyword_sub = nh->create_subscription<std_msgs::msg::String>(
-            "keyword_pub", 10, std::bind(&KeywordTrigger::keywordCallback, this, std::placeholders::_1));
+            "keyword_topic", 10, std::bind(&KeywordTrigger::keywordCallback, this, std::placeholders::_1));
 
         spin_thread = std::make_shared<std::thread>([this]() {
             rclcpp::spin(this->nh);
