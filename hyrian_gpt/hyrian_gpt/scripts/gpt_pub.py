@@ -43,29 +43,27 @@ class ConversationStateMachine(Node):
         self.CHANNELS = 1
         self.RATE = 16000
         self.RECORD_SECONDS = 5        
-        openai.api_key_path = '/home/ubuntu/feature_ws/openapi_key.txt'
-        ## openapi key 받고 경로 바꿔야됩니다 
+        openai.api_key_path = '/home/geuny/robot_ws/openapi_key.txt'
         self.request_text = ""
         self.arrival_flag = 0
         self.keyword = None
-        self.base_path = "/home/ubuntu/feature_ws/src/hyrian_foxy/hyrian_gpt/text"
-        ## 경로 바꿔야됩니다
+        self.base_path = "/home/geuny/robot_ws/src/gpt_test/text"
         project_id = 'gpt-hri-stt-and-tts'
 
     def run_state_machine(self):
         try:
             if self.current_state == "WAITING":
-                self.publisher_.publish(String(data="[State][Waiting]"))
+                self.publisher_.publish(String(data="State,Waiting"))
                 time.sleep(5)
                 self.transition_to_state("GREETING")
 
             elif self.current_state == "GREETING":
-                self.publisher_.publish(String(data="[Gesture][Greeting]"))
+                self.publisher_.publish(String(data="Gesture,Greeting"))
                 self.speak_response(self.intro_msg)
                 self.transition_to_state("CONFIRMING_SERVICE_USE")
 
             elif self.current_state == "CONFIRMING_SERVICE_USE":
-                self.publisher_.publish(String(data="[State][ConfirmServiceUse]"))
+                self.publisher_.publish(String(data="State,ConfirmServiceUse"))
                 audio_file_path = self.record_audio()  # record_audio 메소드에서 파일 경로 반환
                 self.request_text = self.transcribe_file_v2(audio_file_path)  # 반환된 경로 사용
                 if "네" in self.request_text or "응" in self.request_text:
@@ -77,7 +75,7 @@ class ConversationStateMachine(Node):
 
             elif self.current_state == "RECONFIRMING_USE":
                 reconfirm_message = "죄송하지만, 먼저 저를 사용하실지를 결정해주시겠어요? 응 또는 아니로 대답을 부탁드립니다."
-                self.publisher_.publish(String(data="[State][Reconfirm]"))
+                self.publisher_.publish(String(data="State,Reconfirm"))
                 self.speak_response(reconfirm_message)
                 audio_file_path = self.record_audio()  # record_audio 메소드에서 파일 경로 반환
                 self.request_text = self.transcribe_file_v2(audio_file_path)  # 반환된 경로 사용
@@ -92,12 +90,12 @@ class ConversationStateMachine(Node):
 
             elif self.current_state == "EXPLAINING_USAGE":
                 usage_message = "손님에게 도움을 드릴 수 있어 기쁩니다.제가 이렇게 양 팔을 흔들고 있으면 손님의 말씀을 잘 듣는 중인거예요. 그리고 제가 이렇게 한 손을 번쩍 들고 있으면, 손님을 도와드리기 위해 곰곰이 생각하는 중인겁니다! 서비스를 종료하고 싶으시다면 종료라고 말해주세요. 그리고 어떤 물건을 구매하고 싶으시다면 구매라고 말씀해주세요. 지금부터 안내를 시작하겠습니다. 무엇을 도와드릴까요?"
-                self.publisher_.publish(String(data="[Gesture][Explain]"))
+                self.publisher_.publish(String(data="Gesture,Explain"))
                 self.speak_response(usage_message)
                 self.transition_to_state("LISTENING_FOR_REQUEST")
 
             elif self.current_state == "LISTENING_FOR_REQUEST":
-                self.publisher_.publish(String(data="[Gesture][Recording]"))
+                self.publisher_.publish(String(data="Gesture,Recording"))
                 audio_file_path = self.record_audio()  # record_audio 메소드에서 파일 경로 반환
                 self.request_text = self.transcribe_file_v2(audio_file_path)  # 반환된 경로 사용
 
@@ -122,13 +120,13 @@ class ConversationStateMachine(Node):
 
             
             elif self.current_state == "PROCESSING_REQUEST":
-                self.publisher_.publish(String(data="[Gesture][ProcessingText]"))
+                self.publisher_.publish(String(data="Gesture,ProcessingText"))
                 response = self.get_reply(self.request_text)
                 self.speak_response(response)
                 # Additional logic to determine state transition (e.g., back to LISTENING_FOR_REQUEST or ENDING)
 
             elif self.current_state == "KEYWORD_ANALYSIS":
-                self.publisher_.publish(String(data="[State][KeywordAnalysis]"))
+                self.publisher_.publish(String(data="State,KeywordAnalysis"))
                 if any(keyword in self.request_text for keyword in ["옷", "신발", "전자기기", "책"]):
                     self.transition_to_state("PROVIDING_INFORMATION")
                 else:
@@ -136,20 +134,20 @@ class ConversationStateMachine(Node):
 
             elif self.current_state == "PROVIDING_INFORMATION":
                 self.keyword = self.identify_keyword(self.request_text)  # keyword 업데이트
-                self.publisher_.publish(String(data="[State][ProvidingInformation]"))
+                self.publisher_.publish(String(data="State,ProvidingInformation"))
                 explain_filename = f"{self.keyword}_explain.txt"
                 self.speak_long_response(explain_filename)
                 self.transition_to_state("CONFIRMING_MOVEMENT")
 
             elif self.current_state == "CONFIRMING_MOVEMENT":
                 # self.keyword 사용 (이미 "PROVIDING_INFORMATION"에서 설정됨)
-                self.publisher_.publish(String(data="[State][ConfirmingMovement]"))
+                self.publisher_.publish(String(data="State,ConfirmingMovement"))
                 self.speak_response(f"{self.keyword} 코너로 안내해 드릴까요?")
                 audio_file_path = self.record_audio()
                 response_text = self.transcribe_file_v2(audio_file_path)
 
                 if "네" in response_text or "응" in response_text:
-                    self.publisher_.publish(String(data=f"[Navigation][Guide_{self.keyword}]"))
+                    self.publisher_.publish(String(data=f"Navigation,Guide_{self.keyword}"))
                     self.transition_to_state("MOVING")
                 else:
                     self.speak_response("추가적으로 도와드릴 부분이 있을까요?")
@@ -158,14 +156,14 @@ class ConversationStateMachine(Node):
             elif self.current_state == "MOVING":
                 self.get_logger().info("이동 중입니다...")
                 self.speak_response("안내를 시작하겠습니다.")
-                self.publisher_.publish(String(data="[State][Moving]"))
+                self.publisher_.publish(String(data="State,Moving"))
                 time.sleep(10)  # 10초 대기를 시뮬레이션
                 self.transition_to_state("ARRIVAL")
 
             elif self.current_state == "ARRIVAL":
                 # self.keyword 사용 (이미 "PROVIDING_INFORMATION"에서 설정됨)
                 arrival_message_filename = f"{self.keyword}_arrival.txt"
-                self.publisher_.publish(String(data="[State][Arrival]"))
+                self.publisher_.publish(String(data="State,Arrival"))
                 self.speak_long_response(arrival_message_filename)
                 self.arrival_flag += 1
                 self.transition_to_state("LISTENING_FOR_REQUEST")
@@ -173,7 +171,7 @@ class ConversationStateMachine(Node):
             
             elif self.current_state == "SALES":
                 # "[HRI][<keyword>_sales]" 토픽 메시지 발행
-                self.publisher_.publish(String(data=f"[HRI][{self.keyword}_sales]"))
+                self.publisher_.publish(String(data=f"HRI,{self.keyword}_sales"))
                 
                 # .txt 파일에서 긴 응답 메시지를 불러와 TTS로 변환하고 재생
                 self.speak_long_response(f"{self.keyword}_sales_message.txt")
@@ -192,7 +190,7 @@ class ConversationStateMachine(Node):
                 response_text = self.transcribe_file_v2(audio_file_path)
                 if "네" in response_text or "응" in response_text:
                     self.speak_response("구매를 결정해주셔서 감사합니다.")
-                    self.publisher_.publish(String(data=f"[HRI][{self.keyword}_purchase]"))
+                    self.publisher_.publish(String(data=f"HRI,{self.keyword}_purchase"))
                     self.speak_response("더 도와드릴 부분이 있을까요?")
                     self.transition_to_state("LISTENING_FOR_REQUEST")
                 else:
@@ -201,7 +199,7 @@ class ConversationStateMachine(Node):
 
             elif self.current_state == "END_CONFIRM":
                 confirm_end_msg = "정말로 서비스를 종료하시겠어요?"
-                self.publisher_.publish(String(data="[State][EndConfirm]"))
+                self.publisher_.publish(String(data="State,EndConfirm"))
                 self.speak_response(confirm_end_msg)
                 audio_file_path = self.record_audio()
                 response_text = self.transcribe_file_v2(audio_file_path)
@@ -213,9 +211,9 @@ class ConversationStateMachine(Node):
                     self.transition_to_state("LISTENING_FOR_REQUEST")
 
             elif self.current_state == "GENERAL_CONVERSATION":
-                self.publisher_.publish(String(data="[State][GeneralConversation]"))
+                self.publisher_.publish(String(data="State,GeneralConversation"))
                 # 일반 대화 로직 처리
-                self.publisher_.publish(String(data="[Gesture][ProcessingText]"))
+                self.publisher_.publish(String(data="Gesture,ProcessingText"))
                 response = self.get_reply(self.request_text)
                 self.speak_response(response)
                 self.transition_to_state("LISTENING_FOR_REQUEST")
@@ -223,7 +221,7 @@ class ConversationStateMachine(Node):
             elif self.current_state == "ENDING":
                 goodbye_message = "감사합니다. 즐거운 쇼핑 되십시오."
                 self.speak_response(goodbye_message)  # 종료 인사
-                self.publisher_.publish(String(data="[Navigation][Return]"))  # 종료 및 복귀 제스처 발행
+                self.publisher_.publish(String(data="Navigation,Return"))  # 종료 및 복귀 제스처 발행
                 # 필요한 종료 처리 수행
                 sys.exit()
 
@@ -377,8 +375,7 @@ class ConversationStateMachine(Node):
             self.get_logger().error(f"파일 {filename}을 찾을 수 없습니다.")
 
     def get_keyword_explanation(self, keyword):
-        # base_path = "/home/geuny/robot_ws/src/gpt_test/text"
-        base_path = "/home/ubuntu/feature_ws/src/hyrian_foxy/hyrian_gpt/text"
+        base_path = "/home/geuny/feature_ws/src/hyrian_gpthri/text"
         filename = os.path.join(base_path, f"{keyword}_explain.txt")
 
         if os.path.exists(filename):
@@ -424,3 +421,5 @@ def main(args=None):
 
 if __name__ == '__main__':
     main()
+
+
