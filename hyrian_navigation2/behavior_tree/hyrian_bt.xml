@@ -3,18 +3,18 @@
         <KeepRunningUntilFailure>
             <Sequence>
                 <Action ID="KeywordTrigger" keyword1="{keyword1}" keyword2="{keyword2}"  />
-                <Fallback>
-                    <Sequence>
+                <ReactiveFallback>
+                    <ReactiveSequence>
                         <Condition ID="KeywordCheck" value="navigation" keyword="{keyword1}"  />
                         <SetBlackboard ID="SetLocationToBlackboard" output_key="keyword2" value="{keyword2}" />
                         <SubTree ID="MoveToProduct" keyword2="keyword2" />
-                    </Sequence>
-                    <Sequence>
+                    </ReactiveSequence>
+                    <ReactiveSequence>
                         <Condition ID="KeywordCheck" value="gesture" keyword="{keyword1}"  />
                         <SetBlackboard ID="SetOptionToBlackboard" output_key="option" value="{keyword2}" />
                         <SubTree ID="Gesture_Select" keyword2 ="option"/>
-                    </Sequence>
-                </Fallback>
+                    </ReactiveSequence>
+                </ReactiveFallback>
             </Sequence>
         </KeepRunningUntilFailure>
     </BehaviorTree>
