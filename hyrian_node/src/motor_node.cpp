@@ -304,6 +304,19 @@ void CalculateRpm()
   //     rpm_value2 = (1 - coeff_ext_filter) * rpm_value2_fold + coeff_ext_filter * rpm_value2;
   //     rpm_value2_fold = rpm_value2;
   // }
+
+  // //////////////// High pass filter
+  // if(fabs(rpm_value2) < dzn_lower_limit || fabs(rpm_value2) > dzn_upper_limit) {rpm_value2 = 0;}
+  // else
+  // {
+  //     double rpm_value2_current = rpm_value2;
+      
+  //     if( rpm_value2 > 0){rpm_value2 -= dzn_lower_limit;}
+  //     else{rpm_value2 += dzn_lower_limit;}
+        
+  //     rpm_value2 = rpm_value2_current - (1 - coeff_ext_filter) * rpm_value2_fold;
+  //     rpm_value2_fold = rpm_value2_current;
+  // }
 }
 
 
