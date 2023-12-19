@@ -25,13 +25,6 @@ class ConversationStateMachine(Node):
     def __init__(self):
         super().__init__('conversation_state_machine')
         self.publisher_ = self.create_publisher(String, '/keyword_topic', 10)
-        self.subscription = self.create_subscription(
-        String, 
-        '/keyword_topic', 
-        self.listener_callback, 
-        10)
-        self.subscription  # prevent unused variable warning
-
         self.current_state = "WAITING"
         self.intro_msg = "안녕하세요. 저는 백화점 안내로봇 라이언입니다. 도움이 필요하신가요?"
         self.client = speech.SpeechClient()
@@ -43,22 +36,30 @@ class ConversationStateMachine(Node):
         self.CHANNELS = 1
         self.RATE = 16000
         self.RECORD_SECONDS = 5        
-        openai.api_key_path = '/home/geuny/robot_ws/openapi_key.txt'
+        openai.api_key_path = os.environ.get('OPENAI_KEY_PATH')
         self.request_text = ""
         self.arrival_flag = 0
         self.keyword = None
-        self.base_path = "/home/geuny/robot_ws/src/gpt_test/text"
+        self.base_path = os.environ.get('TEXT_PATH')
         project_id = 'gpt-hri-stt-and-tts'
+        # 'good' 토픽에 대한 구독자 추가
+        self.good_subscription = self.create_subscription(
+            String, 
+            'good', 
+            self.good_listener_callback, 
+            10)
+        self.good_subscription  # prevent unused variable warning
 
     def run_state_machine(self):
         try:
             if self.current_state == "WAITING":
                 self.publisher_.publish(String(data="State,Waiting"))
-                time.sleep(5)
+                time.sleep(3)
                 self.transition_to_state("GREETING")
 
             elif self.current_state == "GREETING":
                 self.publisher_.publish(String(data="Gesture,Greeting"))
+                self.play_mp3_file("start.mp3")
                 self.speak_response(self.intro_msg)
                 self.transition_to_state("CONFIRMING_SERVICE_USE")
 
@@ -66,12 +67,15 @@ class ConversationStateMachine(Node):
                 self.publisher_.publish(String(data="State,ConfirmServiceUse"))
                 audio_file_path = self.record_audio()  # record_audio 메소드에서 파일 경로 반환
                 self.request_text = self.transcribe_file_v2(audio_file_path)  # 반환된 경로 사용
-                if "네" in self.request_text or "응" in self.request_text:
+
+                if self.is_positive_response(self.request_text):  # self.request_text만 전달
                     self.transition_to_state("EXPLAINING_USAGE")
                 elif "아니" in self.request_text:
                     self.transition_to_state("END_CONFIRM")
                 else:
                     self.transition_to_state("RECONFIRMING_USE")
+
+
 
             elif self.current_state == "RECONFIRMING_USE":
                 reconfirm_message = "죄송하지만, 먼저 저를 사용하실지를 결정해주시겠어요? 응 또는 아니로 대답을 부탁드립니다."
@@ -79,7 +83,7 @@ class ConversationStateMachine(Node):
                 self.speak_response(reconfirm_message)
                 audio_file_path = self.record_audio()  # record_audio 메소드에서 파일 경로 반환
                 self.request_text = self.transcribe_file_v2(audio_file_path)  # 반환된 경로 사용
-                if "네" in self.request_text or "응" in self.request_text:
+                if self.is_positive_response(self.request_text):
                     self.transition_to_state("EXPLAINING_USAGE")
                 elif "아니" in self.request_text:
                     self.transition_to_state("END_CONFIRM")
@@ -134,7 +138,6 @@ class ConversationStateMachine(Node):
 
             elif self.current_state == "PROVIDING_INFORMATION":
                 self.keyword = self.identify_keyword(self.request_text)  # keyword 업데이트
-                self.publisher_.publish(String(data="State,ProvidingInformation"))
                 explain_filename = f"{self.keyword}_explain.txt"
                 self.speak_long_response(explain_filename)
                 self.transition_to_state("CONFIRMING_MOVEMENT")
@@ -146,12 +149,13 @@ class ConversationStateMachine(Node):
                 audio_file_path = self.record_audio()
                 response_text = self.transcribe_file_v2(audio_file_path)
 
-                if "네" in response_text or "응" in response_text:
+                if self.is_positive_response(response_text):  # 수정된 부분
                     self.publisher_.publish(String(data=f"Navigation,Guide_{self.keyword}"))
                     self.transition_to_state("MOVING")
                 else:
                     self.speak_response("추가적으로 도와드릴 부분이 있을까요?")
                     self.transition_to_state("LISTENING_FOR_REQUEST")
+
 
             elif self.current_state == "MOVING":
                 self.get_logger().info("이동 중입니다...")
@@ -162,6 +166,7 @@ class ConversationStateMachine(Node):
 
             elif self.current_state == "ARRIVAL":
                 # self.keyword 사용 (이미 "PROVIDING_INFORMATION"에서 설정됨)
+                self.play_mp3_file("arrival.mp3")
                 arrival_message_filename = f"{self.keyword}_arrival.txt"
                 self.publisher_.publish(String(data="State,Arrival"))
                 self.speak_long_response(arrival_message_filename)
@@ -170,8 +175,6 @@ class ConversationStateMachine(Node):
 
             
             elif self.current_state == "SALES":
-                # "[HRI][<keyword>_sales]" 토픽 메시지 발행
-                self.publisher_.publish(String(data=f"HRI,{self.keyword}_sales"))
                 
                 # .txt 파일에서 긴 응답 메시지를 불러와 TTS로 변환하고 재생
                 self.speak_long_response(f"{self.keyword}_sales_message.txt")
@@ -180,17 +183,13 @@ class ConversationStateMachine(Node):
                 self.transition_to_state("PURCHASE_CONFIRM")
 
             elif self.current_state == "PURCHASE_CONFIRM":
-                confirm_purchase_msg = "이 상품이 마음에 드시나요? 상품에 부착된 QR코드를 통해 결제를 진행하실 수 있습니다."
 
-                self.speak_response(confirm_purchase_msg)
-                    # 녹음 시작
+                self.speak_response("이 제품을 구매 하시겠습니까? 구매를 위한 카카오페이 QR코드를 매장 입구의 화면에 띄워드리겠습니다.")
                 audio_file_path = self.record_audio()
-    
-                # 음성 인식 시작
                 response_text = self.transcribe_file_v2(audio_file_path)
-                if "네" in response_text or "응" in response_text:
+
+                if self.is_positive_response(self.request_text):
                     self.speak_response("구매를 결정해주셔서 감사합니다.")
-                    self.publisher_.publish(String(data=f"HRI,{self.keyword}_purchase"))
                     self.speak_response("더 도와드릴 부분이 있을까요?")
                     self.transition_to_state("LISTENING_FOR_REQUEST")
                 else:
@@ -199,12 +198,11 @@ class ConversationStateMachine(Node):
 
             elif self.current_state == "END_CONFIRM":
                 confirm_end_msg = "정말로 서비스를 종료하시겠어요?"
-                self.publisher_.publish(String(data="State,EndConfirm"))
                 self.speak_response(confirm_end_msg)
                 audio_file_path = self.record_audio()
                 response_text = self.transcribe_file_v2(audio_file_path)
 
-                if "네" in response_text or "응" in response_text:
+                if self.is_positive_response(response_text):
                     self.transition_to_state("ENDING")
                 else:
                     self.speak_response("더 도와드릴 것이 있나요?")
@@ -214,13 +212,16 @@ class ConversationStateMachine(Node):
                 self.publisher_.publish(String(data="State,GeneralConversation"))
                 # 일반 대화 로직 처리
                 self.publisher_.publish(String(data="Gesture,ProcessingText"))
+                self.play_mp3_file("thinking_start.mp3")
                 response = self.get_reply(self.request_text)
+                self.play_mp3_file("thinkingfinish.mp3")
                 self.speak_response(response)
                 self.transition_to_state("LISTENING_FOR_REQUEST")
 
             elif self.current_state == "ENDING":
                 goodbye_message = "감사합니다. 즐거운 쇼핑 되십시오."
                 self.speak_response(goodbye_message)  # 종료 인사
+                self.play_mp3_file("ending.mp3")
                 self.publisher_.publish(String(data="Navigation,Return"))  # 종료 및 복귀 제스처 발행
                 # 필요한 종료 처리 수행
                 sys.exit()
@@ -243,6 +244,7 @@ class ConversationStateMachine(Node):
 
     def speak_response(self, response_text):
         try:
+            self.get_logger().info(f"RYAN: {response_text}")
             synthesis_input = texttospeech.SynthesisInput(text=response_text)
             voice = texttospeech.VoiceSelectionParams(
                 language_code="ko-KR", name='ko-KR-Standard-D', ssml_gender=texttospeech.SsmlVoiceGender.MALE
@@ -275,6 +277,7 @@ class ConversationStateMachine(Node):
 
     def record_audio(self):
         p = pyaudio.PyAudio()
+        self.play_mp3_file("recordstart.mp3")
         stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=1024)
         print("녹음 시작")
         frames = []
@@ -287,6 +290,7 @@ class ConversationStateMachine(Node):
                 print(f"An error occurred while reading the audio stream: {str(e)}")
                 break
         print("녹음 종료")
+        self.play_mp3_file("recordfinish.mp3")
 
         stream.stop_stream()
         stream.close()
@@ -366,16 +370,17 @@ class ConversationStateMachine(Node):
 
         return response.choices[0].message["content"]
 
-    def speak_long_response(self, filename):
-        if os.path.exists(filename):
-            with open(filename, 'r', encoding='utf-8') as file:
-                long_response = file.read()
-            self.speak_response(long_response)
-        else:
-            self.get_logger().error(f"파일 {filename}을 찾을 수 없습니다.")
+
+    def good_listener_callback(self, msg):
+        self.get_logger().info(f'Good topic heard: "{msg.data}"')
+        # 'good' 메시지를 받았을 때, 상태가 'WAITING'이면 'GREETING'으로 전환
+        if self.current_state == "WAITING":
+            self.transition_to_state("GREETING")
+
+    
 
     def get_keyword_explanation(self, keyword):
-        base_path = "/home/geuny/feature_ws/src/hyrian_gpthri/text"
+        base_path = os.environ.get('TEXT_PATH')
         filename = os.path.join(base_path, f"{keyword}_explain.txt")
 
         if os.path.exists(filename):
@@ -384,10 +389,23 @@ class ConversationStateMachine(Node):
         else:
             return "해당 키워드에 대한 설명이 없습니다."
 
-        
-    def listener_callback(self, msg):
-        self.get_logger().info('I heard: "%s"' % msg.data)
-    
+    def speak_long_response(self, filename):
+        base_path = os.environ.get('TEXT_PATH')
+        if base_path is None:
+            self.get_logger().error("환경 변수 TEXT_PATH가 설정되지 않았습니다.")
+            return
+
+        file_path = os.path.join(base_path, filename)
+
+        if os.path.exists(file_path):
+            with open(file_path, 'r', encoding='utf-8') as file:
+                text_content = file.read()
+            self.speak_response(text_content)  # TTS 처리
+        else:
+            self.get_logger().error(f"파일 {filename}을 찾을 수 없습니다.")
+
+
+
     def identify_keyword(self, text):
         # 예시: 특정 키워드 식별 로직
         keywords = ["옷", "신발", "전자기기", "책"]
@@ -395,6 +413,33 @@ class ConversationStateMachine(Node):
             if keyword in text:
                 return keyword
         return None
+    
+    def play_mp3_file(self, filename):
+        
+        mp3_path = os.environ.get('MP3_PATH')
+        if mp3_path is None:
+            self.get_logger().error("환경 변수 MP3_PATH가 설정되지 않았습니다.")
+            return
+
+        mp3_file_path = os.path.join(mp3_path, filename)
+
+        if os.path.exists(mp3_file_path):
+            if not pygame.mixer.get_init():
+                pygame.mixer.init()
+            pygame.mixer.music.load(mp3_file_path)
+            pygame.mixer.music.play()
+            while pygame.mixer.music.get_busy():
+                pygame.time.Clock().tick(10)
+            self.get_logger().info(f"MP3 파일 재생 완료: {mp3_file_path}")
+        else:
+            self.get_logger().error(f"MP3 파일을 찾을 수 없습니다: {mp3_file_path}")
+    
+    @staticmethod
+    def is_positive_response(text):
+        positive_responses = ["네", "응", "그래", "좋아", "동의해", "맞아", "어 "]
+        # 텍스트를 소문자로 변환하고, 긍정적인 반응 리스트에 있는 단어가 포함되어 있는지 확인
+        return any(response in text for response in positive_responses)
+
 
 def main(args=None):
     rclpy.init(args=args)
