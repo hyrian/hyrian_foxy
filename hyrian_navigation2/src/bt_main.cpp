@@ -2,6 +2,8 @@
 #include "hyrian_bt/keywordcheck.hpp"
 #include "hyrian_bt/gesture.hpp"
 #include "hyrian_bt/keywordtrigger.hpp"
+#include "hyrian_bt/navigatetopose.hpp"
+
 
 
 #include <behaviortree_cpp_v3/bt_factory.h>
@@ -41,6 +43,8 @@ int main(int argc, char **argv)
     factory.registerNodeType<KeywordCheck>("KeywordCheck");
     factory.registerNodeType<Gesture>("Gesture");
     factory.registerNodeType<KeywordTrigger>("KeywordTrigger");
+    factory.registerNodeType<NavigateToPose>("NavigateToPose");
+
 
 
 

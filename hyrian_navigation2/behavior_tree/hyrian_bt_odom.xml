@@ -23,28 +23,31 @@
         <Fallback>
             <Sequence>
                 <Condition ID="KeywordCheck" value="옷" keyword="{keyword2}"/>
-                <SetBlackboard output_key="Goal" value="1.219;1.530;;129.114" />
-                <SubTree ID="MoveRobot" target="Goal" />
+                <SetBlackboard output_key="Goal" value="1.219;1.530;129.114;"  />
+                <SetBlackboard output_key="GestureOption" value="Left" />
+                <SubTree ID="MoveRobot" Goal="Goal" />
+                <SubTree ID="Gesture_Select" option="GestureOption" />
             </Sequence>
             <Sequence>
                 <Condition ID="KeywordCheck" value="신발" keyword="{keyword2}" />
-                <SetBlackboard output_key="Goal" value="1.219;1.530;;129.114"  />
-                <SubTree ID="MoveRobot" target="Goal" />
-            </Sequence>
-            <Sequence>
-                <Condition ID="KeywordCheck" value="전자기기" keyword="{keyword2}" />
-                <SetBlackboard output_key="Goal" value="-0.170;2.665;44.692;" />
-                <SubTree ID="MoveRobot" target="Goal" />
+                <SetBlackboard output_key="Goal" value="1.219;1.530;129.114;"  />
+                <SetBlackboard output_key="GestureOption" value="Right" />
+                <SubTree ID="MoveRobot" Goal="Goal" />
+                <SubTree ID="Gesture_Select" option="GestureOption" />
             </Sequence>
             <Sequence>
                 <Condition ID="KeywordCheck" value="책" keyword="{keyword2}"/>
                 <SetBlackboard output_key="Goal" value="-0.170;2.665;44.692;" />
-                <SubTree ID="MoveRobot" target="Goal" />
+                <SetBlackboard output_key="GestureOption" value="Left" />
+                <SubTree ID="MoveRobot" Goal="Goal" />
+                <SubTree ID="Gesture_Select" option="GestureOption" />
             </Sequence>
             <Sequence>
-                <Condition ID="KeywordCheck" value="Return" keyword="{keyword2}" />
-                <SetBlackboard output_key="Goal" value="0.0;0.0;0.0;1.0" />
-                <SubTree ID="MoveRobot" target="Goal" />
+                <Condition ID="KeywordCheck" value="전자기기" keyword="{keyword2}" />
+                <SetBlackboard output_key="Goal" value="-0.170;2.665;44.692;"  />
+                <SetBlackboard output_key="GestureOption" value="Right" />
+                <SubTree ID="MoveRobot" Goal="Goal" />
+                <SubTree ID="Gesture_Select" option="GestureOption" />
             </Sequence>
         </Fallback>
     </BehaviorTree>
@@ -58,7 +61,7 @@
 
     <BehaviorTree ID="MoveRobot">
         <Sequence name="SetGoal">
-            <Nav2Client goal="{target}" />
+            <NavigateToPose Goal="{Goal}" />
         </Sequence>
     </BehaviorTree>
 </root>
